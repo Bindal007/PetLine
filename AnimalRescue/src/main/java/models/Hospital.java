@@ -12,49 +12,58 @@ import java.util.ArrayList;
  */
 public class Hospital {
     
-    private String name;
-    private String about;
-    private int zipCode;
-    private String address;
+    private int hospitalID;
+    private String hospitalName;
+    private int addressID;
+    private int vetID;
+    private int appointmentID;
     
-    public Hospital(String name, String about, int zipCode,
-            String address){
-        this.name = name;
-        this.about = about;
-        this.zipCode = zipCode;
-        this.address = address;
+    public Hospital(int hospitalID, String hospitalName, int addressID, int vetID, int appointmentID){
+        this.hospitalID = hospitalID;
+        this.hospitalName = hospitalName;
+        this.addressID = addressID;
+        this.vetID = vetID;
+        this.appointmentID = appointmentID;
     }
     
-    public void setName(String name){
-        this.name = name;
+    public void setHospitalName(String hospitalName){
+        this.hospitalName = hospitalName;
     }
     
-    public String getName(){
-        return name;
+    public String getHospitalName(){
+        return hospitalName;
     }
     
-    public void setAbout(String about){
-        this.about = about;
+    public void setHospitalID(int hospitalID){
+        this.hospitalID = hospitalID;
     }
     
-    public String getAbout(){
-        return about;
+    public int getHospitalID(){
+        return hospitalID;
     }
     
-    public void setAddress(String address){
-        this.address = address;
+    public void setAddressID(int addressID){
+        this.addressID = addressID;
     }
     
-    public String getAddress(){
-        return address;
+    public int getAddressID(){
+        return addressID;
     }
     
-    public void setZip(int zipCode){
-        this.zipCode = zipCode;
+    public void setVetID(int vetID){
+        this.vetID = vetID;
     }
     
-    public int getZipCode(){
-        return zipCode;
+    public int getVetID(){
+        return vetID;
+    }
+    
+    public void setAppointmentID(int appointmentID){
+        this.appointmentID = appointmentID;
+    }
+    
+    public int getAppointmentID(){
+        return appointmentID;
     }
     
     
