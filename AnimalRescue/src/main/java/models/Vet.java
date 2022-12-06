@@ -7,14 +7,16 @@ package models;
  */
 public class Vet {
     
-    private int vetID;
-    private int appointmentID;
-    private int hospitalID;
+    private int vetID; // primary key
+    private int appointmentID; // array foreign key
+    private int hospitalID; // foreign key
+    private int personID; // foreign key
     
-    public Vet(int vetID, int appointmentID, int hospitalID){
+    public Vet(int vetID, int appointmentID, int hospitalID, int personID){
         this.vetID = vetID;
         this.appointmentID = appointmentID;
         this.hospitalID = hospitalID;
+        this.personID = personID;
     }
     
     public int getVetID(){
@@ -39,5 +41,13 @@ public class Vet {
     
     public void sethospitalID(int hospitalID){
         this.hospitalID = hospitalID;
+    }
+    
+    public int getPersonID(){
+        return personID;
+    }
+    
+    public void setPersonID(int personID){
+        this.personID = personID;
     }
 }

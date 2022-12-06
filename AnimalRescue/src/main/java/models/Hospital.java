@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package models;
 
 import java.util.ArrayList;
@@ -12,11 +9,11 @@ import java.util.ArrayList;
  */
 public class Hospital {
     
-    private int hospitalID;
+    private int hospitalID; // primary key
     private String hospitalName;
-    private int addressID;
-    private int vetID;
-    private int appointmentID;
+    private int addressID; // foreign key
+    private int vetID; // foreign key
+    private int appointmentID; // array foreign key
     
     public Hospital(int hospitalID, String hospitalName, int addressID, int vetID, int appointmentID){
         this.hospitalID = hospitalID;

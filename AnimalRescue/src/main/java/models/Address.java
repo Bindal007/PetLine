@@ -7,4 +7,7 @@ package models;
  */
 public class Address {
     
+    private int addressID; // primary key
+    
+    
 }
