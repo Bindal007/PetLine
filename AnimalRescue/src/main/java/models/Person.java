@@ -7,33 +7,32 @@ package models;
  */
 public class Person {
     
+    private int personID;
     private String name;
     private int age;
     private String phoneNumber;
     private String email;
     private int ssn;
     private String username;
-    private String usertype;
     private String password;
-    private String address;
+    private int addressID;
+    private int postID;
     // private Post post;
-    private int personID;
     
-    public Person(String name, int age, String phoneNumber,
-            String email, int ssn, String username,
-            String usertype, String password, String address,
-            /*Post post,*/ int personID){
+    public Person(int personID, String name, int age, String phoneNumber, String email, int ssn, String username, 
+            String password, int addressID, int postID /*Post post*/){
+        this.personID = personID;
         this.name = name;
         this.age = age;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.ssn = ssn;
         this.username = username;
-        this.usertype = usertype;
         this.password = password;
-        this.address = address;
+        this.addressID = addressID;
+        this.postID = postID;
         //this.post = post;
-        this.personID = personID;
+
     }
     
     public boolean isMatch(String name){
@@ -89,14 +88,6 @@ public class Person {
         this.username = username;
     }
     
-    public String getUsertype(){
-        return usertype;
-    }
-    
-    public void setUsertype(String usertype){
-        this.usertype = usertype;
-    }
-    
     public String getPassword(){
         return password;
     }
@@ -105,12 +96,12 @@ public class Person {
         this.password = password;
     }
     
-    public String getAddress(){
-        return address;
+    public int getAddressID(){
+        return addressID;
     }
     
-    public void setAddress(String address){
-        this.address = address;
+    public void setAddressID(int addressID){
+        this.addressID = addressID;
     }
     /*
     public Post getPost(){
