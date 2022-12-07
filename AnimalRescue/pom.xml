@@ -23,5 +23,15 @@
             <artifactId>jxmapviewer2</artifactId>
             <version>2.6</version>
         </dependency>
-  </dependencies>
+        <dependency>
+            <groupId>com.toedter</groupId>
+            <artifactId>jcalendar</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.swinglabs.swingx</groupId>
+            <artifactId>swingx-autocomplete</artifactId>
+            <version>1.6.5-1</version>
+        </dependency>
+    </dependencies>
 </project>

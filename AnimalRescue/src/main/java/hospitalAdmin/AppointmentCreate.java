@@ -1,12 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package hospitalAdmin;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import models.City;
+import models.Community;
+import models.Hospital;
+import models.Vet;
+import models.Person;
+import models.Appointment;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import resources.Validations;
 
 /**
  *
@@ -14,11 +23,24 @@ import javax.swing.table.TableRowSorter;
  */
 public class AppointmentCreate extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CreateAppointment
-     */
+    City city;
+    Community community;
+    Hospital hospital;
+    Vet vet;
+    Person person;
+    Validations validations;
+    
     public AppointmentCreate() {
         initComponents();
+        cityCombo.removeAllItems();
+        cityCombo.addItem("");
+        
+        for (City c : MainJFrame.cityDirectory.getCityList()){
+            cityCombo.addItem(c.getName());
+        }
+        
+        cityCombo.getSelectedItem("");
+        validations = new Validations();
     }
 
     /**
@@ -33,16 +55,19 @@ public class AppointmentCreate extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtSearch = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        table1 = new javax.swing.JTable();
-        nameLbl = new javax.swing.JLabel();
-        nameTxt = new javax.swing.JTextField();
-        idTxt = new javax.swing.JTextField();
-        idLbl = new javax.swing.JLabel();
+        vetLbl = new javax.swing.JLabel();
         hospitalLbl = new javax.swing.JLabel();
-        hospitalTxt = new javax.swing.JTextField();
         bookBtn = new javax.swing.JButton();
+        datePicker = new com.toedter.calendar.JDateChooser();
+        dateLbl = new javax.swing.JLabel();
+        vetCombo = new javax.swing.JComboBox<>();
+        hospitalCombo = new javax.swing.JComboBox<>();
+        cityCombo = new javax.swing.JComboBox<>();
+        cityLbl = new javax.swing.JLabel();
+        communityCombo = new javax.swing.JComboBox<>();
+        communityLbl = new javax.swing.JLabel();
+        userLbl = new javax.swing.JLabel();
+        userCombo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,33 +88,54 @@ public class AppointmentCreate extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Book Appointment");
 
-        txtSearch.setText("search");
-        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtSearchKeyReleased(evt);
-            }
-        });
-
-        table1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Name", "Vet ID #", "Hospital"
-            }
-        ));
-        jScrollPane1.setViewportView(table1);
-
-        nameLbl.setText("Vet Name");
-
-        idLbl.setText("ID #");
+        vetLbl.setText("Vet");
 
         hospitalLbl.setText("Hospital");
 
         bookBtn.setText("Book");
+        bookBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bookBtnActionPerformed(evt);
+            }
+        });
+
+        dateLbl.setText("Date");
+
+        vetCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vetComboActionPerformed(evt);
+            }
+        });
+
+        hospitalCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hospitalComboActionPerformed(evt);
+            }
+        });
+
+        cityCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cityComboActionPerformed(evt);
+            }
+        });
+
+        cityLbl.setText("City");
+
+        communityCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                communityComboActionPerformed(evt);
+            }
+        });
+
+        communityLbl.setText("Community");
+
+        userLbl.setText("User");
+
+        userCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userComboActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -99,64 +145,67 @@ public class AppointmentCreate extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(196, 196, 196)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(2, 2, 2))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(hospitalLbl)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(idLbl)
-                                            .addComponent(nameLbl))
-                                        .addGap(3, 3, 3)))
-                                .addGap(46, 46, 46)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(hospitalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(idTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(14, 14, 14)
-                                        .addComponent(bookBtn)))))
-                        .addContainerGap())
+                        .addGap(62, 62, 62)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(communityLbl)
+                            .addComponent(vetLbl)
+                            .addComponent(userLbl))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(userCombo, 0, 152, Short.MAX_VALUE)
+                            .addComponent(vetCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(communityCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(84, 84, 84)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(hospitalLbl)
+                            .addComponent(cityLbl)
+                            .addComponent(dateLbl))
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(datePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(hospitalCombo, javax.swing.GroupLayout.Alignment.LEADING, 0, 152, Short.MAX_VALUE)
+                            .addComponent(cityCombo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(80, 80, 80))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(239, 239, 239))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(214, 214, 214))))))
+                                .addComponent(bookBtn)
+                                .addGap(307, 307, 307))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameLbl))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idLbl)
-                    .addComponent(idTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(hospitalLbl)
-                    .addComponent(hospitalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
+                    .addComponent(hospitalCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(userLbl)
+                        .addComponent(userCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cityLbl)
+                            .addComponent(cityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(vetCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(vetLbl))
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dateLbl)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(communityLbl)
+                        .addComponent(communityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(77, 77, 77)
                 .addComponent(bookBtn)
-                .addGap(0, 49, Short.MAX_VALUE))
+                .addGap(0, 75, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -165,7 +214,7 @@ public class AppointmentCreate extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,15 +224,193 @@ public class AppointmentCreate extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
-        DefaultTableModel model = (DefaultTableModel) table1.getModel();
-        String searchKey = txtSearch.getText().toLowerCase();
-        TableRowSorter<DefaultTableModel> tableRow = new TableRowSorter<DefaultTableModel>(model);
+    private void cityComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityComboActionPerformed
+        Object city_name = cityCombo.getSelectedItem();
+
+        if (city_name == null || city_name.toString().equals("")) {
+            cityLbl.setText("Please Select City");
+            communityCombo.removeAllItems();
+            hospitalCombo.removeAllItems();
+            vetCombo.removeAllItems();
+            userCombo.removeAllItems();
+            hospitalLbl.setText(null);
+            communityLbl.setText(null);
+            userLbl.setText(null);
+            vetLbl.setText(null);
+            
+            } else {
+            cityCombo.removeAllItems();
+            communityCombo.removeAllItems();
+            hospitalCombo.removeAllItems();
+            vetCombo.removeAllItems();
+            userCombo.removeAllItems();
+            hospitalLbl.setText(null);
+            cityLbl.setText(null);
+            communityLbl.setText(null);
+            userLbl.setText(null);
+            vetLbl.setText(null);
+            city = MainJFrame.cityDirectory.findCity(city_name.toString());
+            // ArrayList<Community> communityList = MainJFrame.communityDirectory.searchCommunitiesByCityObject(city);
+
+            communityCombo.addItem("");
+            for (Community c: communityList) {
+                communityCombo.addItem(c.getName());
+            }
+            communityCombo.setSelectedItem("");
+        }
+    }//GEN-LAST:event_cityComboActionPerformed
+
+    private void communityComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_communityComboActionPerformed
+        Object communityName = communityCombo.getSelectedItem();
+        Object cityName = cityCombo.getSelectedItem();
+
+        if (communityName == null || communityName.toString().equals("")) {
+            communityLbl.setText("Please Select Community");
+            cityCombo.removeAllItems();
+            hospitalCombo.removeAllItems();
+            vetCombo.removeAllItems();
+            userCombo.removeAllItems();
+            hospitalLbl.setText(null);
+            cityLbl.setText(null);
+            userLbl.setText(null);
+            vetLbl.setText(null);
+        } else {
+            communityCombo.removeAllItems();
+            hospitalCombo.removeAllItems();
+            vetCombo.removeAllItems();
+            userCombo.removeAllItems();
+            hospitalLbl.setText(null);
+            communityLbl.setText(null);
+            userLbl.setText(null);
+            vetLbl.setText(null);
+            community = MainJFrame.communityDirectory.getCommunity(cityName.toString(),communityName.toString());
+            ArrayList<Hospital> hospitalList = MainJFrame.hospitalDirectory.searchHospitalByCommunity(community);
+
+            hospitalCombo.addItem("");
+            for (Hospital c: hospitalList) {
+                hospitalCombo.addItem(c.getName());
+            }
+            hospitalCombo.setSelectedItem("");
+        }
+    }//GEN-LAST:event_communityComboActionPerformed
+
+    private void hospitalComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospitalComboActionPerformed
+        Object hospitalName = hospitalCombo.getSelectedItem();
+
+        if (hospitalName == null || hospitalName.toString().equals("")) {
+            hospitalLbl.setText("Please Select Hospital");
+            vetCombo.removeAllItems();
+            userCombo.removeAllItems();
+            vetLbl.setText(null);
+            userLbl.setText(null);
+        } else {
+            vetCombo.removeAllItems();
+            userCombo.removeAllItems();
+            hospitalLbl.setText(null);
+            hospital = MainJFrame.hospitalDirectory.getHospitalObject(hospitalName.toString(), city, community);
+            
+            vetCombo.addItem("");
+            for (Vet c: hospital.getVetList()) {
+                vetCombo.addItem(c.getName());
+            }
+            vetCombo.setSelectedItem("");
+            
+            vetCombo.addItem("");
+            for (Person c: hospital.getPersonList()) {
+                vetCombo.addItem(c.getName());
+            }
+            vetCombo.setSelectedItem("");
+
+        }
+    }//GEN-LAST:event_hospitalComboActionPerformed
+
+    private void vetComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vetComboActionPerformed
+        Object vetName = vetCombo.getSelectedItem();
+
+        if (vetName == null || vetName.toString().equals("")) {
+            vetLbl.setText("Please Select Doctor");
+        } else {
+            vetLbl.setText(null);
+            vet = hospital.getVetByName(vetName.toString());
+
+        }
+    }//GEN-LAST:event_vetComboActionPerformed
+
+    private void userComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userComboActionPerformed
+        Object personName = userCombo.getSelectedItem();
+
+        if (patientName == null || patientName.toString().equals("")) {
+            userLbl.setText("Please Select Doctor");
+        } else {
+            userLbl.setText(null);
+            person = hospital.getPersontByName(personName.toString());
+
+        }
+    }//GEN-LAST:event_userComboActionPerformed
+
+    private void bookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookBtnActionPerformed
+        var valid = true;
+
+        if (cityCombo.getSelectedItem() == null || cityCombo.getSelectedItem().toString().isEmpty()) {
+            cityLbl.setText("Please Select City");
+            valid = false;
+        }
+
+        if (communityCombo.getSelectedItem() == null || communityCombo.getSelectedItem().toString().isEmpty()) {
+            communityLbl.setText("Please Select Community");
+            valid = false;
+        }
+
+        if (hospitalCombo.getSelectedItem() == null || hospitalCombo.getSelectedItem().toString().isEmpty()) {
+            hospitalLbl.setText("Please Select Hospital");
+            valid = false;
+        }
         
-        table1.setRowSorter(tableRow);
+        if (!this.validations.ValidateEmpty(datePicker.getDateStringOrEmptyString()) ) {
+            dateLbl.setText("Date of joining is required");
+            valid = false;
+        }
+
+        if (vetCombo.getSelectedItem() == null || vetCombo.getSelectedItem().toString().isEmpty()) {
+            vetLbl.setText("Please Select doctor");
+            valid = false;
+        }
         
-        tableRow.setRowFilter(RowFilter.regexFilter(searchKey));
-    }//GEN-LAST:event_txtSearchKeyReleased
+        if (userCombo.getSelectedItem() == null || userCombo.getSelectedItem().toString().isEmpty()) {
+            userLbl.setText("Please Select patient");
+            valid = false;
+        }
+        if (valid) {
+
+            Date date;
+            
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-M-dd");
+            
+            try {
+                date = formatter.parse(datePicker.getDateStringOrEmptyString());
+                
+            } catch (ParseException ex) {
+                date = new Date(1970, 01, 01);
+            }
+
+            MainJFrame.encounterDirectory.newEncounter(date, doctor, hospital, patient);
+            
+            JOptionPane.showMessageDialog(this, "encounter details Added");
+            cityCombo.setSelectedItem("");
+            communityCombo.setSelectedItem("");
+            hospitalCombo.setSelectedItem("");
+            vetCombo.setSelectedItem("");
+            userCombo.setSelectedItem("");
+            datePicker.setDate(null);
+            cityLbl.setText(null);
+            communityLbl.setText(null);
+            dateLbl.setText(null);
+            vetLbl.setText(null);
+            hospitalLbl.setText(null);
+            userLbl.setText(null);
+                    
+        }
+    }//GEN-LAST:event_bookBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,17 +450,20 @@ public class AppointmentCreate extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bookBtn;
+    private javax.swing.JComboBox<String> cityCombo;
+    private javax.swing.JLabel cityLbl;
+    private javax.swing.JComboBox<String> communityCombo;
+    private javax.swing.JLabel communityLbl;
+    private javax.swing.JLabel dateLbl;
+    private com.toedter.calendar.JDateChooser datePicker;
+    private javax.swing.JComboBox<String> hospitalCombo;
     private javax.swing.JLabel hospitalLbl;
-    private javax.swing.JTextField hospitalTxt;
-    private javax.swing.JLabel idLbl;
-    private javax.swing.JTextField idTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel nameLbl;
-    private javax.swing.JTextField nameTxt;
-    private javax.swing.JTable table1;
-    private javax.swing.JTextField txtSearch;
+    private javax.swing.JComboBox<String> userCombo;
+    private javax.swing.JLabel userLbl;
+    private javax.swing.JComboBox<String> vetCombo;
+    private javax.swing.JLabel vetLbl;
     // End of variables declaration//GEN-END:variables
 }
