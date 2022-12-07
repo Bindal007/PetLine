@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package maps;
+package map;
 
 import com.sun.tools.javac.Main;
 import java.awt.Toolkit;
@@ -21,20 +21,17 @@ import org.jxmapviewer.viewer.WaypointPainter;
 import waypoint.EventWaypoint;
 import waypoint.MyWaypoint;
 import waypoint.WaypointRender;
-/**
- *
- * @author vicke
- */
-public class MapJFrame extends javax.swing.JFrame {
+
+public class MapFrame extends javax.swing.JFrame {
 
     private final Set<MyWaypoint> waypoints = new HashSet<>();
     private EventWaypoint event;
     
-    public MapJFrame() {
+    public MapFrame() {
         initComponents();
         init();
     }
-
+    
     // Initializes the frame
     private void init(){
         TileFactoryInfo info = new OSMTileFactoryInfo();
@@ -87,10 +84,11 @@ public class MapJFrame extends javax.swing.JFrame {
         return new EventWaypoint(){
             @Override
             public void selected(MyWaypoint waypoint){
-                JOptionPane.showMessageDialog(MapJFrame.this, waypoint.getName());
+                JOptionPane.showMessageDialog(MapFrame.this, waypoint.getName());
             }
         };
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -143,7 +141,7 @@ public class MapJFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jXMapViewerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(closeBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 337, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
                 .addComponent(addBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(clrButton)
@@ -160,7 +158,7 @@ public class MapJFrame extends javax.swing.JFrame {
                     .addComponent(addBtn)
                     .addComponent(clrButton)
                     .addComponent(closeBtn))
-                .addContainerGap(571, Short.MAX_VALUE))
+                .addContainerGap(446, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -175,10 +173,8 @@ public class MapJFrame extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    // Allows us to see different versions of Google maps
     private void comboMapTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboMapTypeActionPerformed
         TileFactoryInfo info = null;
         int index = comboMapType.getSelectedIndex();
@@ -198,13 +194,11 @@ public class MapJFrame extends javax.swing.JFrame {
             info = new VirtualEarthTileFactoryInfo(VirtualEarthTileFactoryInfo.SATELLITE);
             System.out.println("Satellite View");
         }
-        
+
         DefaultTileFactory tileFactory = new DefaultTileFactory(info);
         jXMapViewer.setTileFactory(tileFactory);
     }//GEN-LAST:event_comboMapTypeActionPerformed
 
-    // Adds waypoint to this specific coordinate
-    // Currently not working because location of pin file is null
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         System.out.println("Setting Waypoint");
         // Add waypoint to this specific coordinate(not working)
@@ -214,19 +208,16 @@ public class MapJFrame extends javax.swing.JFrame {
         initWaypoint();
     }//GEN-LAST:event_addBtnActionPerformed
 
-    // Clears current waypoint
     private void clrButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clrButtonActionPerformed
         clearWaypoint();
         System.out.println("Cleared Waypoint");
     }//GEN-LAST:event_clrButtonActionPerformed
 
-    // Closes the program
     private void closeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtnActionPerformed
         System.out.println("Closing the application");
         System.exit(0);
     }//GEN-LAST:event_closeBtnActionPerformed
 
-    
     /**
      * @param args the command line arguments
      */
@@ -244,21 +235,20 @@ public class MapJFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MapJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MapFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MapJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MapFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MapJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MapFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MapJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MapFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MapJFrame().setVisible(true);
+                new MapFrame().setVisible(true);
             }
         });
     }
