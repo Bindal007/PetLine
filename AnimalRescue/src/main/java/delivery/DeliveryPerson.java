@@ -4,6 +4,18 @@
  */
 package delivery;
 
+import javax.swing.RowFilter;
+import javax.swing.event.MouseInputListener;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+import org.jxmapviewer.OSMTileFactoryInfo;
+import org.jxmapviewer.VirtualEarthTileFactoryInfo;
+import org.jxmapviewer.input.PanMouseInputListener;
+import org.jxmapviewer.input.ZoomMouseWheelListenerCenter;
+import org.jxmapviewer.viewer.DefaultTileFactory;
+import org.jxmapviewer.viewer.GeoPosition;
+import org.jxmapviewer.viewer.TileFactoryInfo;
+
 /**
  *
  * @author vicken
@@ -15,6 +27,25 @@ public class DeliveryPerson extends javax.swing.JFrame {
      */
     public DeliveryPerson() {
         initComponents();
+        init();
+    }
+    
+    private void init(){
+        TileFactoryInfo info = new OSMTileFactoryInfo();
+        DefaultTileFactory tileFactory = new DefaultTileFactory(info);
+        jXMapViewer.setTileFactory(tileFactory);
+        GeoPosition geo = new GeoPosition(42.3374952,-71.0309663);
+        jXMapViewer.setAddressLocation(geo);
+        jXMapViewer.setZoom(8);
+        
+        // GeoPosition frankfurt = new GeoPosition(42,  7, 0, -71, 41, 0);
+        
+        // Create event mouse move
+        MouseInputListener mm = new PanMouseInputListener(jXMapViewer);
+        jXMapViewer.addMouseListener(mm);
+        jXMapViewer.addMouseMotionListener(mm);
+        jXMapViewer.addMouseWheelListener(new ZoomMouseWheelListenerCenter(jXMapViewer));
+        //event = getEvent();
     }
 
     /**
@@ -31,6 +62,11 @@ public class DeliveryPerson extends javax.swing.JFrame {
         logoutBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         closeBtn = new javax.swing.JButton();
+        searchTxt = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        deliveryTable = new javax.swing.JTable();
+        jXMapViewer = new org.jxmapviewer.JXMapViewer();
+        comboMapType = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,7 +86,7 @@ public class DeliveryPerson extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(390, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(logoutBtn)
                 .addGap(71, 71, 71))
         );
@@ -66,28 +102,99 @@ public class DeliveryPerson extends javax.swing.JFrame {
             }
         });
 
+        searchTxt.setText("search");
+        searchTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchTxtActionPerformed(evt);
+            }
+        });
+        searchTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchTxtKeyReleased(evt);
+            }
+        });
+
+        deliveryTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Order ID", "Vendor Name", "Vendor Phone #", "Customer Name", "Customer Phone #", "Customer Email", "Customer Address", "Delivery Charge", "Delivery Status"
+            }
+        ));
+        jScrollPane1.setViewportView(deliveryTable);
+
+        comboMapType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Street View", "Virtual Earth", "Hybrid", "Satellite" }));
+        comboMapType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboMapTypeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jXMapViewerLayout = new javax.swing.GroupLayout(jXMapViewer);
+        jXMapViewer.setLayout(jXMapViewerLayout);
+        jXMapViewerLayout.setHorizontalGroup(
+            jXMapViewerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jXMapViewerLayout.createSequentialGroup()
+                .addComponent(comboMapType, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 334, Short.MAX_VALUE))
+        );
+        jXMapViewerLayout.setVerticalGroup(
+            jXMapViewerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jXMapViewerLayout.createSequentialGroup()
+                .addComponent(comboMapType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 190, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86)
-                .addComponent(closeBtn)
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 373, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(252, 252, 252)
+                                        .addComponent(closeBtn)
+                                        .addContainerGap())
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(338, 338, 338))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane1)
+                                .addContainerGap())))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jXMapViewer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(closeBtn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(closeBtn)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jXMapViewer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -108,6 +215,44 @@ public class DeliveryPerson extends javax.swing.JFrame {
         System.out.println("Closing the application");
         System.exit(0);
     }//GEN-LAST:event_closeBtnActionPerformed
+
+    private void searchTxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchTxtKeyReleased
+        DefaultTableModel model = (DefaultTableModel) deliveryTable.getModel();
+        String searchKey = searchTxt.getText().toLowerCase();
+        TableRowSorter<DefaultTableModel> tableRow = new TableRowSorter<DefaultTableModel>(model);
+
+        deliveryTable.setRowSorter(tableRow);
+
+        tableRow.setRowFilter(RowFilter.regexFilter(searchKey));
+    }//GEN-LAST:event_searchTxtKeyReleased
+
+    private void searchTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchTxtActionPerformed
+
+    private void comboMapTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboMapTypeActionPerformed
+        TileFactoryInfo info = null;
+        int index = comboMapType.getSelectedIndex();
+        if(index == 0){
+            info = new OSMTileFactoryInfo();
+            System.out.println("Street View");
+        }
+        else if(index == 1){
+            info = new VirtualEarthTileFactoryInfo(VirtualEarthTileFactoryInfo.MAP);
+            System.out.println("Virtual Earth View");
+        }
+        else if(index == 2){
+            info = new VirtualEarthTileFactoryInfo(VirtualEarthTileFactoryInfo.HYBRID);
+            System.out.println("Hybrid View");
+        }
+        else if(index == 3){
+            info = new VirtualEarthTileFactoryInfo(VirtualEarthTileFactoryInfo.SATELLITE);
+            System.out.println("Satellite View");
+        }
+
+        DefaultTileFactory tileFactory = new DefaultTileFactory(info);
+        jXMapViewer.setTileFactory(tileFactory);
+    }//GEN-LAST:event_comboMapTypeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,9 +291,14 @@ public class DeliveryPerson extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeBtn;
+    private javax.swing.JComboBox<String> comboMapType;
+    private javax.swing.JTable deliveryTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private org.jxmapviewer.JXMapViewer jXMapViewer;
     private javax.swing.JButton logoutBtn;
+    private javax.swing.JTextField searchTxt;
     // End of variables declaration//GEN-END:variables
 }
