@@ -4,6 +4,10 @@
  */
 package delivery;
 
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+
 /**
  *
  * @author vicken
@@ -89,6 +93,11 @@ public class DeliveryPartner extends javax.swing.JFrame {
         });
 
         searchTxt.setText("search");
+        searchTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchTxtKeyReleased(evt);
+            }
+        });
 
         deliveryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -132,11 +141,11 @@ public class DeliveryPartner extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(188, 188, 188)
                         .addComponent(jLabel2)
-                        .addGap(54, 54, 54)
+                        .addGap(120, 120, 120)
                         .addComponent(combo1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(78, 78, 78)
+                        .addGap(86, 86, 86)
                         .addComponent(assignBtn)
-                        .addContainerGap(298, Short.MAX_VALUE))))
+                        .addContainerGap(224, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,7 +175,7 @@ public class DeliveryPartner extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 6, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,6 +189,16 @@ public class DeliveryPartner extends javax.swing.JFrame {
         System.out.println("Closing the application");
         System.exit(0);
     }//GEN-LAST:event_closeBtnActionPerformed
+
+    private void searchTxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchTxtKeyReleased
+        DefaultTableModel model = (DefaultTableModel) deliveryTable.getModel();
+        String searchKey = searchTxt.getText().toLowerCase();
+        TableRowSorter<DefaultTableModel> tableRow = new TableRowSorter<DefaultTableModel>(model);
+        
+        deliveryTable.setRowSorter(tableRow);
+        
+        tableRow.setRowFilter(RowFilter.regexFilter(searchKey));
+    }//GEN-LAST:event_searchTxtKeyReleased
 
     /**
      * @param args the command line arguments
