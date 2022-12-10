@@ -110,7 +110,7 @@ public class EmailJFrame extends javax.swing.JFrame {
         String password = txtPass.getText();
         
         try {
-            RegistrationEmail.registration(email);
+            RegistrationEmail.registration(email); 
         } catch (Exception ex) {
             Logger.getLogger(EmailJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
