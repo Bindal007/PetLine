@@ -18,7 +18,7 @@ public class Db {
     public Connection getConnect() {
         Connection conn = null;
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/petline?user=root&password=root");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/petline?user=root&password=nikhil007");
             System.out.println("Connection established!");
         }
         catch (Exception e) {
@@ -111,7 +111,7 @@ public class Db {
          
     }
     
-    public int createHospital(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId) {
+    public int createHospital(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId,String city) {
         try {
             Connection conn = getConnect();
             PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
@@ -127,10 +127,11 @@ public class Db {
             if(genKey.next()) {
                 int key = genKey.getInt(1);
                 
-                st = (PreparedStatement) conn.prepareStatement("insert into hospitals (hospitalName, addressId, personId) values(?,?,?)");
+                st = (PreparedStatement) conn.prepareStatement("insert into hospitals (hospitalName, addressId, personId, city) values(?,?,?,?)");
                 st.setString(1, orgName);
                 st.setInt(2, addressId);
                 st.setInt(3, key);
+                st.setString(4, city);
                 row = st.executeUpdate();
                 return row;
             }
@@ -158,7 +159,7 @@ public class Db {
 
 //   ---------------------------------------- NGO and functions CRUD ---------------------------------------------
     
-    public int createNgo(String name, String email, String phnNo, String uname, String pass, int ngoSize, String ngoName, int addressId, String ngoDesc) {
+    public int createNgo(String name, String email, String phnNo, String uname, String pass, int ngoSize, String ngoName, int addressId, String ngoDesc, String city) {
         try {
             Connection conn = getConnect();
             PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
@@ -174,12 +175,13 @@ public class Db {
             if(genKey.next()) {
                 int key = genKey.getInt(1);
                 
-                st = (PreparedStatement) conn.prepareStatement("insert into ngo (ngoName, addressId, personId, ngoDesc, ngoSize) values(?,?,?,?,?)");
+                st = (PreparedStatement) conn.prepareStatement("insert into ngo (ngoName, addressId, personId, ngoDesc, ngoSize, city) values(?,?,?,?,?,?)");
                 st.setString(1, ngoName);
                 st.setInt(2, addressId);
                 st.setInt(3, key);
                 st.setString(4, ngoDesc);
                 st.setInt(5, ngoSize);
+                st.setString(6, city);
                 row = st.executeUpdate();
                 return row;
             }
@@ -192,7 +194,7 @@ public class Db {
     
 //    --------------------------------------- Vendor, Delivery and Products CRUD ------------------------------------------------------
     
-    public int createVendor(String name, String email, String phnNo, String uname, String pass, String orgName,int addressId) {
+    public int createVendor(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId, String city) {
         try {
             Connection conn = getConnect();
             PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
@@ -208,10 +210,11 @@ public class Db {
             if(genKey.next()) {
                 int key = genKey.getInt(1);
                 
-                st = (PreparedStatement) conn.prepareStatement("insert into vendors (vendorName, addressId, personId) values(?,?,?)");
+                st = (PreparedStatement) conn.prepareStatement("insert into vendors (vendorName, addressId, personId, city) values(?,?,?,?)");
                 st.setString(1, orgName);
                 st.setInt(2, addressId);
                 st.setInt(3, key);
+                st.setString(4, city);
                 row = st.executeUpdate();
                 return row;
             }
@@ -222,7 +225,7 @@ public class Db {
         return 0;
     }
     
-    public int createDelivery(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId) {
+    public int createDelivery(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId, String city) {
         try {
             Connection conn = getConnect();
             PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
@@ -238,9 +241,10 @@ public class Db {
             if(genKey.next()) {
                 int key = genKey.getInt(1);
                 
-                st = (PreparedStatement) conn.prepareStatement("insert into deliveryPartner (vendorName, personId) values(?,?)");
+                st = (PreparedStatement) conn.prepareStatement("insert into deliveryPartner (vendorName, personId, city) values(?,?,?)");
                 st.setString(1, orgName);
                 st.setInt(2, key);
+                st.setString(3, city);
                 row = st.executeUpdate();
                 return row;
             }
@@ -251,7 +255,7 @@ public class Db {
         return 0;
     }
     
-    public int createDriver(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId) {
+    public int createDriver(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId, String city) {
         try {
             Connection conn = getConnect();
             PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, age, SSN, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?,?,?)");

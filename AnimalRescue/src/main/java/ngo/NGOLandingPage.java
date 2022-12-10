@@ -4,6 +4,11 @@
  */
 package ngo;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import login.LoginForm;
+
 /**
  *
  * @author nikhilbindal
@@ -442,10 +447,10 @@ public class NGOLandingPage extends javax.swing.JFrame {
     private void bookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookBtnActionPerformed
         var valid = true;
 
-        if (cityCombo.getSelectedItem() == null || cityCombo.getSelectedItem().toString().isEmpty()) {
-            cityLbl.setText("Please Select City");
-            valid = false;
-        }
+//        if (cityCombo.getSelectedItem() == null || cityCombo.getSelectedItem().toString().isEmpty()) {
+//            cityLbl.setText("Please Select City");
+//            valid = false;
+//        }
 
         if (hospitalCombo.getSelectedItem() == null || hospitalCombo.getSelectedItem().toString().isEmpty()) {
             hospitalLbl.setText("Please Select Hospital");
@@ -458,14 +463,14 @@ public class NGOLandingPage extends javax.swing.JFrame {
             //        }
 
         if (vetCombo.getSelectedItem() == null || vetCombo.getSelectedItem().toString().isEmpty()) {
-            vetLbl.setText("Please Select doctor");
+//            vetLbl.setText("Please Select doctor");
             valid = false;
         }
 
-        if (userCombo.getSelectedItem() == null || userCombo.getSelectedItem().toString().isEmpty()) {
-            userLbl.setText("Please Select patient");
-            valid = false;
-        }
+//        if (userCombo.getSelectedItem() == null || userCombo.getSelectedItem().toString().isEmpty()) {
+//            userLbl.setText("Please Select patient");
+//            valid = false;
+//        }
         if (valid) {
 
             Date date;
@@ -482,16 +487,16 @@ public class NGOLandingPage extends javax.swing.JFrame {
             //            MainJFrame.encounterDirectory.newEncounter(date, doctor, hospital, patient);
 
             JOptionPane.showMessageDialog(this, "encounter details Added");
-            cityCombo.setSelectedItem("");
+//            cityCombo.setSelectedItem("");
             hospitalCombo.setSelectedItem("");
             vetCombo.setSelectedItem("");
-            userCombo.setSelectedItem("");
+//            userCombo.setSelectedItem("");
             datePicker.setDate(null);
-            cityLbl.setText(null);
-            dateLbl.setText(null);
-            vetLbl.setText(null);
+//            cityLbl.setText(null);
+//            dateLbl.setText(null);
+//            vetLbl.setText(null);
             hospitalLbl.setText(null);
-            userLbl.setText(null);
+//            userLbl.setText(null);
 
         }
     }//GEN-LAST:event_bookBtnActionPerformed
@@ -500,9 +505,9 @@ public class NGOLandingPage extends javax.swing.JFrame {
         Object vetName = vetCombo.getSelectedItem();
 
         if (vetName == null || vetName.toString().equals("")) {
-            vetLbl.setText("Please Select Doctor");
+//            vetLbl.setText("Please Select Doctor");
         } else {
-            vetLbl.setText(null);
+//            vetLbl.setText(null);
             //            vet = hospital.getVetByName(vetName.toString());
 
         }
@@ -514,12 +519,12 @@ public class NGOLandingPage extends javax.swing.JFrame {
         if (hospitalName == null || hospitalName.toString().equals("")) {
             hospitalLbl.setText("Please Select Hospital");
             vetCombo.removeAllItems();
-            userCombo.removeAllItems();
-            vetLbl.setText(null);
-            userLbl.setText(null);
+//            userCombo.removeAllItems();
+//            vetLbl.setText(null);
+//            userLbl.setText(null);
         } else {
             vetCombo.removeAllItems();
-            userCombo.removeAllItems();
+//            userCombo.removeAllItems();
             hospitalLbl.setText(null);
 
             vetCombo.addItem("");
@@ -554,20 +559,20 @@ public class NGOLandingPage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UserLandingPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NGOLandingPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UserLandingPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NGOLandingPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UserLandingPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NGOLandingPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UserLandingPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NGOLandingPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UserLandingPage().setVisible(true);
+                new NGOLandingPage().setVisible(true);
             }
         });
     }
