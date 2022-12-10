@@ -9,23 +9,23 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.mail.Authenticator;
 import javax.mail.Message;
-import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
 /**
  *
- * @author vicke
+ * @author vicken
  */
-public class SendEmail {
+public class OrderDeliveredEmail {
     
     // email that this program is sending from
-    final static String fromEmail = "vicken.test@gmail.com";
+    static String fromEmail = "vicken.test@gmail.com";
     // email that this program is sending to
-    final static String toEmail = "vicken.test@gmail.com";
+    static String toEmail = "vicken.test@gmail.com";
+    static String realEmail = "vickenmatiossian@gmail.com";
     // 16 digit generated 3rd party password for gmail that can be used only for this
     // my real password will not work
     final static String generatedPassword = "iwsoffinafnzguum";
@@ -34,11 +34,11 @@ public class SendEmail {
     // recipient here does not work
     // the recipient in prepareMessage is the one that it actually sends to
     public static void main(String[] args) throws Exception {
-        SendEmail.sendMail(toEmail);
+        OrderDeliveredEmail.orderDelivered(toEmail);
     }
     
     
-    public static void sendMail(String recipient) throws Exception{
+    public static void orderDelivered(String recipient) throws Exception{
         System.out.println("Sending email...");
         Properties properties = new Properties();
         
@@ -60,25 +60,29 @@ public class SendEmail {
             }
         });
         
-        Message message = prepareMessage(session, fromEmail, recipient);
+        Message message = deliveredMessage(session, fromEmail, recipient);
         
         // the following code sends the message
         Transport.send(message);
         System.out.println("Email sent successfully!");
     }
 
-    private static Message prepareMessage(Session session, String email, String recipient) {
+    private static Message deliveredMessage(Session session, String email, String recipient) {
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(email));
             
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
-            message.setSubject("Test Email from Vicken's Java Program");
-            message.setText("Hopefully this reached whomever it was intended for.\n\n This is a test email sent from my Java project.");
+            message.setSubject("Animal Rescue Shipping Update - DELIVERED");
+            message.setText("Hello valued user, thank you for your purchase from the Animal Rescure website!\n\n"+
+                    "This email is to inform you that your order has been successfully delived to its destination!\n\n"+
+                    "_______________________________________\n\n"+
+                    "If you have any questions, please reach out to the creators of this page, Vicken, Nikhil, and Farheen at vicken.test@gmail.com");
             return message;
         } catch (Exception ex) {
-            Logger.getLogger(SendEmail.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RegistrationEmail.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
+    
 }
