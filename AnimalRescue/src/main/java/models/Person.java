@@ -1,6 +1,6 @@
 
 package models;
-
+import database.Database;
 /**
  *
  * @author nikhilbindal
@@ -118,6 +118,14 @@ public class Person {
     
     public void setPersonID(int personID){
         this.personID = personID;
+    }
+    
+    public boolean checkPersonCreds(String userType, String username, String password) {
+        Person person = Database.getPersonDetails(userType, username, password);
+        if (person) {
+            return true;
+        }
+        return false;
     }
     
 }

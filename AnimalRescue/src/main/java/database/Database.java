@@ -5,13 +5,16 @@
 package database;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import models.Person;
+import java.sql.PreparedStatement;
+
 /**
  *
  * @author nikhilbindal
  */
 public class Database {
-    public static Connection getConnect() {
-        Connection conn = null;
+    private Connection conn = null;
+    public Connection getConnect() {
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/petline?user=root&password=nikhil007");
             System.out.println("Connection established!");
@@ -22,7 +25,10 @@ public class Database {
         return conn;
     }
     
-//    public 
+    public Person getPersonDetails(String userType, String username, String password) {
+        PreparedStatement st = (PreparedStatement) conn.prepareStatement("select * from Person where username=? and password=? and personType=?");
+         
+    }
 //    
 //    public static void main(String args[]) {
 //        getConnect();
