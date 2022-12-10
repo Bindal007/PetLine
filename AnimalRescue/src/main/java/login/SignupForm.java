@@ -4,7 +4,10 @@
  */
 package login;
 
+import email.RegistrationEmail;
 import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import models.Address;
 import models.Person;
@@ -995,6 +998,12 @@ public class SignupForm extends javax.swing.JFrame {
         int ngoSize = Integer.parseInt(txtNgoSize.getText());
         person.createNgo(name, email, phnNo, uname, pass, ngoSize, orgName, addressId, ngoDesc);
         JOptionPane.showMessageDialog(this, "Successfully Signed up!");
+        String email1 = "vicken.test@gmail.com";
+        try {
+            RegistrationEmail.registration(email); 
+        } catch (Exception ex) {
+            Logger.getLogger(SignupForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
         LoginForm login = new LoginForm();
         login.setVisible(true);
         this.dispose();
@@ -1032,6 +1041,12 @@ public class SignupForm extends javax.swing.JFrame {
             person.createDelivery(name, email, phnNo, uname, pass, orgName, addressId);
         }
         JOptionPane.showMessageDialog(this, "Successfully Signed up!");
+        String email1 = "vicken.test@gmail.com";
+        try {
+            RegistrationEmail.registration(email); 
+        } catch (Exception ex) {
+            Logger.getLogger(SignupForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
         LoginForm login = new LoginForm();
         login.setVisible(true);
         this.dispose();
@@ -1082,6 +1097,12 @@ public class SignupForm extends javax.swing.JFrame {
         String ssn = txtUserSSN.getText();
         person.createPerson(name, email, phnNo, uname, pass, age, ssn, addressId);
         JOptionPane.showMessageDialog(this, "Successfully Signed up!");
+        String email1 = "vicken.test@gmail.com";
+        try {
+            RegistrationEmail.registration(email); 
+        } catch (Exception ex) {
+            Logger.getLogger(SignupForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
         LoginForm login = new LoginForm();
         login.setVisible(true);
         this.dispose();
