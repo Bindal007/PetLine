@@ -57,6 +57,7 @@
                                       <Component id="ssnLbl" min="-2" max="-2" attributes="0"/>
                                       <Component id="cellLbl" min="-2" max="-2" attributes="0"/>
                                       <Component id="communityLbl" min="-2" max="-2" attributes="0"/>
+                                      <Component id="nameTxt1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -122,8 +123,6 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="nameTxt1" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                                           <Component id="ageLbl" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="266" max="-2" attributes="0"/>
                                       </Group>
@@ -329,7 +328,7 @@
               <Font name="Helvetica Neue" size="12" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="search"/>
           </Properties>
@@ -407,8 +406,14 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="nameLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="name"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="emailTxt">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="email"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="emailLbl">
           <Properties>
@@ -422,6 +427,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="usernameTxt">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="username"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="usernameLbl">
           <Properties>
@@ -435,6 +443,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="ageTxt">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="age"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="ageLbl">
           <Properties>
@@ -453,8 +464,17 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="ssnTxt">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ssn"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ssnTxtActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="passwordTxt">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="password"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="passwordLbl">
           <Properties>
@@ -473,12 +493,15 @@
               <Font name="Helvetica Neue" size="12" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Create"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="cellTxt">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="cell number"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="cellLbl">
           <Properties>
@@ -497,7 +520,7 @@
               <Font name="Helvetica Neue" size="12" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Update"/>
           </Properties>
@@ -539,10 +562,19 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCommunity">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="community"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtHospital">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="hospital"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCity">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="city"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="closeBtn">
           <Properties>
@@ -550,7 +582,7 @@
               <Font name="Helvetica Neue" size="12" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Close"/>
           </Properties>

@@ -103,7 +103,7 @@
                                               </Group>
                                           </Group>
                                           <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                                   <Component id="emailLbl" min="-2" max="-2" attributes="0"/>
@@ -117,10 +117,10 @@
                                                       <Component id="cityLbl" alignment="1" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="passwordTxt" pref="152" max="32767" attributes="0"/>
-                                                      <Component id="hospitalCombo" max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="hospitalCombo" pref="154" max="32767" attributes="0"/>
                                                       <Component id="cityCombo" max="32767" attributes="0"/>
+                                                      <Component id="passwordTxt" alignment="0" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -132,7 +132,7 @@
                                   <Component id="createBtn" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="76" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -398,10 +398,19 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="nameTxt">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="name"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="passwordTxt">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="password"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="emailTxt">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="email"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField7">
           <Events>
@@ -409,15 +418,27 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="cellTxt">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="cell number"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cellTxtActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="ageTxt">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="age"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="ssnTxt">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ssn"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="usernameTxt">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="username"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="createBtn">
           <Properties>
@@ -425,7 +446,7 @@
               <Font name="Helvetica Neue" size="12" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Create"/>
           </Properties>
@@ -511,7 +532,7 @@
               <Font name="Helvetica Neue" size="12" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Close"/>
           </Properties>

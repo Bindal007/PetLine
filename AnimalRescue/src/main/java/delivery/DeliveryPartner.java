@@ -117,7 +117,7 @@ public class DeliveryPartner extends javax.swing.JFrame {
         jLabel1.setText("Welcome Delivery Partner");
 
         closeBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        closeBtn.setForeground(new java.awt.Color(240, 240, 240));
+        closeBtn.setForeground(new java.awt.Color(0, 0, 0));
         closeBtn.setText("Close");
         closeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,7 +126,7 @@ public class DeliveryPartner extends javax.swing.JFrame {
         });
 
         searchTxt.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        searchTxt.setForeground(new java.awt.Color(240, 240, 240));
+        searchTxt.setForeground(new java.awt.Color(0, 0, 0));
         searchTxt.setText("search");
         searchTxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -154,7 +154,7 @@ public class DeliveryPartner extends javax.swing.JFrame {
         jLabel2.setText("Assign To:");
 
         assignBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        assignBtn.setForeground(new java.awt.Color(240, 240, 240));
+        assignBtn.setForeground(new java.awt.Color(0, 0, 0));
         assignBtn.setText("Assign");
         assignBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,9 +181,9 @@ public class DeliveryPartner extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(196, 196, 196)
+                                .addGap(231, 231, 231)
                                 .addComponent(jLabel2)
-                                .addGap(120, 120, 120)
+                                .addGap(85, 85, 85)
                                 .addComponent(combo1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(86, 86, 86)
                                 .addComponent(assignBtn))

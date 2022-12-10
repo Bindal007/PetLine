@@ -110,7 +110,7 @@ public class VetViewUpdate extends javax.swing.JPanel {
         jLabel1.setText("Vet Records");
 
         txtSearch.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        txtSearch.setForeground(new java.awt.Color(255, 255, 255));
+        txtSearch.setForeground(new java.awt.Color(0, 0, 0));
         txtSearch.setText("search");
         txtSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,13 +145,21 @@ public class VetViewUpdate extends javax.swing.JPanel {
         nameTxt.setForeground(new java.awt.Color(51, 51, 51));
         nameTxt.setText("Name");
 
+        nameLbl.setText("name");
+
+        emailTxt.setText("email");
+
         emailLbl.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         emailLbl.setForeground(new java.awt.Color(51, 51, 51));
         emailLbl.setText("Email");
 
+        usernameTxt.setText("username");
+
         usernameLbl.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         usernameLbl.setForeground(new java.awt.Color(51, 51, 51));
         usernameLbl.setText("Username");
+
+        ageTxt.setText("age");
 
         ageLbl.setText("Age");
 
@@ -159,20 +167,31 @@ public class VetViewUpdate extends javax.swing.JPanel {
         ssnLbl.setForeground(new java.awt.Color(51, 51, 51));
         ssnLbl.setText("SSN");
 
+        ssnTxt.setText("ssn");
+        ssnTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ssnTxtActionPerformed(evt);
+            }
+        });
+
+        passwordTxt.setText("password");
+
         passwordLbl.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         passwordLbl.setForeground(new java.awt.Color(51, 51, 51));
         passwordLbl.setText("Password");
 
         createBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        createBtn.setForeground(new java.awt.Color(255, 255, 255));
+        createBtn.setForeground(new java.awt.Color(0, 0, 0));
         createBtn.setText("Create");
+
+        cellTxt.setText("cell number");
 
         cellLbl.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         cellLbl.setForeground(new java.awt.Color(51, 51, 51));
         cellLbl.setText("Cell Number");
 
         updateBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        updateBtn.setForeground(new java.awt.Color(255, 255, 255));
+        updateBtn.setForeground(new java.awt.Color(0, 0, 0));
         updateBtn.setText("Update");
         updateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,8 +211,14 @@ public class VetViewUpdate extends javax.swing.JPanel {
         communityLbl.setForeground(new java.awt.Color(51, 51, 51));
         communityLbl.setText("Community");
 
+        txtCommunity.setText("community");
+
+        txtHospital.setText("hospital");
+
+        txtCity.setText("city");
+
         closeBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        closeBtn.setForeground(new java.awt.Color(255, 255, 255));
+        closeBtn.setForeground(new java.awt.Color(0, 0, 0));
         closeBtn.setText("Close");
         closeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,7 +252,8 @@ public class VetViewUpdate extends javax.swing.JPanel {
                                     .addComponent(nameTxt)
                                     .addComponent(ssnLbl)
                                     .addComponent(cellLbl)
-                                    .addComponent(communityLbl))
+                                    .addComponent(communityLbl)
+                                    .addComponent(nameTxt1))
                                 .addGap(46, 46, 46)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -274,8 +300,6 @@ public class VetViewUpdate extends javax.swing.JPanel {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(nameTxt1)
-                                        .addGap(89, 89, 89)
                                         .addComponent(ageLbl)
                                         .addGap(266, 266, 266))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -470,6 +494,10 @@ public class VetViewUpdate extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_allDeliveriesBtn2ActionPerformed
 
+    private void ssnTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ssnTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ssnTxtActionPerformed
+
     private void setTextNull(){
         ddCity.setSelectedItem("");
         ddCommuity.setSelectedItem("");
@@ -500,7 +528,6 @@ public class VetViewUpdate extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ageLbl;
     private javax.swing.JTextField ageTxt;
-    private javax.swing.JButton allDeliveriesBtn1;
     private javax.swing.JButton allDeliveriesBtn2;
     private javax.swing.JLabel cellLbl;
     private javax.swing.JTextField cellTxt;

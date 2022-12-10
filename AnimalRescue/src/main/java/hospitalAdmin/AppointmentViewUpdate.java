@@ -135,18 +135,25 @@ public class AppointmentViewUpdate extends javax.swing.JPanel {
         userLbl.setForeground(new java.awt.Color(0, 0, 51));
         userLbl.setText("User");
 
+        userTxt.setText("user");
+
         vetLbl.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         vetLbl.setForeground(new java.awt.Color(0, 0, 51));
         vetLbl.setText("Vet");
+
+        vetTxt.setText("vet");
 
         cityLbl.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         cityLbl.setForeground(new java.awt.Color(0, 0, 51));
         cityLbl.setText("City");
 
+        cityTxt.setText("city");
+
         hospitalLbl.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         hospitalLbl.setForeground(new java.awt.Color(0, 0, 51));
         hospitalLbl.setText("Hospital");
 
+        hospitalTxt.setText("hospital");
         hospitalTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hospitalTxtActionPerformed(evt);
@@ -157,16 +164,18 @@ public class AppointmentViewUpdate extends javax.swing.JPanel {
         ageLbl1.setForeground(new java.awt.Color(0, 0, 51));
         ageLbl1.setText("Community");
 
+        communityTxt.setText("community");
+
         dateLbl.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         dateLbl.setForeground(new java.awt.Color(0, 0, 51));
         dateLbl.setText("Date");
 
         createBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        createBtn.setForeground(new java.awt.Color(240, 240, 240));
+        createBtn.setForeground(new java.awt.Color(0, 0, 0));
         createBtn.setText("Create");
 
         updateBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        updateBtn.setForeground(new java.awt.Color(240, 240, 240));
+        updateBtn.setForeground(new java.awt.Color(0, 0, 0));
         updateBtn.setText("Update");
         updateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,7 +184,7 @@ public class AppointmentViewUpdate extends javax.swing.JPanel {
         });
 
         closeBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        closeBtn.setForeground(new java.awt.Color(240, 240, 240));
+        closeBtn.setForeground(new java.awt.Color(0, 0, 0));
         closeBtn.setText("Close");
         closeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -170,20 +170,33 @@ public class VetCreate extends javax.swing.JPanel {
         emailLbl.setForeground(new java.awt.Color(51, 51, 51));
         emailLbl.setText("Email");
 
+        nameTxt.setText("name");
+
+        passwordTxt.setText("password");
+
+        emailTxt.setText("email");
+
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField7ActionPerformed(evt);
             }
         });
 
+        cellTxt.setText("cell number");
         cellTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cellTxtActionPerformed(evt);
             }
         });
 
+        ageTxt.setText("age");
+
+        ssnTxt.setText("ssn");
+
+        usernameTxt.setText("username");
+
         createBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        createBtn.setForeground(new java.awt.Color(255, 255, 255));
+        createBtn.setForeground(new java.awt.Color(0, 0, 0));
         createBtn.setText("Create");
         createBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,7 +235,7 @@ public class VetCreate extends javax.swing.JPanel {
         communityLbl.setText("Community");
 
         closeBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        closeBtn.setForeground(new java.awt.Color(255, 255, 255));
+        closeBtn.setForeground(new java.awt.Color(0, 0, 0));
         closeBtn.setText("Close");
         closeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -275,7 +288,7 @@ public class VetCreate extends javax.swing.JPanel {
                                                     .addComponent(cellTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
                                                     .addComponent(communityCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                         .addGap(65, 65, 65)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(19, 19, 19)
                                                 .addComponent(emailLbl)
@@ -287,14 +300,14 @@ public class VetCreate extends javax.swing.JPanel {
                                                     .addComponent(passwordLbl)
                                                     .addComponent(cityLbl))
                                                 .addGap(30, 30, 30)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(passwordTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
-                                                    .addComponent(hospitalCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(cityCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(hospitalCombo, 0, 154, Short.MAX_VALUE)
+                                                    .addComponent(cityCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(passwordTxt)))))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(310, 310, 310)
                                 .addComponent(createBtn)))
-                        .addGap(0, 76, Short.MAX_VALUE)))
+                        .addGap(76, 76, 76)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()

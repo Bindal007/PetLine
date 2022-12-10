@@ -130,7 +130,7 @@ public class AppointmentCreate extends javax.swing.JFrame {
         hospitalLbl.setText("Hospital");
 
         bookBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        bookBtn.setForeground(new java.awt.Color(240, 240, 240));
+        bookBtn.setForeground(new java.awt.Color(0, 0, 0));
         bookBtn.setText("Book");
         bookBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,7 +185,7 @@ public class AppointmentCreate extends javax.swing.JFrame {
         });
 
         closeBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        closeBtn.setForeground(new java.awt.Color(240, 240, 240));
+        closeBtn.setForeground(new java.awt.Color(0, 0, 0));
         closeBtn.setText("Close");
         closeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
