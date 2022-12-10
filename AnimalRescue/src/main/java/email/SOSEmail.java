@@ -9,17 +9,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.mail.Authenticator;
 import javax.mail.Message;
+import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 /**
  *
- * @author vicken
+ * @author vicke
  */
-public class OrderDeliveredEmail {
+public class SOSEmail {
     
     // email that this program is sending from
     static String fromEmail = "vicken.test@gmail.com";
@@ -34,11 +36,11 @@ public class OrderDeliveredEmail {
     // recipient here does not work
     // the recipient in prepareMessage is the one that it actually sends to
     public static void main(String[] args) throws Exception {
-        OrderDeliveredEmail.orderDelivered(toEmail);
+//        SOSEmail.registration(toEmail);
     }
     
     
-    public static void orderDelivered(String recipient) throws Exception{
+    public static void registration(String recipient, String city, String street, String description) throws Exception{
         System.out.println("Sending email...");
         Properties properties = new Properties();
         
@@ -60,24 +62,24 @@ public class OrderDeliveredEmail {
             }
         });
         
-        Message message = deliveredMessage(session, fromEmail, recipient);
+        Message message = registrationMessage(session, fromEmail, recipient, city, street, description);
         
         // the following code sends the message
         Transport.send(message);
         System.out.println("Email sent successfully!");
     }
 
-    private static Message deliveredMessage(Session session, String email, String recipient) {
+    private static Message registrationMessage(Session session, String email, String recipient, String city, String street, String description) {
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(email));
             
-            message.setRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
-            message.setSubject("Animal Rescue Shipping Update - DELIVERED");
-            message.setText("Hello valued user, thank you for your purchase from the Animal Rescure website!\n\n"+
-                    "This email is to inform you that your order has been successfully delived to its destination!\n\n"+
-                    "_______________________________________\n\n"+
-                    "If you have any questions, please reach out to the creators of this page, Vicken, Nikhil, and Farheen at vicken.test@gmail.com");
+            message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
+            message.setSubject("SOS Emergency");
+            message.setText(description + "\n\n"+
+                    "Incident location: \n"+ "City: " + city + "\nStreet: " + street +"\n\n" +
+                    "______________________________________________\n\n"+
+                    "If you have any questions, please reach out to the creators of this page, Farheen, Nikhil and Vicken at vicken.test@gmail.com");
             return message;
         } catch (Exception ex) {
             Logger.getLogger(SOSEmail.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,3 +88,5 @@ public class OrderDeliveredEmail {
     }
     
 }
+
+

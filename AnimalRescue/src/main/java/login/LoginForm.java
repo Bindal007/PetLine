@@ -170,9 +170,11 @@ public class LoginForm extends javax.swing.JFrame {
         });
 
         btnLogin2.setBackground(new java.awt.Color(255, 0, 51));
-        btnLogin2.setFont(new java.awt.Font("Consolas", 1, 20)); // NOI18N
+        btnLogin2.setFont(new java.awt.Font("Courier New", 1, 20)); // NOI18N
         btnLogin2.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin2.setText("SOS!!!");
+        btnLogin2.setAlignmentX(0.5F);
+        btnLogin2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnLogin2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogin2ActionPerformed(evt);
@@ -341,6 +343,8 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void btnLogin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin2ActionPerformed
         // TODO add your handling code here:
+        SOSForm sos= new SOSForm(this, true);
+        sos.setVisible(true);
     }//GEN-LAST:event_btnLogin2ActionPerformed
 
     private void comboRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboRoleActionPerformed
