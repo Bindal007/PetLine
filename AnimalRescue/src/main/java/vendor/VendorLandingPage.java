@@ -322,11 +322,6 @@ public class VendorLandingPage extends javax.swing.JFrame {
         productsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconAddEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconAddEmployee.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblIconAddEmployeeMouseClicked(evt);
-            }
-        });
         productsPanel.add(lblIconAddEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
 
         lblAddEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -1171,10 +1166,6 @@ public class VendorLandingPage extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void lblIconAddEmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconAddEmployeeMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblIconAddEmployeeMouseClicked
 
     /**
      * @param args the command line arguments

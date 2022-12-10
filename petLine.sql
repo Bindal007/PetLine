@@ -24,14 +24,14 @@ DROP TABLE IF EXISTS `address`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `address` (
   `addressId` int NOT NULL AUTO_INCREMENT,
-  `street` varchar(20) NOT NULL,
-  `city` varchar(20) NOT NULL,
-  `state` varchar(20) NOT NULL,
+  `street` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `city` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `state` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `zipcode` int NOT NULL,
-  `longitude` varchar(20) DEFAULT NULL,
-  `latitude` varchar(20) DEFAULT NULL,
+  `longitude` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `latitude` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`addressId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +41,38 @@ CREATE TABLE `address` (
 LOCK TABLES `address` WRITE;
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `appointments`
+--
+
+DROP TABLE IF EXISTS `appointments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `appointments` (
+  `appointmentId` int NOT NULL AUTO_INCREMENT,
+  `personId` int DEFAULT NULL,
+  `appointmentDate` date NOT NULL,
+  `vetId` int DEFAULT NULL,
+  `vitalsId` int DEFAULT NULL,
+  PRIMARY KEY (`appointmentId`),
+  KEY `personId` (`personId`),
+  KEY `vetId` (`vetId`),
+  KEY `vitalsId` (`vitalsId`),
+  CONSTRAINT `appointments_ibfk_1` FOREIGN KEY (`personId`) REFERENCES `person` (`personId`),
+  CONSTRAINT `appointments_ibfk_2` FOREIGN KEY (`vetId`) REFERENCES `vets` (`vetId`),
+  CONSTRAINT `appointments_ibfk_3` FOREIGN KEY (`vitalsId`) REFERENCES `vitals` (`vitalsId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `appointments`
+--
+
+LOCK TABLES `appointments` WRITE;
+/*!40000 ALTER TABLE `appointments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `appointments` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -88,6 +120,7 @@ CREATE TABLE `city` (
 
 LOCK TABLES `city` WRITE;
 /*!40000 ALTER TABLE `city` DISABLE KEYS */;
+INSERT INTO `city` VALUES ('Boston'),('New York'),('Florida'),('New Jersey'),('San jose'),('Seattle');
 /*!40000 ALTER TABLE `city` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,6 +149,34 @@ CREATE TABLE `deliveryPartner` (
 LOCK TABLES `deliveryPartner` WRITE;
 /*!40000 ALTER TABLE `deliveryPartner` DISABLE KEYS */;
 /*!40000 ALTER TABLE `deliveryPartner` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `driver`
+--
+
+DROP TABLE IF EXISTS `driver`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `driver` (
+  `driverId` int NOT NULL AUTO_INCREMENT,
+  `personId` int DEFAULT NULL,
+  `partnerId` int DEFAULT NULL,
+  PRIMARY KEY (`driverId`),
+  KEY `personId` (`personId`),
+  KEY `partnerId` (`partnerId`),
+  CONSTRAINT `driver_ibfk_1` FOREIGN KEY (`personId`) REFERENCES `person` (`personId`),
+  CONSTRAINT `driver_ibfk_2` FOREIGN KEY (`partnerId`) REFERENCES `deliveryPartner` (`partnerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `driver`
+--
+
+LOCK TABLES `driver` WRITE;
+/*!40000 ALTER TABLE `driver` DISABLE KEYS */;
+/*!40000 ALTER TABLE `driver` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -181,6 +242,35 @@ LOCK TABLES `ngo` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `orders` (
+  `orderId` int NOT NULL AUTO_INCREMENT,
+  `vendorId` int DEFAULT NULL,
+  `personId` int DEFAULT NULL,
+  `deliveryStatus` enum('Pending','Delivered') DEFAULT NULL,
+  PRIMARY KEY (`orderId`),
+  KEY `vendorId` (`vendorId`),
+  KEY `personId` (`personId`),
+  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`vendorId`) REFERENCES `vendors` (`vendorId`),
+  CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`personId`) REFERENCES `person` (`personId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orders`
+--
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `person`
 --
 
@@ -206,7 +296,7 @@ CREATE TABLE `person` (
   UNIQUE KEY `ssn` (`ssn`),
   KEY `addressId` (`addressId`),
   CONSTRAINT `person_ibfk_1` FOREIGN KEY (`addressId`) REFERENCES `address` (`addressId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -337,6 +427,32 @@ LOCK TABLES `Vets` WRITE;
 /*!40000 ALTER TABLE `Vets` DISABLE KEYS */;
 /*!40000 ALTER TABLE `Vets` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `vitals`
+--
+
+DROP TABLE IF EXISTS `vitals`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `vitals` (
+  `vitalsId` int NOT NULL AUTO_INCREMENT,
+  `respiratoryRate` int DEFAULT NULL,
+  `pulseRate` int DEFAULT NULL,
+  `bloodPressure` varchar(20) DEFAULT NULL,
+  `bodyTemperature` double DEFAULT NULL,
+  PRIMARY KEY (`vitalsId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vitals`
+--
+
+LOCK TABLES `vitals` WRITE;
+/*!40000 ALTER TABLE `vitals` DISABLE KEYS */;
+/*!40000 ALTER TABLE `vitals` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -347,4 +463,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-10 18:01:02
+-- Dump completed on 2022-12-10 22:24:24

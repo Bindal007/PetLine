@@ -18,9 +18,6 @@ import org.jxmapviewer.viewer.DefaultTileFactory;
 import org.jxmapviewer.viewer.GeoPosition;
 import org.jxmapviewer.viewer.TileFactoryInfo;
 import org.jxmapviewer.viewer.WaypointPainter;
-import waypoint.EventWaypoint;
-import waypoint.MyWaypoint;
-import waypoint.WaypointRender;
 
 public class MapFrame extends javax.swing.JFrame {
 

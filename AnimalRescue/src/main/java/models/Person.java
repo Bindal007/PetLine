@@ -26,21 +26,19 @@ public class Person {
 //    private 
     // private Post post;
     
-//    public Person(int personID, String name, int age, String phoneNumber, String email, String ssn, String username, 
-//            String password, int addressID, int postID /*Post post*/){
-//        this.personID = personID;
-//        this.name = name;
-//        this.age = age;
-//        this.phoneNumber = phoneNumber;
-//        this.email = email;
-//        this.ssn = ssn;
-//        this.username = username;
-//        this.password = password;
-//        this.addressID = addressID;
-//        this.postID = postID;
-//        //this.post = post;
-//
-//    }
+    public Person(int personID, String name, int age, String phoneNumber, String email, String ssn, String username, 
+            String password, int addressID){
+        this.personID = personID;
+        this.name = name;
+        this.age = age;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.ssn = ssn;
+        this.username = username;
+        this.password = password;
+        this.addressID = addressID;
+
+    }
 
     public Person() {}
     
