@@ -55,6 +55,7 @@ public class AppointmentCreate extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
+        allDeliveriesBtn1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         vetLbl = new javax.swing.JLabel();
         hospitalLbl = new javax.swing.JLabel();
@@ -73,35 +74,63 @@ public class AppointmentCreate extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(218, 228, 230));
 
+        jPanel2.setBackground(new java.awt.Color(0, 0, 51));
+
+        jButton3.setBackground(new java.awt.Color(0, 0, 51));
+        jButton3.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(240, 240, 240));
         jButton3.setText("Logout");
+        jButton3.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(240, 240, 240)));
+
+        allDeliveriesBtn1.setBackground(new java.awt.Color(0, 0, 51));
+        allDeliveriesBtn1.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        allDeliveriesBtn1.setForeground(new java.awt.Color(240, 240, 240));
+        allDeliveriesBtn1.setText("View Profile");
+        allDeliveriesBtn1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
+        allDeliveriesBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                allDeliveriesBtn1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jButton3)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(allDeliveriesBtn1, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(60, 60, 60))
+                .addGap(68, 68, 68)
+                .addComponent(allDeliveriesBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72))
         );
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Book Appointment");
 
+        vetLbl.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        vetLbl.setForeground(new java.awt.Color(51, 51, 51));
         vetLbl.setText("Vet");
 
+        hospitalLbl.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        hospitalLbl.setForeground(new java.awt.Color(51, 51, 51));
         hospitalLbl.setText("Hospital");
 
+        bookBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        bookBtn.setForeground(new java.awt.Color(240, 240, 240));
         bookBtn.setText("Book");
         bookBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +138,8 @@ public class AppointmentCreate extends javax.swing.JFrame {
             }
         });
 
+        dateLbl.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        dateLbl.setForeground(new java.awt.Color(51, 51, 51));
         dateLbl.setText("Date");
 
         vetCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -129,6 +160,8 @@ public class AppointmentCreate extends javax.swing.JFrame {
             }
         });
 
+        cityLbl.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        cityLbl.setForeground(new java.awt.Color(51, 51, 51));
         cityLbl.setText("City");
 
         communityCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -137,8 +170,12 @@ public class AppointmentCreate extends javax.swing.JFrame {
             }
         });
 
+        communityLbl.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        communityLbl.setForeground(new java.awt.Color(51, 51, 51));
         communityLbl.setText("Community");
 
+        userLbl.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        userLbl.setForeground(new java.awt.Color(51, 51, 51));
         userLbl.setText("User");
 
         userCombo.addActionListener(new java.awt.event.ActionListener() {
@@ -147,6 +184,8 @@ public class AppointmentCreate extends javax.swing.JFrame {
             }
         });
 
+        closeBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        closeBtn.setForeground(new java.awt.Color(240, 240, 240));
         closeBtn.setText("Close");
         closeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,7 +201,7 @@ public class AppointmentCreate extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
+                        .addGap(63, 63, 63)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(communityLbl)
                             .addComponent(vetLbl)
@@ -180,30 +219,29 @@ public class AppointmentCreate extends javax.swing.JFrame {
                         .addGap(34, 34, 34)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(datePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(hospitalCombo, javax.swing.GroupLayout.Alignment.LEADING, 0, 152, Short.MAX_VALUE)
+                            .addComponent(hospitalCombo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cityCombo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(80, 80, 80))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 145, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(closeBtn)
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(167, 167, 167)
-                                .addComponent(closeBtn))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(bookBtn)
-                                .addGap(307, 307, 307))))))
+                        .addComponent(bookBtn)
+                        .addGap(325, 325, 325))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(closeBtn)))
-                .addGap(35, 35, 35)
+                    .addComponent(closeBtn)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(userLbl)
@@ -226,18 +264,16 @@ public class AppointmentCreate extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(communityLbl)
                         .addComponent(communityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(77, 77, 77)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(bookBtn)
-                .addGap(0, 75, Short.MAX_VALUE))
+                .addGap(60, 60, 60))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -440,6 +476,10 @@ public class AppointmentCreate extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_closeBtnActionPerformed
 
+    private void allDeliveriesBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allDeliveriesBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_allDeliveriesBtn1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -477,6 +517,7 @@ public class AppointmentCreate extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton allDeliveriesBtn1;
     private javax.swing.JButton bookBtn;
     private javax.swing.JComboBox<String> cityCombo;
     private javax.swing.JLabel cityLbl;
