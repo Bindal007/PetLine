@@ -330,20 +330,15 @@ public class VetViewUpdate extends javax.swing.JPanel {
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
         var valid = true;
         
-        if (ddCity.getSelectedItem(). == null || ddCity.getSelectedItem().toString.isEmpty()){
-            cityLbl.setText("Please select city");
-            valid = false;
-        }
-
-        if (ddCommunity.getSelectedItem(). == null || ddCommunity.getSelectedItem().toString.isEmpty()){
-            communityLbl.setText("Please select community");
-            valid = false;
-        }
-        
-        if (ddHospital.getSelectedItem(). == null || ddHospital.getSelectedItem().toString.isEmpty()){
-            hospitalLbl.setText("Please select hospital");
-            valid = false;
-        }
+//        if (ddCity.getSelectedItem(). == null || ddCity.getSelectedItem().toString.isEmpty()){
+//            cityLbl.setText("Please select city");
+//            valid = false;
+//        }
+//        
+//        if (ddHospital.getSelectedItem(). == null || ddHospital.getSelectedItem().toString.isEmpty()){
+//            hospitalLbl.setText("Please select hospital");
+//            valid = false;
+//        }
         
         if (!this.validations.ValidateName(nameTxt.getText())){
             nameLbl.setText("Invalid Name");
@@ -375,37 +370,37 @@ public class VetViewUpdate extends javax.swing.JPanel {
             valid = false;
         }
         
-        String password = String.valueOf(passwordTxt.getPassword());
-        if (!this.validations.ValidatePassword(password)){
-            passwordLbl.setText("Password should be 5-12 characters long");
-            valid = false;
-        }
+//        String password = String.valueOf(passwordTxt.getPassword());
+//        if (!this.validations.ValidatePassword(password)){
+//            passwordLbl.setText("Password should be 5-12 characters long");
+//            valid = false;
+//        }
     }//GEN-LAST:event_updateBtnActionPerformed
 
     private void table1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table1MouseClicked
-        DefaultTableModel table1 = (DefaultTableModel) table1.getModel();
+//        DefaultTableModel table1 = (DefaultTableModel) table1.getModel();
         
-        String tblCity = table1.getValueAt(table1.getSelectedRow(), 0).toString();
-        String tblCommunity = table1.getValueAt(table1.getSelectedRow(), 1).toString();
-        String tblHospital = table1.getValueAt(table1.getSelectedRow(), 2).toString();
-        String tblName = table1.getValueAt(table1.getSelectedRow(), 3).toString();
-        String tblAge = table1.getValueAt(table1.getSelectedRow(), 4).toString();
-        String tblSSN = table1.getValueAt(table1.getSelectedRow(), 5).toString();
-        String tblCell = table1.getValueAt(table1.getSelectedRow(), 6).toString();
-        String tblEmail = table1.getValueAt(table1.getSelectedRow(), 7).toString();
-        String tblUsername = table1.getValueAt(table1.getSelectedRow(), 8).toString();
-        String tblPassword = table1.getValueAt(table1.getSelectedRow(), 9).toString();
+//        String tblCity = table1.getValueAt(table1.getSelectedRow(), 0).toString();
+//        String tblCommunity = table1.getValueAt(table1.getSelectedRow(), 1).toString();
+//        String tblHospital = table1.getValueAt(table1.getSelectedRow(), 2).toString();
+//        String tblName = table1.getValueAt(table1.getSelectedRow(), 3).toString();
+//        String tblAge = table1.getValueAt(table1.getSelectedRow(), 4).toString();
+//        String tblSSN = table1.getValueAt(table1.getSelectedRow(), 5).toString();
+//        String tblCell = table1.getValueAt(table1.getSelectedRow(), 6).toString();
+//        String tblEmail = table1.getValueAt(table1.getSelectedRow(), 7).toString();
+//        String tblUsername = table1.getValueAt(table1.getSelectedRow(), 8).toString();
+//        String tblPassword = table1.getValueAt(table1.getSelectedRow(), 9).toString();
         
-        txtCity.setText(tblCity);
-        txtCommunity.setText(tblCommunity);
-        txtHospital.setText(tblHospital);
-        nameTxt.setText(tblName);
-        ageTxt.setText(tblAge);
-        ssnTxt.setText(tblSSN);
-        cellTxt.setText(tblCell);
-        emailTxt.setText(tblEmail);
-        usernameTxt.setText(tblUsername);
-        passwordTxt.setText(tblPassword);
+//        txtCity.setText(tblCity);
+//        txtCommunity.setText(tblCommunity);
+//        txtHospital.setText(tblHospital);
+//        nameTxt.setText(tblName);
+//        ageTxt.setText(tblAge);
+//        ssnTxt.setText(tblSSN);
+//        cellTxt.setText(tblCell);
+//        emailTxt.setText(tblEmail);
+//        usernameTxt.setText(tblUsername);
+//        passwordTxt.setText(tblPassword);
         
         setValidationNull();
     }//GEN-LAST:event_table1MouseClicked
@@ -416,9 +411,9 @@ public class VetViewUpdate extends javax.swing.JPanel {
     }//GEN-LAST:event_closeBtnActionPerformed
 
     private void setTextNull(){
-        ddCity.setSelectedItem("");
-        ddCommuity.setSelectedItem("");
-        ddHospital.setSelectedItem("");
+//        ddCity.setSelectedItem("");
+//        ddCommuity.setSelectedItem("");
+//        ddHospital.setSelectedItem("");
         nameTxt.setText(null);
         ageTxt.setText(null);
         ssnTxt.setText(null);
@@ -429,9 +424,9 @@ public class VetViewUpdate extends javax.swing.JPanel {
     }
     
     private void setValidationNull(){
-        ddCity.setText(null);
-        ddCommuity.setText(null);
-        ddHospital.setText(null);
+//        ddCity.setText(null);
+//        ddCommuity.setText(null);
+//        ddHospital.setText(null);
         nameLbl.setText(null);
         ageLbl.setText(null);
         ssnLbl.setText(null);

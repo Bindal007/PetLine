@@ -26,21 +26,19 @@ public class Person {
 //    private 
     // private Post post;
     
-//    public Person(int personID, String name, int age, String phoneNumber, String email, String ssn, String username, 
-//            String password, int addressID, int postID /*Post post*/){
-//        this.personID = personID;
-//        this.name = name;
-//        this.age = age;
-//        this.phoneNumber = phoneNumber;
-//        this.email = email;
-//        this.ssn = ssn;
-//        this.username = username;
-//        this.password = password;
-//        this.addressID = addressID;
-//        this.postID = postID;
-//        //this.post = post;
-//
-//    }
+    public Person(int personID, String name, int age, String phoneNumber, String email, String ssn, String username, 
+            String password, int addressID){
+        this.personID = personID;
+        this.name = name;
+        this.age = age;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.ssn = ssn;
+        this.username = username;
+        this.password = password;
+        this.addressID = addressID;
+
+    }
 
     public Person() {}
     
@@ -190,27 +188,27 @@ public class Person {
         return res;
     }
     
-    public int createVendor(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId) {
+    public int createVendor(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId, String city) {
         
-        int res = database.createVendor(name, email, phnNo, uname, pass, orgName, addressId);
+        int res = database.createVendor(name, email, phnNo, uname, pass, orgName, addressId, city);
         return res;
     }
     
-    public int createNgo(String name, String email, String phnNo, String uname, String pass, int ngoSize, String orgName, int addressId, String ngoDesc) {
+    public int createNgo(String name, String email, String phnNo, String uname, String pass, int ngoSize, String orgName, int addressId, String ngoDesc, String city) {
         
-        int res = database.createNgo(name, email, phnNo, uname, pass, ngoSize, orgName, addressId, ngoDesc);
+        int res = database.createNgo(name, email, phnNo, uname, pass, ngoSize, orgName, addressId, ngoDesc, city);
         return res;
     }
     
-    public int createDelivery(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId) {
+    public int createDelivery(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId, String city) {
         
-        int res = database.createDelivery(name, email, phnNo, uname, pass, orgName, addressId);
+        int res = database.createDelivery(name, email, phnNo, uname, pass, orgName, addressId, city);
         return res;
     }
     
-//    public int createHospital(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId) {
+//    public int createHospital(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId, String city) {
 //        
-//        int res = database.createHospital(name, email, phnNo, uname, pass, orgName, addressId);
+//        int res = database.createHospital(name, email, phnNo, uname, pass, orgName, addressId, String city);
 //        return res;
 //    }
     

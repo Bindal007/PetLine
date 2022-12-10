@@ -15,6 +15,7 @@ public class Appointments {
     private String petType;
     private Vitals vitals;
     
+    
     public Appointments(int appointmentID, int vetID, int personID, String dateTime, String reason, String petType, Vitals vitals) {
         this.appointmentID = appointmentID;
         this.vetID = vetID;

@@ -33,11 +33,11 @@ public class AppointmentCreate extends javax.swing.JFrame {
         cityCombo.removeAllItems();
         cityCombo.addItem("");
         
-        for (City c : MainJFrame.cityDirectory.getCityList()){
-            cityCombo.addItem(c.getName());
-        }
+//        for (City c : MainJFrame.cityDirectory.getCityList()){
+//            cityCombo.addItem(c.getName());
+//        }
         
-        cityCombo.getSelectedItem("");
+//        cityCombo.getSelectedItem("");
         validations = new Validations();
     }
 
@@ -69,6 +69,8 @@ public class AppointmentCreate extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jPanel2.setBackground(new java.awt.Color(0, 0, 102));
 
         jButton3.setText("Logout");
@@ -90,17 +92,22 @@ public class AppointmentCreate extends javax.swing.JFrame {
                 .addGap(24, 24, 24))
         );
 
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 360));
+
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 102));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Book Appointment");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 16, -1, -1));
 
         vetLbl.setForeground(new java.awt.Color(0, 0, 102));
         vetLbl.setText("Vet");
+        jPanel1.add(vetLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 118, -1, -1));
 
         hospitalLbl.setForeground(new java.awt.Color(0, 0, 102));
         hospitalLbl.setText("Hospital");
+        jPanel1.add(hospitalLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 77, -1, -1));
 
         bookBtn.setBackground(new java.awt.Color(0, 0, 102));
         bookBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -111,39 +118,48 @@ public class AppointmentCreate extends javax.swing.JFrame {
                 bookBtnActionPerformed(evt);
             }
         });
+        jPanel1.add(bookBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(348, 256, 163, -1));
+        jPanel1.add(datePicker, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 165, 96, -1));
 
         dateLbl.setForeground(new java.awt.Color(0, 0, 102));
         dateLbl.setText("Date");
+        jPanel1.add(dateLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 171, -1, -1));
 
         vetCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vetComboActionPerformed(evt);
             }
         });
+        jPanel1.add(vetCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 115, 98, -1));
 
         hospitalCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hospitalComboActionPerformed(evt);
             }
         });
+        jPanel1.add(hospitalCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(513, 74, 100, -1));
 
         cityCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cityComboActionPerformed(evt);
             }
         });
+        jPanel1.add(cityCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(513, 115, 100, -1));
 
         cityLbl.setForeground(new java.awt.Color(0, 0, 102));
         cityLbl.setText("City");
+        jPanel1.add(cityLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 121, -1, -1));
 
         userLbl.setForeground(new java.awt.Color(0, 0, 102));
         userLbl.setText("User");
+        jPanel1.add(userLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 77, -1, -1));
 
         userCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userComboActionPerformed(evt);
             }
         });
+        jPanel1.add(userCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 74, 96, -1));
 
         closeBtn.setBackground(new java.awt.Color(0, 0, 102));
         closeBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -154,79 +170,7 @@ public class AppointmentCreate extends javax.swing.JFrame {
                 closeBtnActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(jLabel1)
-                        .addGap(276, 276, 276)
-                        .addComponent(closeBtn))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(dateLbl)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(datePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(vetLbl)
-                                .addGap(18, 18, 18)
-                                .addComponent(vetCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(userLbl)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(userCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(99, 99, 99)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(hospitalLbl, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cityLbl))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cityCombo, 0, 100, Short.MAX_VALUE)
-                            .addComponent(hospitalCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(221, 221, 221)
-                        .addComponent(bookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(closeBtn))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel1)
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(userLbl)
-                            .addComponent(userCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(hospitalLbl)
-                            .addComponent(hospitalCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(vetCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(vetLbl))
-                            .addComponent(cityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cityLbl))
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(dateLbl)
-                            .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(68, 68, 68)
-                .addComponent(bookBtn)
-                .addContainerGap(81, Short.MAX_VALUE))
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jPanel1.add(closeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 6, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -266,7 +210,6 @@ public class AppointmentCreate extends javax.swing.JFrame {
             cityLbl.setText(null);
             userLbl.setText(null);
             vetLbl.setText(null);
-            city = MainJFrame.cityDirectory.findCity(city_name.toString());
         }
     }//GEN-LAST:event_cityComboActionPerformed
 
@@ -283,18 +226,17 @@ public class AppointmentCreate extends javax.swing.JFrame {
             vetCombo.removeAllItems();
             userCombo.removeAllItems();
             hospitalLbl.setText(null);
-            hospital = MainJFrame.hospitalDirectory.getHospitalObject(hospitalName.toString(), city, community);
             
             vetCombo.addItem("");
-            for (Vet c: hospital.getVetList()) {
-                vetCombo.addItem(c.getName());
-            }
+//            for (Vet c: hospital.getVetList()) {
+//                vetCombo.addItem(c.getName());
+//            }
             vetCombo.setSelectedItem("");
             
             vetCombo.addItem("");
-            for (Person c: hospital.getPersonList()) {
-                vetCombo.addItem(c.getName());
-            }
+//            for (Person c: hospital.getPersonList()) {
+//                vetCombo.addItem(c.getName());
+//            }
             vetCombo.setSelectedItem("");
 
         }
@@ -307,7 +249,7 @@ public class AppointmentCreate extends javax.swing.JFrame {
             vetLbl.setText("Please Select Doctor");
         } else {
             vetLbl.setText(null);
-            vet = hospital.getVetByName(vetName.toString());
+//            vet = hospital.getVetByName(vetName.toString());
 
         }
     }//GEN-LAST:event_vetComboActionPerformed
@@ -315,13 +257,13 @@ public class AppointmentCreate extends javax.swing.JFrame {
     private void userComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userComboActionPerformed
         Object personName = userCombo.getSelectedItem();
 
-        if (patientName == null || patientName.toString().equals("")) {
-            userLbl.setText("Please Select Doctor");
-        } else {
-            userLbl.setText(null);
-            person = hospital.getPersontByName(personName.toString());
-
-        }
+//        if (patientName == null || patientName.toString().equals("")) {
+//            userLbl.setText("Please Select Doctor");
+//        } else {
+//            userLbl.setText(null);
+//            person = hospital.getPersontByName(personName.toString());
+//
+//        }
     }//GEN-LAST:event_userComboActionPerformed
 
     private void bookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookBtnActionPerformed
@@ -337,10 +279,10 @@ public class AppointmentCreate extends javax.swing.JFrame {
             valid = false;
         }
         
-        if (!this.validations.ValidateEmpty(datePicker.getDateStringOrEmptyString()) ) {
-            dateLbl.setText("Date of joining is required");
-            valid = false;
-        }
+//        if (!this.validations.ValidateEmpty(datePicker.getDateStringOrEmptyString()) ) {
+//            dateLbl.setText("Date of joining is required");
+//            valid = false;
+//        }
 
         if (vetCombo.getSelectedItem() == null || vetCombo.getSelectedItem().toString().isEmpty()) {
             vetLbl.setText("Please Select doctor");
@@ -357,14 +299,14 @@ public class AppointmentCreate extends javax.swing.JFrame {
             
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-M-dd");
             
-            try {
-                date = formatter.parse(datePicker.getDateStringOrEmptyString());
-                
-            } catch (ParseException ex) {
-                date = new Date(1970, 01, 01);
-            }
-
-            MainJFrame.encounterDirectory.newEncounter(date, doctor, hospital, patient);
+//            try {
+//                date = formatter.parse(datePicker.getDateStringOrEmptyString());
+//                
+//            } catch (ParseException ex) {
+//                date = new Date(1970, 01, 01);
+//            }
+//
+//            MainJFrame.encounterDirectory.newEncounter(date, doctor, hospital, patient);
             
             JOptionPane.showMessageDialog(this, "encounter details Added");
             cityCombo.setSelectedItem("");

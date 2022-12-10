@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package waypoint;
+package map;
 
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -17,7 +17,7 @@ import javax.swing.JButton;
 public class ButtonWaypoint extends JButton{
     
     String iconPackage = "./../icon/pin.png";
-    String icon = "pin.png";
+    String icon = "/Users/nikhilbindal/college-workspace/NetBeansProjects/AED_Final_Project/pin.png";
     String iconWindowsRoot = "C:\\Users\\vicke\\Desktop\\icon\\pin.png";
     String iconMacRoot = "/Users/vicken/Pictures/pin.png";
     
@@ -29,13 +29,13 @@ public class ButtonWaypoint extends JButton{
         setCursor(new Cursor(Cursor.HAND_CURSOR));
         setSize(new Dimension(24, 24));
         
-        // ImageIcon img = new ImageIcon(getClass().getClassLoader().getResource("./pin.png"));
-        // setIconImage(img.getImage());
-        
-        // setIconImages(new ImageIcon(getClass().getResource(icon)).getImage());
-        
-        //URL iconURL = getClass().getResource(iconPackage);
-        //ImageIcon icon = new ImageIcon(iconURL);
-        //frame.setIconImage(icon.getImage());
+//         ImageIcon img = new ImageIcon(getClass().getClassLoader().getResource("./pin.png"));
+//         setIconImage(img.getImage());
+//        
+//         setIconImages(new ImageIcon(getClass().getResource(icon)).getImage());
+//        
+//        URL iconURL = getClass().getResource(iconPackage);
+//        ImageIcon icon = new ImageIcon(iconURL);
+//        frame.setIconImage(icon.getImage());
     }
 }

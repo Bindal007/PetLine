@@ -9,7 +9,6 @@ import resources.Validations;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import javax.swing.JOptionPane;
 import models.City;
-import models.Community;
 import models.Hospital;
 import models.Person;
 
@@ -21,7 +20,7 @@ public class VetCreate extends javax.swing.JPanel {
 
     Validations validations;
     City city;
-    Community community;
+//    Community community;
     Hospital hospital;
     
     public VetCreate() {
@@ -30,13 +29,13 @@ public class VetCreate extends javax.swing.JPanel {
         AutoCompleteDecorator.decorate(communityCombo);
         AutoCompleteDecorator.decorate(hospitalCombo);
         
-        cityCombo.remove AllItems();
-        cityCombo.addItem("");
-        for (City c : MainJFrame.cityDirectory.getCityList()){
-            cityCombo.addItem(c.getName());
-        }
-        
-        ddCity.getSelectedItem("");
+//        cityCombo.remove AllItems();
+//        cityCombo.addItem("");
+//        for (City c : MainJFrame.cityDirectory.getCityList()){
+//            cityCombo.addItem(c.getName());
+//        }
+//        
+//        ddCity.getSelectedItem("");
         validations = new Validations();
     }
 
@@ -347,20 +346,20 @@ public class VetCreate extends javax.swing.JPanel {
     private void createBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createBtnActionPerformed
         var valid = true;
         
-        if (ddCity.getSelectedItem(). == null || ddCity.getSelectedItem().toString.isEmpty()){
-            cityLbl.setText("Please select city");
-            valid = false;
-        }
-
-        if (ddCommunity.getSelectedItem(). == null || ddCommunity.getSelectedItem().toString.isEmpty()){
-            communityLbl.setText("Please select community");
-            valid = false;
-        }
-        
-        if (ddHospital.getSelectedItem(). == null || ddHospital.getSelectedItem().toString.isEmpty()){
-            hospitalLbl.setText("Please select hospital");
-            valid = false;
-        }
+//        if (ddCity.getSelectedItem(). == null || ddCity.getSelectedItem().toString.isEmpty()){
+//            cityLbl.setText("Please select city");
+//            valid = false;
+//        }
+//
+//        if (ddCommunity.getSelectedItem(). == null || ddCommunity.getSelectedItem().toString.isEmpty()){
+//            communityLbl.setText("Please select community");
+//            valid = false;
+//        }
+//        
+//        if (ddHospital.getSelectedItem(). == null || ddHospital.getSelectedItem().toString.isEmpty()){
+//            hospitalLbl.setText("Please select hospital");
+//            valid = false;
+//        }
         
         if (!this.validations.ValidateName(nameTxt.getText())){
             nameLbl.setText("Invalid Name");
@@ -392,11 +391,11 @@ public class VetCreate extends javax.swing.JPanel {
             valid = false;
         }
         
-        String password = String.valueOf(passwordTxt.getPassword());
-        if (!this.validations.ValidatePassword(password)){
-            passwordLbl.setText("Password should be 5-12 characters long");
-            valid = false;
-        }
+//        String password = String.valueOf(passwordTxt.getPassword());
+//        if (!this.validations.ValidatePassword(password)){
+//            passwordLbl.setText("Password should be 5-12 characters long");
+//            valid = false;
+//        }
     }//GEN-LAST:event_createBtnActionPerformed
 
     private void cellTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cellTxtActionPerformed
@@ -421,9 +420,9 @@ public class VetCreate extends javax.swing.JPanel {
     }//GEN-LAST:event_closeBtnActionPerformed
 
     private void setTextNull(){
-        ddCity.setSelectedItem("");
-        ddCommuity.setSelectedItem("");
-        ddHospital.setSelectedItem("");
+//        ddCity.setSelectedItem("");
+//        ddCommuity.setSelectedItem("");
+//        ddHospital.setSelectedItem("");
         nameTxt.setText(null);
         ageTxt.setText(null);
         ssnTxt.setText(null);
@@ -434,9 +433,9 @@ public class VetCreate extends javax.swing.JPanel {
     }
     
     private void setValidationNull(){
-        ddCity.setText(null);
-        ddCommuity.setText(null);
-        ddHospital.setText(null);
+//        ddCity.setText(null);
+//        ddCommuity.setText(null);
+//        ddHospital.setText(null);
         nameLbl.setText(null);
         ageLbl.setText(null);
         ssnLbl.setText(null);

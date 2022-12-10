@@ -18,7 +18,7 @@ public class Db {
     public Connection getConnect() {
         Connection conn = null;
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/petline?user=root&password=root");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/petline?user=root&password=nikhil007");
             System.out.println("Connection established!");
         }
         catch (Exception e) {
@@ -26,26 +26,10 @@ public class Db {
         }
         return conn;
     }
-    
-    public ResultSet getPersonDetails(String userType, String username, String password) {
-        ResultSet rs = null;
-        try {
-            Connection conn = getConnect();
-            PreparedStatement st = (PreparedStatement) conn.prepareStatement("select * from Person where username=? and password=? and personType=?");
-            st.setString(1, username);
-            st.setString(2, password);
-            st.setString(3, userType);
-            int row = st.executeUpdate();
-            conn.close();
-            return rs;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return rs;
-         
-    }
+
     
 //    --------------------------------------- User and Address CRUD ----------------------------------------------
+    
     public int createAddress(String street, String city, String state, String zip) {
         try {
             Connection conn = getConnect();
@@ -109,7 +93,73 @@ public class Db {
         return 0;
     }
     
-    public int createNgo(String name, String email, String phnNo, String uname, String pass, int ngoSize, String ngoName, int addressId, String ngoDesc) {
+    public ResultSet getPersonDetails(String userType, String username, String password) {
+        ResultSet rs = null;
+        try {
+            Connection conn = getConnect();
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("select * from Person where username=? and password=? and personType=?");
+            st.setString(1, username);
+            st.setString(2, password);
+            st.setString(3, userType);
+            int row = st.executeUpdate();
+            conn.close();
+            return rs;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rs;
+         
+    }
+    
+    public int createHospital(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId,String city) {
+        try {
+            Connection conn = getConnect();
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+            st.setString(1, name);
+            st.setString(2, "Vendor");
+            st.setString(3, uname);
+            st.setString(4, pass);
+            st.setInt(5, addressId);
+            st.setString(6, email);
+            st.setString(7, phnNo);
+            int row = st.executeUpdate();
+            ResultSet genKey = st.getGeneratedKeys();
+            if(genKey.next()) {
+                int key = genKey.getInt(1);
+                
+                st = (PreparedStatement) conn.prepareStatement("insert into hospitals (hospitalName, addressId, personId, city) values(?,?,?,?)");
+                st.setString(1, orgName);
+                st.setInt(2, addressId);
+                st.setInt(3, key);
+                st.setString(4, city);
+                row = st.executeUpdate();
+                return row;
+            }
+            return 0;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    
+    public ResultSet getAllCities() {
+        ResultSet rs = null;
+        try {
+            Connection conn = getConnect();
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("select * from city");
+            rs = st.executeQuery();
+//            conn.close();
+            return rs;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+
+
+//   ---------------------------------------- NGO and functions CRUD ---------------------------------------------
+    
+    public int createNgo(String name, String email, String phnNo, String uname, String pass, int ngoSize, String ngoName, int addressId, String ngoDesc, String city) {
         try {
             Connection conn = getConnect();
             PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
@@ -125,12 +175,13 @@ public class Db {
             if(genKey.next()) {
                 int key = genKey.getInt(1);
                 
-                st = (PreparedStatement) conn.prepareStatement("insert into ngo (ngoName, addressId, personId, ngoDesc, ngoSize) values(?,?,?,?,?)");
+                st = (PreparedStatement) conn.prepareStatement("insert into ngo (ngoName, addressId, personId, ngoDesc, ngoSize, city) values(?,?,?,?,?,?)");
                 st.setString(1, ngoName);
                 st.setInt(2, addressId);
                 st.setInt(3, key);
                 st.setString(4, ngoDesc);
                 st.setInt(5, ngoSize);
+                st.setString(6, city);
                 row = st.executeUpdate();
                 return row;
             }
@@ -141,7 +192,9 @@ public class Db {
         return 0;
     }
     
-    public int createVendor(String name, String email, String phnNo, String uname, String pass, String orgName,int addressId) {
+//    --------------------------------------- Vendor, Delivery and Products CRUD ------------------------------------------------------
+    
+    public int createVendor(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId, String city) {
         try {
             Connection conn = getConnect();
             PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
@@ -157,10 +210,11 @@ public class Db {
             if(genKey.next()) {
                 int key = genKey.getInt(1);
                 
-                st = (PreparedStatement) conn.prepareStatement("insert into vendors (vendorName, addressId, personId) values(?,?,?)");
+                st = (PreparedStatement) conn.prepareStatement("insert into vendors (vendorName, addressId, personId, city) values(?,?,?,?)");
                 st.setString(1, orgName);
                 st.setInt(2, addressId);
                 st.setInt(3, key);
+                st.setString(4, city);
                 row = st.executeUpdate();
                 return row;
             }
@@ -171,7 +225,7 @@ public class Db {
         return 0;
     }
     
-    public int createDelivery(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId) {
+    public int createDelivery(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId, String city) {
         try {
             Connection conn = getConnect();
             PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
@@ -187,9 +241,10 @@ public class Db {
             if(genKey.next()) {
                 int key = genKey.getInt(1);
                 
-                st = (PreparedStatement) conn.prepareStatement("insert into deliveryPartner (vendorName, personId) values(?,?)");
+                st = (PreparedStatement) conn.prepareStatement("insert into deliveryPartner (vendorName, personId, city) values(?,?,?)");
                 st.setString(1, orgName);
                 st.setInt(2, key);
+                st.setString(3, city);
                 row = st.executeUpdate();
                 return row;
             }
@@ -200,37 +255,7 @@ public class Db {
         return 0;
     }
     
-    public int createHospital(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId) {
-        try {
-            Connection conn = getConnect();
-            PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
-            st.setString(1, name);
-            st.setString(2, "Vendor");
-            st.setString(3, uname);
-            st.setString(4, pass);
-            st.setInt(5, addressId);
-            st.setString(6, email);
-            st.setString(7, phnNo);
-            int row = st.executeUpdate();
-            ResultSet genKey = st.getGeneratedKeys();
-            if(genKey.next()) {
-                int key = genKey.getInt(1);
-                
-                st = (PreparedStatement) conn.prepareStatement("insert into hospitals (hospitalName, addressId, personId) values(?,?,?)");
-                st.setString(1, orgName);
-                st.setInt(2, addressId);
-                st.setInt(3, key);
-                row = st.executeUpdate();
-                return row;
-            }
-            return 0;
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-        return 0;
-    }
-    
-    public int createDriver(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId) {
+    public int createDriver(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId, String city) {
         try {
             Connection conn = getConnect();
             PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, age, SSN, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?,?,?)");
@@ -251,23 +276,6 @@ public class Db {
         }
         return 0;
     }
-    
-    public ResultSet getAllCities() {
-        ResultSet rs = null;
-        try {
-            Connection conn = getConnect();
-            PreparedStatement st = (PreparedStatement) conn.prepareStatement("select * from city");
-            rs = st.executeQuery();
-//            conn.close();
-            return rs;
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-        return rs;
-    }
-    
-    
-//    --------------------------------------- Products CRUD ------------------------------------------------------
     
     public int createProduct(String name, String cat, int qty, double price) {
         try {
@@ -344,7 +352,10 @@ public class Db {
         }
         return 0;
     }
-//    -----------------------------------------------------------------------------------------
+
+
+
+//    ------------------------------------------ Posts CRUD ------------------------------------------
     
     
 }
