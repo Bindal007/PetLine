@@ -47,8 +47,6 @@ public class SysAdminHome extends javax.swing.JFrame {
         lblContact = new javax.swing.JLabel();
         controlPanel = new javax.swing.JPanel();
         panelDashboard = new javax.swing.JPanel();
-        lblWelcome = new javax.swing.JLabel();
-        sepWelcome = new javax.swing.JSeparator();
         lblEmpSec = new javax.swing.JLabel();
         lblEmpInfoIcon = new javax.swing.JLabel();
         addEmployeePanel = new javax.swing.JPanel();
@@ -60,9 +58,26 @@ public class SysAdminHome extends javax.swing.JFrame {
         deleteEmployeePanel = new javax.swing.JPanel();
         lblIconDeleteEmployee = new javax.swing.JLabel();
         lblDeleteEmployee = new javax.swing.JLabel();
-        reportEmployeePanel = new javax.swing.JPanel();
-        lblIconEmployeeReport = new javax.swing.JLabel();
-        lblDeleteEmployee1 = new javax.swing.JLabel();
+        updateEmployeePanel1 = new javax.swing.JPanel();
+        lblIconUpdateEmployee1 = new javax.swing.JLabel();
+        lblUpdateEmployee1 = new javax.swing.JLabel();
+        deleteEmployeePanel1 = new javax.swing.JPanel();
+        lblIconDeleteEmployee1 = new javax.swing.JLabel();
+        lblDeleteEmployee2 = new javax.swing.JLabel();
+        lblEmpSec1 = new javax.swing.JLabel();
+        addEmployeePanel1 = new javax.swing.JPanel();
+        lblIconAddEmployee1 = new javax.swing.JLabel();
+        lblAddEmployee1 = new javax.swing.JLabel();
+        addEmployeePanel2 = new javax.swing.JPanel();
+        lblIconAddEmployee2 = new javax.swing.JLabel();
+        lblAddEmployee2 = new javax.swing.JLabel();
+        updateEmployeePanel2 = new javax.swing.JPanel();
+        lblIconUpdateEmployee2 = new javax.swing.JLabel();
+        lblUpdateEmployee2 = new javax.swing.JLabel();
+        deleteEmployeePanel2 = new javax.swing.JPanel();
+        lblIconDeleteEmployee2 = new javax.swing.JLabel();
+        lblDeleteEmployee3 = new javax.swing.JLabel();
+        lblEmpSec2 = new javax.swing.JLabel();
         addEmployeePane = new javax.swing.JPanel();
         addEmpPaneHeader = new javax.swing.JPanel();
         lblAddEmployeePane = new javax.swing.JLabel();
@@ -135,7 +150,7 @@ public class SysAdminHome extends javax.swing.JFrame {
         lblDesignation.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
         lblDesignation.setForeground(new java.awt.Color(102, 204, 255));
         lblDesignation.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDesignation.setText("HR Manager");
+        lblDesignation.setText("System Admin");
         sidePanel.add(lblDesignation, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 130, -1));
 
         btnViewLoggedInUserProfile.setBackground(new java.awt.Color(0, 0, 51));
@@ -272,20 +287,11 @@ public class SysAdminHome extends javax.swing.JFrame {
 
         panelDashboard.setBackground(new java.awt.Color(218, 228, 230));
 
-        lblWelcome.setBackground(new java.awt.Color(240, 240, 240));
-        lblWelcome.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
-        lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
-        lblWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblWelcome.setText("Welcome to EMS");
-
-        sepWelcome.setBackground(new java.awt.Color(240, 240, 240));
-        sepWelcome.setForeground(new java.awt.Color(153, 153, 153));
-
         lblEmpSec.setBackground(new java.awt.Color(240, 240, 240));
         lblEmpSec.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblEmpSec.setForeground(new java.awt.Color(51, 51, 51));
         lblEmpSec.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblEmpSec.setText("Employee Section");
+        lblEmpSec.setText("Hospitals Section");
 
         lblEmpInfoIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
@@ -299,12 +305,13 @@ public class SysAdminHome extends javax.swing.JFrame {
         addEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconAddEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconAddEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Add_Icon.png"))); // NOI18N
         addEmployeePanel.add(lblIconAddEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
 
         lblAddEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblAddEmployee.setForeground(new java.awt.Color(51, 204, 0));
         lblAddEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAddEmployee.setText("Add Employee");
+        lblAddEmployee.setText("Create Hospital");
         addEmployeePanel.add(lblAddEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
 
         updateEmployeePanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
@@ -317,12 +324,13 @@ public class SysAdminHome extends javax.swing.JFrame {
         updateEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconUpdateEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconUpdateEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Update_Icon.png"))); // NOI18N
         updateEmployeePanel.add(lblIconUpdateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
 
         lblUpdateEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblUpdateEmployee.setForeground(new java.awt.Color(0, 102, 204));
         lblUpdateEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblUpdateEmployee.setText("Update Employee");
+        lblUpdateEmployee.setText("Update Hospital");
         updateEmployeePanel.add(lblUpdateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
 
         deleteEmployeePanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
@@ -335,73 +343,205 @@ public class SysAdminHome extends javax.swing.JFrame {
         deleteEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconDeleteEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconDeleteEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Delete_Icon.png"))); // NOI18N
         deleteEmployeePanel.add(lblIconDeleteEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
 
         lblDeleteEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblDeleteEmployee.setForeground(new java.awt.Color(204, 0, 0));
         lblDeleteEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDeleteEmployee.setText("Delete Employee");
+        lblDeleteEmployee.setText("Delete Hospital");
         deleteEmployeePanel.add(lblDeleteEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
 
-        reportEmployeePanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
-        reportEmployeePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        reportEmployeePanel.setPreferredSize(new java.awt.Dimension(170, 120));
-        reportEmployeePanel.addMouseListener(new java.awt.event.MouseAdapter() {
+        updateEmployeePanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
+        updateEmployeePanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        updateEmployeePanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                reportEmployeePanelMouseClicked(evt);
+                updateEmployeePanel1MouseClicked(evt);
             }
         });
-        reportEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        reportEmployeePanel.add(lblIconEmployeeReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
+        updateEmployeePanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblDeleteEmployee1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        lblDeleteEmployee1.setForeground(new java.awt.Color(0, 102, 153));
-        lblDeleteEmployee1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDeleteEmployee1.setText("Employee Report");
-        reportEmployeePanel.add(lblDeleteEmployee1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
+        lblIconUpdateEmployee1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconUpdateEmployee1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Update_Icon.png"))); // NOI18N
+        updateEmployeePanel1.add(lblIconUpdateEmployee1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
+
+        lblUpdateEmployee1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblUpdateEmployee1.setForeground(new java.awt.Color(0, 102, 204));
+        lblUpdateEmployee1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUpdateEmployee1.setText("Update Vendor");
+        updateEmployeePanel1.add(lblUpdateEmployee1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
+
+        deleteEmployeePanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
+        deleteEmployeePanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteEmployeePanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteEmployeePanel1MouseClicked(evt);
+            }
+        });
+        deleteEmployeePanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblIconDeleteEmployee1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconDeleteEmployee1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Delete_Icon.png"))); // NOI18N
+        deleteEmployeePanel1.add(lblIconDeleteEmployee1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
+
+        lblDeleteEmployee2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblDeleteEmployee2.setForeground(new java.awt.Color(204, 0, 0));
+        lblDeleteEmployee2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDeleteEmployee2.setText("Delete Vendor");
+        deleteEmployeePanel1.add(lblDeleteEmployee2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
+
+        lblEmpSec1.setBackground(new java.awt.Color(240, 240, 240));
+        lblEmpSec1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblEmpSec1.setForeground(new java.awt.Color(51, 51, 51));
+        lblEmpSec1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEmpSec1.setText("Vendors Section");
+
+        addEmployeePanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
+        addEmployeePanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addEmployeePanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addEmployeePanel1MouseClicked(evt);
+            }
+        });
+        addEmployeePanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblIconAddEmployee1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconAddEmployee1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Add_Icon.png"))); // NOI18N
+        addEmployeePanel1.add(lblIconAddEmployee1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
+
+        lblAddEmployee1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblAddEmployee1.setForeground(new java.awt.Color(51, 204, 0));
+        lblAddEmployee1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAddEmployee1.setText("Create Vendor");
+        addEmployeePanel1.add(lblAddEmployee1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
+
+        addEmployeePanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
+        addEmployeePanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addEmployeePanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addEmployeePanel2MouseClicked(evt);
+            }
+        });
+        addEmployeePanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblIconAddEmployee2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconAddEmployee2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Add_Icon.png"))); // NOI18N
+        addEmployeePanel2.add(lblIconAddEmployee2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
+
+        lblAddEmployee2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblAddEmployee2.setForeground(new java.awt.Color(51, 204, 0));
+        lblAddEmployee2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAddEmployee2.setText("Create NGO");
+        addEmployeePanel2.add(lblAddEmployee2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
+
+        updateEmployeePanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
+        updateEmployeePanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        updateEmployeePanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateEmployeePanel2MouseClicked(evt);
+            }
+        });
+        updateEmployeePanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblIconUpdateEmployee2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconUpdateEmployee2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Update_Icon.png"))); // NOI18N
+        updateEmployeePanel2.add(lblIconUpdateEmployee2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
+
+        lblUpdateEmployee2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblUpdateEmployee2.setForeground(new java.awt.Color(0, 102, 204));
+        lblUpdateEmployee2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUpdateEmployee2.setText("Update NGO");
+        updateEmployeePanel2.add(lblUpdateEmployee2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
+
+        deleteEmployeePanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
+        deleteEmployeePanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteEmployeePanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteEmployeePanel2MouseClicked(evt);
+            }
+        });
+        deleteEmployeePanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblIconDeleteEmployee2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconDeleteEmployee2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Delete_Icon.png"))); // NOI18N
+        deleteEmployeePanel2.add(lblIconDeleteEmployee2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
+
+        lblDeleteEmployee3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblDeleteEmployee3.setForeground(new java.awt.Color(204, 0, 0));
+        lblDeleteEmployee3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDeleteEmployee3.setText("Delete NGO");
+        deleteEmployeePanel2.add(lblDeleteEmployee3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
+
+        lblEmpSec2.setBackground(new java.awt.Color(240, 240, 240));
+        lblEmpSec2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblEmpSec2.setForeground(new java.awt.Color(51, 51, 51));
+        lblEmpSec2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEmpSec2.setText("NGOs Section");
 
         javax.swing.GroupLayout panelDashboardLayout = new javax.swing.GroupLayout(panelDashboard);
         panelDashboard.setLayout(panelDashboardLayout);
         panelDashboardLayout.setHorizontalGroup(
             panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDashboardLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap()
                 .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelDashboardLayout.createSequentialGroup()
-                        .addComponent(addEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(updateEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(deleteEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(reportEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblWelcome)
-                    .addComponent(sepWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelDashboardLayout.createSequentialGroup()
-                        .addComponent(lblEmpSec)
+                        .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelDashboardLayout.createSequentialGroup()
+                                .addComponent(addEmployeePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(updateEmployeePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(deleteEmployeePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelDashboardLayout.createSequentialGroup()
+                                .addComponent(addEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(updateEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(deleteEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblEmpInfoIcon)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addComponent(lblEmpInfoIcon))
+                    .addGroup(panelDashboardLayout.createSequentialGroup()
+                        .addComponent(addEmployeePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(updateEmployeePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(deleteEmployeePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblEmpSec2)
+                    .addComponent(lblEmpSec1)
+                    .addComponent(lblEmpSec))
+                .addContainerGap(220, Short.MAX_VALUE))
         );
         panelDashboardLayout.setVerticalGroup(
             panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDashboardLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(lblWelcome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sepWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelDashboardLayout.createSequentialGroup()
-                        .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblEmpInfoIcon)
-                            .addComponent(lblEmpSec))
-                        .addGap(18, 18, 18)
-                        .addComponent(addEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(updateEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(reportEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(268, Short.MAX_VALUE))
+                        .addGap(136, 136, 136)
+                        .addComponent(lblEmpInfoIcon))
+                    .addGroup(panelDashboardLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(lblEmpSec)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(addEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updateEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deleteEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addComponent(lblEmpSec1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(addEmployeePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updateEmployeePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deleteEmployeePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(24, 24, 24)
+                .addComponent(lblEmpSec2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(addEmployeePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateEmployeePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteEmployeePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         controlPanel.add(panelDashboard, "card2");
@@ -973,16 +1113,6 @@ public class SysAdminHome extends javax.swing.JFrame {
         reportEmployeePane.setVisible(false);
     }//GEN-LAST:event_deleteEmployeePanelMouseClicked
 
-    private void reportEmployeePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportEmployeePanelMouseClicked
-        // TODO add your handling code here:
-        addEmployeePane.setVisible(false);
-        panelDashboard.setVisible(false);
-        panelEmployees.setVisible(false);
-        updateEmployeePane.setVisible(false);
-        deleteEmployeePane.setVisible(false);
-        reportEmployeePane.setVisible(true);
-    }//GEN-LAST:event_reportEmployeePanelMouseClicked
-
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         addEmployeePane.setVisible(false);
@@ -1129,6 +1259,30 @@ public class SysAdminHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSearch1KeyPressed
 
+    private void updateEmployeePanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateEmployeePanel1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateEmployeePanel1MouseClicked
+
+    private void deleteEmployeePanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteEmployeePanel1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteEmployeePanel1MouseClicked
+
+    private void addEmployeePanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addEmployeePanel1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addEmployeePanel1MouseClicked
+
+    private void addEmployeePanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addEmployeePanel2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addEmployeePanel2MouseClicked
+
+    private void updateEmployeePanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateEmployeePanel2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateEmployeePanel2MouseClicked
+
+    private void deleteEmployeePanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteEmployeePanel2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteEmployeePanel2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1170,6 +1324,8 @@ public class SysAdminHome extends javax.swing.JFrame {
     private javax.swing.JPanel addEmpPaneHeader;
     private javax.swing.JPanel addEmployeePane;
     private javax.swing.JPanel addEmployeePanel;
+    private javax.swing.JPanel addEmployeePanel1;
+    private javax.swing.JPanel addEmployeePanel2;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAdd2;
     private javax.swing.JButton btnBack;
@@ -1180,12 +1336,16 @@ public class SysAdminHome extends javax.swing.JFrame {
     private javax.swing.JPanel controlPanel;
     private javax.swing.JPanel dashboardPanel;
     private javax.swing.JPanel deleteEmployeePanel;
+    private javax.swing.JPanel deleteEmployeePanel1;
+    private javax.swing.JPanel deleteEmployeePanel2;
     private com.toedter.calendar.JDateChooser empStartDateField;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAboutUS;
     private javax.swing.JLabel lblActiveEmp;
     private javax.swing.JLabel lblAddEmployee;
+    private javax.swing.JLabel lblAddEmployee1;
+    private javax.swing.JLabel lblAddEmployee2;
     private javax.swing.JLabel lblAddEmployeePane;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblAge;
@@ -1195,7 +1355,8 @@ public class SysAdminHome extends javax.swing.JFrame {
     private javax.swing.JLabel lblDashIcon;
     private javax.swing.JLabel lblDashboard;
     private javax.swing.JLabel lblDeleteEmployee;
-    private javax.swing.JLabel lblDeleteEmployee1;
+    private javax.swing.JLabel lblDeleteEmployee2;
+    private javax.swing.JLabel lblDeleteEmployee3;
     private javax.swing.JLabel lblDepartment;
     private javax.swing.JLabel lblDesg;
     private javax.swing.JLabel lblDesignation;
@@ -1204,14 +1365,21 @@ public class SysAdminHome extends javax.swing.JFrame {
     private javax.swing.JLabel lblEmpId;
     private javax.swing.JLabel lblEmpInfoIcon;
     private javax.swing.JLabel lblEmpSec;
+    private javax.swing.JLabel lblEmpSec1;
+    private javax.swing.JLabel lblEmpSec2;
     private javax.swing.JLabel lblEmployee;
     private javax.swing.JLabel lblEmployeePic;
     private javax.swing.JLabel lblFName;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblIconAddEmployee;
+    private javax.swing.JLabel lblIconAddEmployee1;
+    private javax.swing.JLabel lblIconAddEmployee2;
     private javax.swing.JLabel lblIconDeleteEmployee;
-    private javax.swing.JLabel lblIconEmployeeReport;
+    private javax.swing.JLabel lblIconDeleteEmployee1;
+    private javax.swing.JLabel lblIconDeleteEmployee2;
     private javax.swing.JLabel lblIconUpdateEmployee;
+    private javax.swing.JLabel lblIconUpdateEmployee1;
+    private javax.swing.JLabel lblIconUpdateEmployee2;
     private javax.swing.JLabel lblInActiveEmp;
     private javax.swing.JLabel lblLName;
     private javax.swing.JLabel lblLogoutBtn;
@@ -1219,10 +1387,11 @@ public class SysAdminHome extends javax.swing.JFrame {
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblTotalEmp;
     private javax.swing.JLabel lblUpdateEmployee;
+    private javax.swing.JLabel lblUpdateEmployee1;
+    private javax.swing.JLabel lblUpdateEmployee2;
     private javax.swing.JLabel lblUserImg;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JLabel lblViewUserProfile;
-    private javax.swing.JLabel lblWelcome;
     private javax.swing.JPanel panelDashboard;
     private javax.swing.JPanel panelEmployeeHeader;
     private javax.swing.JPanel panelEmployees;
@@ -1231,8 +1400,6 @@ public class SysAdminHome extends javax.swing.JFrame {
     private javax.swing.JRadioButton r_female;
     private javax.swing.JRadioButton r_male;
     private javax.swing.JRadioButton r_otherGender;
-    private javax.swing.JPanel reportEmployeePanel;
-    private javax.swing.JSeparator sepWelcome;
     private javax.swing.JPanel sidePanel;
     private javax.swing.JTable tblEmployeesData;
     private javax.swing.JLabel txtActiveEmp;
@@ -1249,5 +1416,7 @@ public class SysAdminHome extends javax.swing.JFrame {
     private javax.swing.JTextField txtSearch1;
     private javax.swing.JLabel txtTotalEmp;
     private javax.swing.JPanel updateEmployeePanel;
+    private javax.swing.JPanel updateEmployeePanel1;
+    private javax.swing.JPanel updateEmployeePanel2;
     // End of variables declaration//GEN-END:variables
 }
