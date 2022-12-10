@@ -80,7 +80,7 @@ public class OrderDispatchedEmail {
                     "If you have any questions, please reach out to the creators of this page, Vicken, Nikhil, and Farheen at vicken.test@gmail.com");
             return message;
         } catch (Exception ex) {
-            Logger.getLogger(RegistrationEmail.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SOSEmail.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
