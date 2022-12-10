@@ -60,7 +60,7 @@ public class LoginForm extends javax.swing.JFrame {
         loginPanel.setBackground(new java.awt.Color(255, 255, 255));
         loginPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 153, 153)));
 
-        headerPanel.setBackground(new java.awt.Color(102, 102, 255));
+        headerPanel.setBackground(new java.awt.Color(0, 0, 102));
         headerPanel.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -73,8 +73,9 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setBackground(new java.awt.Color(0, 0, 102));
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Login Here!");
 
@@ -83,9 +84,9 @@ public class LoginForm extends javax.swing.JFrame {
         headerPanelLayout.setHorizontalGroup(
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerPanelLayout.createSequentialGroup()
-                .addGap(105, 105, 105)
+                .addGap(106, 106, 106)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79)
+                .addGap(78, 78, 78)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         headerPanelLayout.setVerticalGroup(
@@ -94,18 +95,18 @@ public class LoginForm extends javax.swing.JFrame {
                 .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(headerPanelLayout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(16, 16, 16)
                         .addComponent(jLabel2)))
-                .addGap(36, 36, 36))
+                .addGap(26, 26, 26))
         );
 
         lblUsername.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblUsername.setForeground(new java.awt.Color(153, 153, 153));
-        lblUsername.setText("Username :");
+        lblUsername.setText("Username:");
 
         lblPassword.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(153, 153, 153));
-        lblPassword.setText("Password :");
+        lblPassword.setText("Password:");
 
         txtUsername.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         txtUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(255, 153, 102)));
@@ -113,9 +114,9 @@ public class LoginForm extends javax.swing.JFrame {
         txtPassword.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         txtPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(255, 153, 102)));
 
-        btnLogin.setBackground(new java.awt.Color(102, 102, 255));
+        btnLogin.setBackground(new java.awt.Color(0, 0, 102));
         btnLogin.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setForeground(new java.awt.Color(204, 204, 204));
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,9 +154,9 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
-        btnSignup.setBackground(new java.awt.Color(51, 0, 204));
+        btnSignup.setBackground(new java.awt.Color(0, 0, 102));
         btnSignup.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnSignup.setForeground(new java.awt.Color(255, 255, 255));
+        btnSignup.setForeground(new java.awt.Color(204, 204, 204));
         btnSignup.setText("Sign Up");
         btnSignup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -168,7 +169,7 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
-        btnLogin2.setBackground(new java.awt.Color(255, 51, 51));
+        btnLogin2.setBackground(new java.awt.Color(255, 0, 51));
         btnLogin2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnLogin2.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin2.setText("SOS!!!");
