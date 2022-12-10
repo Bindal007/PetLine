@@ -4,6 +4,10 @@
  */
 package delivery;
 
+import email.OrderDeliveredEmail;
+import email.OrderDispatchedEmail;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.RowFilter;
 import javax.swing.event.MouseInputListener;
 import javax.swing.table.DefaultTableModel;
@@ -122,7 +126,7 @@ public class DeliveryPerson extends javax.swing.JFrame {
         jLabel1.setText("Welcome Delivery Person");
 
         closeBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        closeBtn.setForeground(new java.awt.Color(240, 240, 240));
+        closeBtn.setForeground(new java.awt.Color(0, 0, 0));
         closeBtn.setText("Close");
         closeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,7 +135,7 @@ public class DeliveryPerson extends javax.swing.JFrame {
         });
 
         searchTxt.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        searchTxt.setForeground(new java.awt.Color(240, 240, 240));
+        searchTxt.setForeground(new java.awt.Color(0, 0, 0));
         searchTxt.setText("search");
         searchTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +164,7 @@ public class DeliveryPerson extends javax.swing.JFrame {
         jScrollPane1.setViewportView(deliveryTable);
 
         comboMapType.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        comboMapType.setForeground(new java.awt.Color(240, 240, 240));
+        comboMapType.setForeground(new java.awt.Color(0, 0, 0));
         comboMapType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Street View", "Virtual Earth", "Hybrid", "Satellite" }));
         comboMapType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,27 +188,32 @@ public class DeliveryPerson extends javax.swing.JFrame {
         );
 
         cusNameBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        cusNameBtn.setForeground(new java.awt.Color(240, 240, 240));
+        cusNameBtn.setForeground(new java.awt.Color(0, 0, 0));
         cusNameBtn.setText("Customer Name");
 
         cusNumberBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        cusNumberBtn.setForeground(new java.awt.Color(240, 240, 240));
+        cusNumberBtn.setForeground(new java.awt.Color(0, 0, 0));
         cusNumberBtn.setText("Customer Phone Number");
 
         cusEmailBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        cusEmailBtn.setForeground(new java.awt.Color(240, 240, 240));
+        cusEmailBtn.setForeground(new java.awt.Color(0, 0, 0));
         cusEmailBtn.setText("Customer Email");
 
         deliveredBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        deliveredBtn.setForeground(new java.awt.Color(240, 240, 240));
+        deliveredBtn.setForeground(new java.awt.Color(0, 0, 0));
         deliveredBtn.setText("DELIVERED");
+        deliveredBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deliveredBtnActionPerformed(evt);
+            }
+        });
 
         packageBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        packageBtn.setForeground(new java.awt.Color(240, 240, 240));
+        packageBtn.setForeground(new java.awt.Color(0, 0, 0));
         packageBtn.setText("Package Info");
 
         cusAddressBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        cusAddressBtn.setForeground(new java.awt.Color(240, 240, 240));
+        cusAddressBtn.setForeground(new java.awt.Color(0, 0, 0));
         cusAddressBtn.setText("Customer Address");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -350,6 +359,15 @@ public class DeliveryPerson extends javax.swing.JFrame {
     private void allDeliveriesBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allDeliveriesBtn1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_allDeliveriesBtn1ActionPerformed
+
+    private void deliveredBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deliveredBtnActionPerformed
+        String email = "vicken.test@gmail.com";
+        try {
+            OrderDeliveredEmail.orderDelivered(email);
+        } catch (Exception ex) {
+            Logger.getLogger(DeliveryPartner.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_deliveredBtnActionPerformed
 
     /**
      * @param args the command line arguments

@@ -4,6 +4,9 @@
  */
 package delivery;
 
+import email.OrderDispatchedEmail;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -153,6 +156,11 @@ public class DeliveryPartner extends javax.swing.JFrame {
         assignBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         assignBtn.setForeground(new java.awt.Color(240, 240, 240));
         assignBtn.setText("Assign");
+        assignBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assignBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -240,6 +248,15 @@ public class DeliveryPartner extends javax.swing.JFrame {
     private void allDeliveriesBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allDeliveriesBtn1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_allDeliveriesBtn1ActionPerformed
+
+    private void assignBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignBtnActionPerformed
+        String email = "vicken.test@gmail.com";
+        try {
+            OrderDispatchedEmail.orderDispatched(email);
+        } catch (Exception ex) {
+            Logger.getLogger(DeliveryPartner.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_assignBtnActionPerformed
 
     /**
      * @param args the command line arguments

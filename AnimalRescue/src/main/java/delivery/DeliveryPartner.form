@@ -384,6 +384,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Assign"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="assignBtnActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
