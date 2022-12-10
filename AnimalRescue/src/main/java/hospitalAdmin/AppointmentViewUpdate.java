@@ -281,7 +281,7 @@ public class AppointmentViewUpdate extends javax.swing.JPanel {
         String tblUser = table2.getValueAt(table2.getSelectedRow(), 3).toString();
         String tblVet = table2.getValueAt(table2.getSelectedRow(), 4).toString();
         Date tblDate = (Date) table2.getValueAt(table2.getSelectedRow(),5);
-        Appointment tblObj = (Appointment) table2.getValueAt(table2.getSelectedRow(),6);
+//        Appointment tblObj = (Appointment) table2.getValueAt(table2.getSelectedRow(),6);
         
         LocalDate localDate = tblDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         
@@ -290,7 +290,7 @@ public class AppointmentViewUpdate extends javax.swing.JPanel {
         hospitalTxt.setText(tblHospital);
         vetTxt.setText(tblVet);
         userTxt.setText(tblUser);
-        datePicker.setDate(localDate);
+//        datePicker.setDate(localDate);
 
         dateLbl.setText(null);
     }//GEN-LAST:event_table2MouseClicked

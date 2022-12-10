@@ -190,16 +190,13 @@
                               <Component id="communityCombo" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="communityLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="cellLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cellTxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cellLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cellTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                   <Component id="createBtn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               </Group>

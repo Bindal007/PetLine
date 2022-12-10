@@ -33,11 +33,11 @@ public class AppointmentCreate extends javax.swing.JFrame {
         cityCombo.removeAllItems();
         cityCombo.addItem("");
         
-        for (City c : MainJFrame.cityDirectory.getCityList()){
-            cityCombo.addItem(c.getName());
-        }
+//        for (City c : MainJFrame.cityDirectory.getCityList()){
+//            cityCombo.addItem(c.getName());
+//        }
         
-        cityCombo.getSelectedItem("");
+//        cityCombo.getSelectedItem("");
         validations = new Validations();
     }
 
@@ -266,7 +266,6 @@ public class AppointmentCreate extends javax.swing.JFrame {
             cityLbl.setText(null);
             userLbl.setText(null);
             vetLbl.setText(null);
-            city = MainJFrame.cityDirectory.findCity(city_name.toString());
         }
     }//GEN-LAST:event_cityComboActionPerformed
 
@@ -283,18 +282,17 @@ public class AppointmentCreate extends javax.swing.JFrame {
             vetCombo.removeAllItems();
             userCombo.removeAllItems();
             hospitalLbl.setText(null);
-            hospital = MainJFrame.hospitalDirectory.getHospitalObject(hospitalName.toString(), city, community);
             
             vetCombo.addItem("");
-            for (Vet c: hospital.getVetList()) {
-                vetCombo.addItem(c.getName());
-            }
+//            for (Vet c: hospital.getVetList()) {
+//                vetCombo.addItem(c.getName());
+//            }
             vetCombo.setSelectedItem("");
             
             vetCombo.addItem("");
-            for (Person c: hospital.getPersonList()) {
-                vetCombo.addItem(c.getName());
-            }
+//            for (Person c: hospital.getPersonList()) {
+//                vetCombo.addItem(c.getName());
+//            }
             vetCombo.setSelectedItem("");
 
         }
@@ -307,7 +305,7 @@ public class AppointmentCreate extends javax.swing.JFrame {
             vetLbl.setText("Please Select Doctor");
         } else {
             vetLbl.setText(null);
-            vet = hospital.getVetByName(vetName.toString());
+//            vet = hospital.getVetByName(vetName.toString());
 
         }
     }//GEN-LAST:event_vetComboActionPerformed
@@ -315,13 +313,13 @@ public class AppointmentCreate extends javax.swing.JFrame {
     private void userComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userComboActionPerformed
         Object personName = userCombo.getSelectedItem();
 
-        if (patientName == null || patientName.toString().equals("")) {
-            userLbl.setText("Please Select Doctor");
-        } else {
-            userLbl.setText(null);
-            person = hospital.getPersontByName(personName.toString());
-
-        }
+//        if (patientName == null || patientName.toString().equals("")) {
+//            userLbl.setText("Please Select Doctor");
+//        } else {
+//            userLbl.setText(null);
+//            person = hospital.getPersontByName(personName.toString());
+//
+//        }
     }//GEN-LAST:event_userComboActionPerformed
 
     private void bookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookBtnActionPerformed
@@ -337,10 +335,10 @@ public class AppointmentCreate extends javax.swing.JFrame {
             valid = false;
         }
         
-        if (!this.validations.ValidateEmpty(datePicker.getDateStringOrEmptyString()) ) {
-            dateLbl.setText("Date of joining is required");
-            valid = false;
-        }
+//        if (!this.validations.ValidateEmpty(datePicker.getDateStringOrEmptyString()) ) {
+//            dateLbl.setText("Date of joining is required");
+//            valid = false;
+//        }
 
         if (vetCombo.getSelectedItem() == null || vetCombo.getSelectedItem().toString().isEmpty()) {
             vetLbl.setText("Please Select doctor");
@@ -357,14 +355,14 @@ public class AppointmentCreate extends javax.swing.JFrame {
             
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-M-dd");
             
-            try {
-                date = formatter.parse(datePicker.getDateStringOrEmptyString());
-                
-            } catch (ParseException ex) {
-                date = new Date(1970, 01, 01);
-            }
-
-            MainJFrame.encounterDirectory.newEncounter(date, doctor, hospital, patient);
+//            try {
+//                date = formatter.parse(datePicker.getDateStringOrEmptyString());
+//                
+//            } catch (ParseException ex) {
+//                date = new Date(1970, 01, 01);
+//            }
+//
+//            MainJFrame.encounterDirectory.newEncounter(date, doctor, hospital, patient);
             
             JOptionPane.showMessageDialog(this, "encounter details Added");
             cityCombo.setSelectedItem("");
