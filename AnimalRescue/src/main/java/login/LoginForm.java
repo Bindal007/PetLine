@@ -298,6 +298,7 @@ public class LoginForm extends javax.swing.JFrame {
                 if(userType.equals("System Administrator")) {
                     SysAdminHome adminPage = new SysAdminHome();
                     adminPage.setVisible(true);
+                    this.dispose();
                 }
                 if(userType.equals("Vendor")) {
                     SysAdminHome adminPage = new SysAdminHome();
