@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import models.Vet;
-import models.Appointment;
+//import models.Appointment;
 import resources.Validations;
 
 /**

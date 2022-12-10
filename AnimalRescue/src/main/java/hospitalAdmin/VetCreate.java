@@ -9,7 +9,6 @@ import resources.Validations;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import javax.swing.JOptionPane;
 import models.City;
-import models.Community;
 import models.Hospital;
 import models.Person;
 

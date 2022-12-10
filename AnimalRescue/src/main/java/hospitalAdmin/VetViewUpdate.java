@@ -370,15 +370,15 @@ public class VetViewUpdate extends javax.swing.JPanel {
             valid = false;
         }
         
-        String password = String.valueOf(passwordTxt.getPassword());
-        if (!this.validations.ValidatePassword(password)){
-            passwordLbl.setText("Password should be 5-12 characters long");
-            valid = false;
-        }
+//        String password = String.valueOf(passwordTxt.getPassword());
+//        if (!this.validations.ValidatePassword(password)){
+//            passwordLbl.setText("Password should be 5-12 characters long");
+//            valid = false;
+//        }
     }//GEN-LAST:event_updateBtnActionPerformed
 
     private void table1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table1MouseClicked
-        DefaultTableModel table1 = (DefaultTableModel) table1.getModel();
+//        DefaultTableModel table1 = (DefaultTableModel) table1.getModel();
         
 //        String tblCity = table1.getValueAt(table1.getSelectedRow(), 0).toString();
 //        String tblCommunity = table1.getValueAt(table1.getSelectedRow(), 1).toString();
