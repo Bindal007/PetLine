@@ -183,7 +183,7 @@ public class Person {
         Person person = new Person();
         ResultSet rs = database.getPersonDetails(userType, username, password);
         try {
-            if(rs.next()) {
+            if(rs != null) {
                 person.personID = rs.getInt("personId");
                 person.personType = rs.getString("personType");
                 person.name = rs.getString("name");
@@ -191,14 +191,16 @@ public class Person {
                 person.ssn = rs.getString("ssn");
                 person.username = rs.getString("username");
                 person.password = rs.getString("password");
-                person.profilePic = rs.getBlob("profilePic");
+//                person.profilePic = rs.getBlob("profilePic");
                 person.email = rs.getString("email");
                 person.phoneNumber = rs.getString("phoneNo");
+                return person;
             } else {
                 return null;
             }
             
         } catch(Exception e) {
+            e.printStackTrace();
             System.out.println("User created!");
         }
         if (rs == null) {
