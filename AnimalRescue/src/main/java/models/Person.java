@@ -185,4 +185,29 @@ public class Person {
         return person;
     }
     
+    public int createPerson(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId) {
+        int res = database.createPerson(name, email, phnNo, uname, pass, age, ssn, addressId);
+        return res;
+    }
+    
+    public int createVendor(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId) {
+        int res = database.createPerson(name, email, phnNo, uname, pass, age, ssn, addressId);
+        return res;
+    }
+    
+    public int createNgo(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId) {
+        int res = database.createPerson(name, email, phnNo, uname, pass, age, ssn, addressId);
+        return res;
+    }
+    
+    public int createHospital(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId) {
+        int res = database.createPerson(name, email, phnNo, uname, pass, age, ssn, addressId);
+        return res;
+    }
+    
+    public int createDelivery(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId) {
+        int res = database.createPerson(name, email, phnNo, uname, pass, age, ssn, addressId);
+        return res;
+    }
+    
 }

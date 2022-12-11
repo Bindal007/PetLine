@@ -60,11 +60,12 @@ public class Product {
         this.productPrice = productPrice;
     }
     
-    public void createProduct(String name, String cat, int qty, double price) {
+    public int createProduct(String name, String cat, int qty, double price) {
         int res = db.createProduct(name, cat, qty, price);
         if(res != 0) {
             JOptionPane.showMessageDialog(null, "Product is created!");
         }
+        return res;
     }
     
     public ResultSet getProducts() {

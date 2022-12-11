@@ -1,6 +1,10 @@
 
 package models;
 
+import database.Db;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author vicken
@@ -15,18 +19,23 @@ public class Address {
     private int zipCode;
     private long latitude;
     private long longitude;
+    private Db db = new Db();
     
-    public Address(int addressID, int houseNum, String street, String city, String state,
-            int zipCode, long latitude, long longitude){
-        this.addressID = addressID;
-        this.houseNum = houseNum;
-        this.street = street;
-        this.city = city;
-        this.state = state;
-        this.zipCode = zipCode;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
+//    public Address(int addressID, int houseNum, String street, String city, String state,
+//            int zipCode, long latitude, long longitude){
+//        this.addressID = addressID;
+//        this.houseNum = houseNum;
+//        this.street = street;
+//        this.city = city;
+//        this.state = state;
+//        this.zipCode = zipCode;
+//        this.latitude = latitude;
+//        this.longitude = longitude;
+//    }
+//
+//    public Address() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
     
     public boolean isMatch(String name){
         if(getAddressID() == addressID) return true;
@@ -95,5 +104,15 @@ public class Address {
     
     public void setLongitude(long longitude) {
         this.longitude = longitude;
+    }
+    
+    public ResultSet getCityList() {
+        ResultSet rs = db.getAllCities();
+        return rs;
+    }
+    
+    public int createAddress(String street, String city, String state, String zip) {
+        int res = db.createAddress(street, city, state, zip);
+        return res;
     }
 }

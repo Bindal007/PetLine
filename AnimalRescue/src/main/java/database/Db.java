@@ -36,7 +36,6 @@ public class Db {
             st.setString(2, password);
             st.setString(3, userType);
             int row = st.executeUpdate();
-            rs.next();
             conn.close();
             return rs;
         } catch (Exception e) {
@@ -44,6 +43,64 @@ public class Db {
         }
         return rs;
          
+    }
+    
+//    --------------------------------------- User and Address CRUD ----------------------------------------------
+    public int createAddress(String street, String city, String state, String zip) {
+        try {
+            Connection conn = getConnect();
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into address (street, city, state, zipcode) values(?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+            st.setString(1, street);
+            st.setString(2, city);
+            st.setString(3, state);
+            st.setString(4, zip);
+            int row = st.executeUpdate();
+            ResultSet genKey = st.getGeneratedKeys();
+            if(genKey.next()) {
+                int key = genKey.getInt(1);
+                return key;
+            }
+            return row;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    
+    public int createPerson(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId) {
+        try {
+            Connection conn = getConnect();
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, age, SSN, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?,?,?)");
+            st.setString(1, name);
+            st.setString(2, "User");
+            st.setInt(3, age);
+            st.setString(4, ssn);
+            st.setString(5, uname);
+            st.setString(6, pass);
+            st.setInt(7, addressId);
+            st.setString(8, email);
+            st.setString(9, phnNo);
+            int row = st.executeUpdate();
+            conn.close();
+            return row;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    
+    public ResultSet getAllCities() {
+        ResultSet rs = null;
+        try {
+            Connection conn = getConnect();
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("select * from city");
+            rs = st.executeQuery();
+//            conn.close();
+            return rs;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return rs;
     }
     
     
@@ -72,7 +129,6 @@ public class Db {
             Connection conn = getConnect();
             PreparedStatement st = (PreparedStatement) conn.prepareStatement("select * from product");
             rs = st.executeQuery();
-            rs.next();
             conn.close();
             return rs;
         } catch(Exception e) {
@@ -88,7 +144,6 @@ public class Db {
             PreparedStatement st = (PreparedStatement) conn.prepareStatement("select * from product where vendorId = ?");
             st.setInt(1, vendorId);
             rs = st.executeQuery();
-            rs.next();
             conn.close();
             return rs;
         } catch(Exception e) {

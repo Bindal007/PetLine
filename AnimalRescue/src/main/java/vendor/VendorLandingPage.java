@@ -84,8 +84,6 @@ public class VendorLandingPage extends javax.swing.JFrame {
         lblUserImg = new javax.swing.JLabel();
         lblUsername = new javax.swing.JLabel();
         lblDesignation = new javax.swing.JLabel();
-        btnViewLoggedInUserProfile = new javax.swing.JPanel();
-        lblViewUserProfile = new javax.swing.JLabel();
         btnDashboard = new javax.swing.JPanel();
         lblDashIcon = new javax.swing.JLabel();
         lblDashboard = new javax.swing.JLabel();
@@ -189,28 +187,6 @@ public class VendorLandingPage extends javax.swing.JFrame {
         lblDesignation.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDesignation.setText("System Admin");
         sidePanel.add(lblDesignation, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 130, -1));
-
-        btnViewLoggedInUserProfile.setBackground(new java.awt.Color(0, 0, 51));
-
-        lblViewUserProfile.setBackground(new java.awt.Color(240, 240, 240));
-        lblViewUserProfile.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        lblViewUserProfile.setForeground(new java.awt.Color(255, 255, 255));
-        lblViewUserProfile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblViewUserProfile.setText("View Profile");
-        lblViewUserProfile.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(255, 255, 255)));
-
-        javax.swing.GroupLayout btnViewLoggedInUserProfileLayout = new javax.swing.GroupLayout(btnViewLoggedInUserProfile);
-        btnViewLoggedInUserProfile.setLayout(btnViewLoggedInUserProfileLayout);
-        btnViewLoggedInUserProfileLayout.setHorizontalGroup(
-            btnViewLoggedInUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblViewUserProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-        );
-        btnViewLoggedInUserProfileLayout.setVerticalGroup(
-            btnViewLoggedInUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblViewUserProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-
-        sidePanel.add(btnViewLoggedInUserProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 90, 30));
 
         btnDashboard.setBackground(new java.awt.Color(0, 0, 51));
         btnDashboard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1014,9 +990,8 @@ public class VendorLandingPage extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(panelBillingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelBillingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel9)
-                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel9)
+                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelBillingsLayout.createSequentialGroup()
                         .addGap(119, 119, 119)
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1242,7 +1217,6 @@ public class VendorLandingPage extends javax.swing.JFrame {
     private javax.swing.JPanel billingPanel;
     private javax.swing.JPanel btnDashboard;
     private javax.swing.JPanel btnEmployee;
-    private javax.swing.JPanel btnViewLoggedInUserProfile;
     private javax.swing.JPanel btnViewLogout;
     private javax.swing.JPanel controlPanel;
     private javax.swing.JPanel dashboardPanel;
@@ -1299,7 +1273,6 @@ public class VendorLandingPage extends javax.swing.JFrame {
     private javax.swing.JLabel lblUpdateEmployee;
     private javax.swing.JLabel lblUserImg;
     private javax.swing.JLabel lblUsername;
-    private javax.swing.JLabel lblViewUserProfile;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JPanel ordersPanel;
     private javax.swing.JPanel panelBillings;
