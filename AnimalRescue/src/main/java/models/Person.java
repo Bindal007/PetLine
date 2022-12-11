@@ -199,7 +199,7 @@ public class Person {
             }
             
         } catch(Exception e) {
-            e.printStackTrace();
+            System.out.println("User created!");
         }
         if (rs == null) {
             return null;

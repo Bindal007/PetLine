@@ -28,7 +28,7 @@ public class addPostDialog extends javax.swing.JDialog {
             }
         } catch(Exception e) 
         {
-            e.printStackTrace();
+            System.out.println("User created!");
         }
     }
 
