@@ -23,53 +23,23 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="900" max="32767" attributes="0"/>
+          <Component id="ngoSignupForm" alignment="1" pref="808" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="userSignupForm" min="-2" pref="770" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
+              <Component id="userSignupForm" alignment="1" pref="808" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="ngoSignupForm" min="-2" pref="770" max="-2" attributes="0"/>
-                  <EmptySpace pref="124" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-          <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                  <Component id="vendorSignupForm" min="-2" pref="770" max="-2" attributes="0"/>
-                  <EmptySpace pref="114" max="32767" attributes="0"/>
-              </Group>
+              <Component id="vendorSignupForm" alignment="1" pref="808" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="600" max="32767" attributes="0"/>
+          <Component id="ngoSignupForm" alignment="1" pref="614" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="userSignupForm" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
+              <Component id="userSignupForm" alignment="0" pref="614" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="ngoSignupForm" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-          </Group>
-          <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="24" max="32767" attributes="0"/>
-                  <Component id="vendorSignupForm" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-              </Group>
+              <Component id="vendorSignupForm" alignment="1" pref="614" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -88,7 +58,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="addEmpPaneHeader" alignment="0" pref="801" max="32767" attributes="0"/>
+              <Component id="addEmpPaneHeader" alignment="0" pref="803" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -304,6 +274,7 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBackMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
               </Events>
               <Constraints>
@@ -507,6 +478,7 @@
             </Property>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAddMouseClicked"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActionPerformed"/>
           </Events>
         </Component>
@@ -667,77 +639,72 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="addEmpPaneHeader3" alignment="0" max="32767" attributes="0"/>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+              <Component id="addEmpPaneHeader3" alignment="0" pref="812" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblAddress9" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtNgoState" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblAddress8" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtNgoZip" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="txtNgoName" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="lblFName3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtNgoSize" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="lblDepartment3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblContactNo3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtNgoUsername" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="txtNgoPhone" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="lblEmpId5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="lblEmpId4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblDesg3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblLName3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtNgoPassword" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="txtNgoEmail" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="txtNgoStartDate" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
-                                          </Group>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="txtNgoName" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblFName3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtNgoSize" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblDepartment3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblContactNo3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtNgoUsername" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtNgoPhone" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="lblEmail3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtNgoDesc" alignment="0" min="-2" pref="408" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblAddress6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtNgoAddress" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblAddress7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtNgoCity" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                      <Component id="lblEmpId5" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblEmployeePic3" alignment="1" min="-2" pref="172" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="btnAdd7" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                      </Group>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lblEmpId4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblDesg3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblLName3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNgoPassword" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtNgoEmail" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtNgoStartDate" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="btnAdd6" min="-2" pref="172" max="-2" attributes="0"/>
+                              <Component id="lblEmail3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNgoDesc" alignment="0" min="-2" pref="408" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblAddress6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNgoAddress" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblAddress7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNgoCity" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblAddress9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNgoState" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblAddress8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNgoZip" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblEmployeePic3" alignment="1" min="-2" pref="172" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="btnAdd7" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
+                      <Component id="btnAdd6" min="-2" pref="172" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -883,11 +850,12 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBack3MouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBack3ActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="650" y="4" width="110" height="30"/>
+                  <AbsoluteConstraints x="700" y="10" width="100" height="20"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -1246,7 +1214,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="addEmpPaneHeader5" alignment="0" pref="783" max="32767" attributes="0"/>
+              <Component id="addEmpPaneHeader5" alignment="0" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
@@ -1380,7 +1348,7 @@
                                   <Component id="txtVendorZip" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="153" max="32767" attributes="0"/>
+                          <EmptySpace pref="156" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
@@ -1449,11 +1417,12 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBack5MouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBack5ActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="680" y="10" width="90" height="20"/>
+                  <AbsoluteConstraints x="670" y="10" width="90" height="20"/>
                 </Constraint>
               </Constraints>
             </Component>

@@ -40,8 +40,6 @@ public class SysAdminHome extends javax.swing.JFrame {
         lblUserImg = new javax.swing.JLabel();
         lblUsername = new javax.swing.JLabel();
         lblDesignation = new javax.swing.JLabel();
-        btnViewLoggedInUserProfile = new javax.swing.JPanel();
-        lblViewUserProfile = new javax.swing.JLabel();
         btnDashboard = new javax.swing.JPanel();
         lblDashIcon = new javax.swing.JLabel();
         lblDashboard = new javax.swing.JLabel();
@@ -156,8 +154,8 @@ public class SysAdminHome extends javax.swing.JFrame {
         txtVendorAddress = new javax.swing.JTextField();
         lblEmpId8 = new javax.swing.JLabel();
         txtVendorName = new javax.swing.JTextField();
-        btnAdd10 = new javax.swing.JButton();
-        lblEmployeePic5 = new javax.swing.JLabel();
+        btnAddVendor = new javax.swing.JButton();
+        lblVendorPic = new javax.swing.JLabel();
         txtVendorStartDate = new com.toedter.calendar.JDateChooser();
         btnAdd11 = new javax.swing.JButton();
         lblAddress15 = new javax.swing.JLabel();
@@ -178,7 +176,6 @@ public class SysAdminHome extends javax.swing.JFrame {
         sidePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblUserImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblUserImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/User_Icon.png"))); // NOI18N
         sidePanel.add(lblUserImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 80));
 
         lblUsername.setBackground(new java.awt.Color(255, 255, 255));
@@ -195,28 +192,6 @@ public class SysAdminHome extends javax.swing.JFrame {
         lblDesignation.setText("System Admin");
         sidePanel.add(lblDesignation, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 130, -1));
 
-        btnViewLoggedInUserProfile.setBackground(new java.awt.Color(0, 0, 51));
-
-        lblViewUserProfile.setBackground(new java.awt.Color(240, 240, 240));
-        lblViewUserProfile.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        lblViewUserProfile.setForeground(new java.awt.Color(255, 255, 255));
-        lblViewUserProfile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblViewUserProfile.setText("View Profile");
-        lblViewUserProfile.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(255, 255, 255)));
-
-        javax.swing.GroupLayout btnViewLoggedInUserProfileLayout = new javax.swing.GroupLayout(btnViewLoggedInUserProfile);
-        btnViewLoggedInUserProfile.setLayout(btnViewLoggedInUserProfileLayout);
-        btnViewLoggedInUserProfileLayout.setHorizontalGroup(
-            btnViewLoggedInUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblViewUserProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-        );
-        btnViewLoggedInUserProfileLayout.setVerticalGroup(
-            btnViewLoggedInUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblViewUserProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-
-        sidePanel.add(btnViewLoggedInUserProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 90, 30));
-
         btnDashboard.setBackground(new java.awt.Color(0, 0, 51));
         btnDashboard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnDashboard.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -227,7 +202,6 @@ public class SysAdminHome extends javax.swing.JFrame {
         btnDashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblDashIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDashIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Laptop_Icon.png"))); // NOI18N
         btnDashboard.add(lblDashIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 130, 30));
 
         lblDashboard.setBackground(new java.awt.Color(240, 240, 240));
@@ -249,7 +223,6 @@ public class SysAdminHome extends javax.swing.JFrame {
         btnEmployee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblEmpIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblEmpIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Leave_Icon.png"))); // NOI18N
         btnEmployee.add(lblEmpIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 130, 30));
 
         lblEmployee.setBackground(new java.awt.Color(240, 240, 240));
@@ -347,7 +320,6 @@ public class SysAdminHome extends javax.swing.JFrame {
         addEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconAddEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconAddEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Add_Icon.png"))); // NOI18N
         addEmployeePanel.add(lblIconAddEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
 
         lblAddEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -366,7 +338,6 @@ public class SysAdminHome extends javax.swing.JFrame {
         updateEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconUpdateEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconUpdateEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Update_Icon.png"))); // NOI18N
         updateEmployeePanel.add(lblIconUpdateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
 
         lblUpdateEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -385,7 +356,6 @@ public class SysAdminHome extends javax.swing.JFrame {
         deleteEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconDeleteEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconDeleteEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Delete_Icon.png"))); // NOI18N
         deleteEmployeePanel.add(lblIconDeleteEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
 
         lblDeleteEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -404,7 +374,6 @@ public class SysAdminHome extends javax.swing.JFrame {
         updateEmployeePanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconUpdateEmployee1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconUpdateEmployee1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Update_Icon.png"))); // NOI18N
         updateEmployeePanel1.add(lblIconUpdateEmployee1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
 
         lblUpdateEmployee1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -423,7 +392,6 @@ public class SysAdminHome extends javax.swing.JFrame {
         deleteEmployeePanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconDeleteEmployee1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconDeleteEmployee1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Delete_Icon.png"))); // NOI18N
         deleteEmployeePanel1.add(lblIconDeleteEmployee1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
 
         lblDeleteEmployee2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -448,7 +416,6 @@ public class SysAdminHome extends javax.swing.JFrame {
         addEmployeePanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconAddEmployee1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconAddEmployee1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Add_Icon.png"))); // NOI18N
         addEmployeePanel1.add(lblIconAddEmployee1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
 
         lblAddEmployee1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -467,7 +434,6 @@ public class SysAdminHome extends javax.swing.JFrame {
         addEmployeePanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconAddEmployee2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconAddEmployee2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Add_Icon.png"))); // NOI18N
         addEmployeePanel2.add(lblIconAddEmployee2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
 
         lblAddEmployee2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -486,7 +452,6 @@ public class SysAdminHome extends javax.swing.JFrame {
         updateEmployeePanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconUpdateEmployee2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconUpdateEmployee2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Update_Icon.png"))); // NOI18N
         updateEmployeePanel2.add(lblIconUpdateEmployee2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
 
         lblUpdateEmployee2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -505,7 +470,6 @@ public class SysAdminHome extends javax.swing.JFrame {
         deleteEmployeePanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconDeleteEmployee2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconDeleteEmployee2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Delete_Icon.png"))); // NOI18N
         deleteEmployeePanel2.add(lblIconDeleteEmployee2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
 
         lblDeleteEmployee3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -535,8 +499,6 @@ public class SysAdminHome extends javax.swing.JFrame {
         lblDeleteEmployee1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDeleteEmployee1.setText("Hospitals List");
         reportEmployeePanel.add(lblDeleteEmployee1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
-
-        lblIconEmployeeReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Report_Icon.png"))); // NOI18N
         reportEmployeePanel.add(lblIconEmployeeReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
         reportEmployeePanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
@@ -554,8 +516,6 @@ public class SysAdminHome extends javax.swing.JFrame {
         lblDeleteEmployee4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDeleteEmployee4.setText("Vendors List");
         reportEmployeePanel1.add(lblDeleteEmployee4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
-
-        lblIconEmployeeReport1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Report_Icon.png"))); // NOI18N
         reportEmployeePanel1.add(lblIconEmployeeReport1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
         reportEmployeePanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
@@ -573,8 +533,6 @@ public class SysAdminHome extends javax.swing.JFrame {
         lblDeleteEmployee5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDeleteEmployee5.setText("NGOs List");
         reportEmployeePanel2.add(lblDeleteEmployee5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
-
-        lblIconEmployeeReport2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Report_Icon.png"))); // NOI18N
         reportEmployeePanel2.add(lblIconEmployeeReport2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
         javax.swing.GroupLayout panelDashboardLayout = new javax.swing.GroupLayout(panelDashboard);
@@ -895,7 +853,7 @@ public class SysAdminHome extends javax.swing.JFrame {
         btnAdd6.setBackground(new java.awt.Color(0, 0, 102));
         btnAdd6.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         btnAdd6.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdd6.setText("Sign Up!");
+        btnAdd6.setText("Create NGO!");
         btnAdd6.setBorderPainted(false);
         btnAdd6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAdd6.addActionListener(new java.awt.event.ActionListener() {
@@ -1154,19 +1112,19 @@ public class SysAdminHome extends javax.swing.JFrame {
         txtVendorName.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         txtVendorName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(153, 153, 153)));
 
-        btnAdd10.setBackground(new java.awt.Color(0, 0, 102));
-        btnAdd10.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        btnAdd10.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdd10.setText("Sign Up!");
-        btnAdd10.setBorderPainted(false);
-        btnAdd10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAdd10.addActionListener(new java.awt.event.ActionListener() {
+        btnAddVendor.setBackground(new java.awt.Color(0, 0, 102));
+        btnAddVendor.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        btnAddVendor.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddVendor.setText("Create Vendor!");
+        btnAddVendor.setBorderPainted(false);
+        btnAddVendor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAddVendor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdd10ActionPerformed(evt);
+                btnAddVendorActionPerformed(evt);
             }
         });
 
-        lblEmployeePic5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblVendorPic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         btnAdd11.setBackground(new java.awt.Color(0, 0, 102));
         btnAdd11.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
@@ -1253,11 +1211,11 @@ public class SysAdminHome extends javax.swing.JFrame {
                                     .addComponent(txtVendorCity, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(vendorCreatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblEmployeePic5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblVendorPic, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, vendorCreatePanelLayout.createSequentialGroup()
                         .addComponent(btnAdd11)
                         .addGap(21, 21, 21))
-                    .addComponent(btnAdd10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAddVendor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22))
         );
         vendorCreatePanelLayout.setVerticalGroup(
@@ -1311,16 +1269,16 @@ public class SysAdminHome extends javax.swing.JFrame {
                                 .addComponent(txtVendorState, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(vendorCreatePanelLayout.createSequentialGroup()
                                 .addComponent(lblAddress16)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtVendorZip, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(156, Short.MAX_VALUE))
                     .addGroup(vendorCreatePanelLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addComponent(lblEmployeePic5, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblVendorPic, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnAdd11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAdd10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAddVendor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(17, 17, 17))))
         );
 
@@ -1467,9 +1425,9 @@ public class SysAdminHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBack5ActionPerformed
 
-    private void btnAdd10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd10ActionPerformed
+    private void btnAddVendorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddVendorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAdd10ActionPerformed
+    }//GEN-LAST:event_btnAddVendorActionPerformed
 
     private void btnAdd11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd11ActionPerformed
         // TODO add your handling code here:
@@ -1518,15 +1476,14 @@ public class SysAdminHome extends javax.swing.JFrame {
     private javax.swing.JPanel addEmployeePanel;
     private javax.swing.JPanel addEmployeePanel1;
     private javax.swing.JPanel addEmployeePanel2;
-    private javax.swing.JButton btnAdd10;
     private javax.swing.JButton btnAdd11;
     private javax.swing.JButton btnAdd6;
     private javax.swing.JButton btnAdd7;
+    private javax.swing.JButton btnAddVendor;
     private javax.swing.JButton btnBack3;
     private javax.swing.JButton btnBack5;
     private javax.swing.JPanel btnDashboard;
     private javax.swing.JPanel btnEmployee;
-    private javax.swing.JPanel btnViewLoggedInUserProfile;
     private javax.swing.JPanel btnViewLogout;
     private javax.swing.JPanel controlPanel;
     private javax.swing.JPanel dashboardPanel;
@@ -1578,7 +1535,6 @@ public class SysAdminHome extends javax.swing.JFrame {
     private javax.swing.JLabel lblEmpSec2;
     private javax.swing.JLabel lblEmployee;
     private javax.swing.JLabel lblEmployeePic3;
-    private javax.swing.JLabel lblEmployeePic5;
     private javax.swing.JLabel lblFName3;
     private javax.swing.JLabel lblFName5;
     private javax.swing.JLabel lblIconAddEmployee;
@@ -1603,7 +1559,7 @@ public class SysAdminHome extends javax.swing.JFrame {
     private javax.swing.JLabel lblUpdateEmployee2;
     private javax.swing.JLabel lblUserImg;
     private javax.swing.JLabel lblUsername;
-    private javax.swing.JLabel lblViewUserProfile;
+    private javax.swing.JLabel lblVendorPic;
     private javax.swing.JPanel ngoCreatePanel;
     private javax.swing.JPanel panelDashboard;
     private javax.swing.JPanel panelEmployeeHeader;

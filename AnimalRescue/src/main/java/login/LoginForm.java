@@ -157,6 +157,11 @@ public class LoginForm extends javax.swing.JFrame {
         btnSignup.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnSignup.setForeground(new java.awt.Color(255, 255, 255));
         btnSignup.setText("Sign Up");
+        btnSignup.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSignupMouseClicked(evt);
+            }
+        });
         btnSignup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSignupActionPerformed(evt);
@@ -201,8 +206,9 @@ public class LoginForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(loginPanelLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
                                 .addComponent(lblNewUser)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblLoginAs1))
                             .addComponent(comboSignupAs, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(loginPanelLayout.createSequentialGroup()
@@ -299,13 +305,6 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
         // TODO add your handling code here:
-        String usertype = comboSignupAs.getSelectedItem().toString();
-        if(usertype.equals("")) {
-            JOptionPane.showMessageDialog(this, "Please select the user type!");
-        } else {
-            SignupForm signup = new SignupForm(usertype);
-            signup.setVisible(true);
-        }
     }//GEN-LAST:event_btnSignupActionPerformed
 
     private void btnLogin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin2ActionPerformed
@@ -334,6 +333,18 @@ public class LoginForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_comboSignupAsActionPerformed
+
+    private void btnSignupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignupMouseClicked
+        // TODO add your handling code here:
+        String usertype = comboSignupAs.getSelectedItem().toString();
+        if(usertype.equals("")) {
+            JOptionPane.showMessageDialog(this, "Please select the user type!");
+        } else {
+            SignupForm signup = new SignupForm(usertype);
+            signup.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_btnSignupMouseClicked
 
     /**
      * @param args the command line arguments
