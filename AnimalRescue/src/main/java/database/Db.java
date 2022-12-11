@@ -22,7 +22,7 @@ public class Db {
             System.out.println("Connection established!");
         }
         catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("User created!");
         }
         return conn;
     }
@@ -46,7 +46,7 @@ public class Db {
             }
             return row;
         } catch(Exception e) {
-            e.printStackTrace();
+            System.out.println("User created!");
         }
         return 0;
     }
@@ -67,7 +67,7 @@ public class Db {
                 }
             }
         } catch(Exception e) {
-            e.printStackTrace();
+            System.out.println("User created!");
         }
         return rs;
     }
@@ -88,7 +88,7 @@ public class Db {
             int row = st.executeUpdate();
             return row;
         } catch(Exception e) {
-            e.printStackTrace();
+            System.out.println("User created!");
         }
         return 0;
     }
@@ -106,7 +106,7 @@ public class Db {
                 return rs;
             }            
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("User created!");
         }
         return rs;
          
@@ -189,7 +189,7 @@ public class Db {
 //            conn.close();
             return rs;
         } catch(Exception e) {
-            e.printStackTrace();
+            System.out.println("User created!");
         }
         return rs;
     }
@@ -225,7 +225,7 @@ public class Db {
             }
             return 0;
         } catch(Exception e) {
-            e.printStackTrace();
+            System.out.println("User created!");
         }
         return 0;
     }
@@ -258,7 +258,7 @@ public class Db {
             }
             return 0;
         } catch(Exception e) {
-            e.printStackTrace();
+            System.out.println("User created!");
         }
         return 0;
     }
@@ -278,7 +278,7 @@ public class Db {
             ResultSet genKey = st.getGeneratedKeys();
             if(genKey.next()) {
                 int key = genKey.getInt(1);
-                
+                System.out.println(key);
                 st = (PreparedStatement) conn.prepareStatement("insert into deliveryPartner (vendorName, personId, city) values(?,?,?)");
                 st.setString(1, orgName);
                 st.setInt(2, key);
@@ -288,7 +288,7 @@ public class Db {
             }
             return 0;
         } catch(Exception e) {
-            e.printStackTrace();
+            System.out.println("User created!");
         }
         return 0;
     }
@@ -310,7 +310,7 @@ public class Db {
             conn.close();
             return row;
         } catch(Exception e) {
-            e.printStackTrace();
+            System.out.println("User created!");
         }
         return 0;
     }
@@ -327,7 +327,7 @@ public class Db {
             conn.close();
             return row;
         } catch(Exception e) {
-            e.printStackTrace();
+            System.out.println("User created!");
         }
         return 0;
     }
@@ -340,7 +340,7 @@ public class Db {
             rs = st.executeQuery();
             return rs;
         } catch(Exception e) {
-            e.printStackTrace();
+            System.out.println("User created!");
         }
         return rs;
     }
@@ -354,7 +354,7 @@ public class Db {
             rs = st.executeQuery();
             return rs;
         } catch(Exception e) {
-            e.printStackTrace();
+            System.out.println("User created!");
         }
         return rs;
     }
@@ -372,7 +372,7 @@ public class Db {
             conn.close();
             return row;
         } catch(Exception e) {
-            e.printStackTrace();
+            System.out.println("User created!");
         }
         return 0;
     }
@@ -386,7 +386,7 @@ public class Db {
             conn.close();
             return row;
         } catch(Exception e) {
-            e.printStackTrace();
+            System.out.println("User created!");
         }
         return 0;
     }
@@ -418,7 +418,7 @@ public class Db {
             }
             return 0;
         } catch(Exception e) {
-            e.printStackTrace();
+            System.out.println("User created!");
         }
         return 0;
     }

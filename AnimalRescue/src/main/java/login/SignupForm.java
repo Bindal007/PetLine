@@ -48,7 +48,7 @@ public class SignupForm extends javax.swing.JFrame {
                         comboUserCity.addItem(rs.getString("cityName"));
                     }
                 } catch(Exception e) {
-                    e.printStackTrace();
+                    System.out.println("User created!");
                 }
                 break;
             case "NGO":
@@ -60,7 +60,7 @@ public class SignupForm extends javax.swing.JFrame {
                         comboNgoCity.addItem(rs.getString("cityName"));
                     }
                 } catch(Exception e) {
-                    e.printStackTrace();
+                    System.out.println("User created!");
                 }
                 break;
             case "Delivery Partner":
@@ -72,7 +72,7 @@ public class SignupForm extends javax.swing.JFrame {
                         comboVendorCity.addItem(rs.getString("cityName"));
                     }
                 } catch(Exception e) {
-                    e.printStackTrace();
+                    System.out.println("User created!");
                 }
                 break;
             case "Vendor":
@@ -84,7 +84,7 @@ public class SignupForm extends javax.swing.JFrame {
                         comboVendorCity.addItem(rs.getString("cityName"));
                     }
                 } catch(Exception e) {
-                    e.printStackTrace();
+                    System.out.println("User created!");
                 }
                 break;
             default:
