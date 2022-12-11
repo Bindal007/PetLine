@@ -112,6 +112,74 @@ public class Db {
          
     }
     
+    public boolean checkIfUsernameExists(String uname) {
+        ResultSet rs = null;
+        try {
+            Connection conn = getConnect();
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("select * from Person where username=?");
+            st.setString(1, uname);
+            rs = st.executeQuery();
+            if(rs.next()) {
+                return true;
+            }            
+        } catch (Exception e) {
+            System.out.println("User already exists!");
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean checkIfEmailExists(String email) {
+        ResultSet rs = null;
+        try {
+            Connection conn = getConnect();
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("select * from Person where email=?");
+            st.setString(1, email);
+            rs = st.executeQuery();
+            if(rs.next()) {
+                return true;
+            }            
+        } catch (Exception e) {
+            System.out.println("Email already exists!");
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean checkIfPhoneNoExists(String phnNo) {
+        ResultSet rs = null;
+        try {
+            Connection conn = getConnect();
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("select * from Person where phoneNo=?");
+            st.setString(1, phnNo);
+            rs = st.executeQuery();
+            if(rs.next()) {
+                return true;
+            }            
+        } catch (Exception e) {
+            System.out.println("Phone number already exists!");
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean checkIfSSNExists(String ssn) {
+        ResultSet rs = null;
+        try {
+            Connection conn = getConnect();
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("select * from Person where ssn=?");
+            st.setString(1, ssn);
+            rs = st.executeQuery();
+            if(rs.next()) {
+                return true;
+            }            
+        } catch (Exception e) {
+            System.out.println("SSN already exists!");
+            return true;
+        }
+        return false;
+    }
+    
     public ResultSet getAllCities() {
         ResultSet rs = null;
         try {

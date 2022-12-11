@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import models.Address;
 import models.Person;
+import resources.Validations;
 
 /**
  *
@@ -22,6 +23,8 @@ public class SignupForm extends javax.swing.JFrame {
      * Creates new form SignupForm
      */
     private String personType;
+    private Validations validate = new Validations();
+    Person person = new Person();
     public SignupForm() {
         initComponents();
         ngoSignupForm.setVisible(false);
@@ -181,6 +184,7 @@ public class SignupForm extends javax.swing.JFrame {
         txtVendorManName = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         userSignupForm.setBackground(new java.awt.Color(218, 228, 230));
         userSignupForm.setPreferredSize(new java.awt.Dimension(769, 560));
@@ -871,7 +875,6 @@ public class SignupForm extends javax.swing.JFrame {
                             .addGroup(vendorSignupFormLayout.createSequentialGroup()
                                 .addComponent(lblAddress15)
                                 .addGap(42, 42, 42)))
-                        .addGap(18, 18, 18)
                         .addGroup(vendorSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(vendorSignupFormLayout.createSequentialGroup()
                                 .addComponent(lblAddress17)
@@ -881,7 +884,7 @@ public class SignupForm extends javax.swing.JFrame {
                                 .addComponent(lblAddress16)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtVendorZip, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(150, Short.MAX_VALUE))
+                        .addContainerGap(226, Short.MAX_VALUE))
                     .addGroup(vendorSignupFormLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAdd10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -908,6 +911,7 @@ public class SignupForm extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -916,55 +920,6 @@ public class SignupForm extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-//        if(!ValidationForCreateEmployee()) {
-//            return;
-//        }
-//        String fname = txtUserAge.getText();
-//        String lname = txtUserSSN.getText();
-//        int age =  txtAge.getText().isEmpty() ? null : Integer.parseInt(txtAge.getText());
-//        boolean status = this.empStatus;
-//        String gender = this.empGender;
-//        JDateChooser startDate = txtUserDOB;
-//        String dept = txtUsername.getText();
-//        String designation = txtPassword.getText();
-//        int empID =  txtUserName.getText().isEmpty() ? null : Integer.parseInt(txtUserName.getText());
-//        String profilePic = "";
-//        String email = txtEmail.getText();
-//        String phnNo = txtNumber.getText();
-//        String address = txtAddress.getText();
-//        ContactDetails contactDetail = new ContactDetails(phnNo, email, address);
-//
-//        Employee employee = employees.addNewEmployees();
-//        employee.setAge(age);
-//        employee.setContactDetails(contactDetail);
-//        employee.setDept(dept);
-//        employee.setDesignation(designation);
-//        employee.setEmpID(empID);
-//        employee.setStatus(status);
-//        employee.setStartDate(startDate);
-//        employee.setProfilePic(profilePic);
-//        employee.setFname(fname);
-//        employee.setLname(lname);
-//        employee.setGender(gender);
-//        employee.setProfilePic(this.imagePath);
-//
-//        JOptionPane.showMessageDialog(this, "Employee Details Added!");
-//
-//        txtUserName.setText("");
-//        txtUserAge.setText("");
-//        txtUserSSN.setText("");
-//        txtAge.setText("");
-//        txtNumber.setText("");
-//        txtEmail.setText("");
-//        txtAddress.setText("");
-//        r_Active.setSelected(false);
-//        r_InActive.setSelected(false);
-//        r_male.setSelected(false);
-//        r_female.setSelected(false);
-//        r_otherGender.setSelected(false);
-//        txtUsername.setText("");
-//        txtPassword.setText("");
-//        txtUserDOB.setDate(new Date());
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
@@ -977,35 +932,70 @@ public class SignupForm extends javax.swing.JFrame {
 
     private void btnAddNgoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNgoActionPerformed
         // TODO add your handling code here:
-        // Create address first
-        Address address = new Address();
-        String street = txtNgoAddress.getText();
-        String city = comboNgoCity.getSelectedItem().toString();
-        String state = txtNgoState.getText();
-        String zip = txtNgoZip.getText();
         
-        int addressId = address.createAddress(street, city, state, zip);
-        System.out.println(addressId);
-        
-        Person person = new Person();
-        String name = txtNgoName.getText();
+        // User Details
+        String name = txtNgoManName.getText();
         String email = txtNgoEmail.getText();
         String phnNo = txtNgoPhone.getText();
         String uname = txtNgoUsername.getText();
         String pass = txtNgoPassword.getText();
         String orgName = txtNgoName.getText();
         String ngoDesc = txtNgoDesc.getText();
-        int ngoSize = Integer.parseInt(txtNgoSize.getText());
-        person.createNgo(name, email, phnNo, uname, pass, ngoSize, orgName, addressId, ngoDesc, city);
-        String email1 = "vicken.test@gmail.com";
-        try {
-            RegistrationEmail.registration(email); 
-        } catch (Exception ex) {
-            Logger.getLogger(SignupForm.class.getName()).log(Level.SEVERE, null, ex);
+        int ngoSize = txtNgoSize.getText().equals("") ? 0 : Integer.parseInt(txtNgoSize.getText());
+        
+        // Adddress Details
+        String street = txtNgoAddress.getText();
+        String city = comboNgoCity.getSelectedItem().toString();
+        String state = txtNgoState.getText();
+        String zip = txtNgoZip.getText();
+        // Validate User first
+        if(!validate.ValidateEmpty(name)) {
+            JOptionPane.showMessageDialog(this, "Please enter the Manager's name");
+        } else if(!validate.ValidateEmail(email)) {
+            JOptionPane.showMessageDialog(this, "Please enter the valid email");
+        } else if(person.checkIfEmailExists(email)) {
+            JOptionPane.showMessageDialog(this, "Email already exists");
+        } else if(!validate.ValidatePhoneNumber(phnNo)) {
+            JOptionPane.showMessageDialog(this, "Please enter the valid phone number");
+        } else if(person.checkIfPhoneNoExists(phnNo)) {
+            JOptionPane.showMessageDialog(this, "Phone number already exists");
+        } else if(!validate.ValidateUsername(uname)) {
+            JOptionPane.showMessageDialog(this, "Please enter the valid username");
+        } else if(person.checkIfUsernameExists(uname)) {
+            JOptionPane.showMessageDialog(this, "Username already exists");
+        } else if(!validate.ValidatePassword(pass)) {
+            JOptionPane.showMessageDialog(this, "Please enter the valid password between 5-12 characters");
+        } else if(!validate.ValidateEmpty(orgName)) {
+            JOptionPane.showMessageDialog(this, "Please enter the organisation name");
+        } else if(!validate.ValidateEmpty(ngoDesc)) {
+            JOptionPane.showMessageDialog(this, "Please enter the description");
+        } else if(ngoSize == 0) {
+            JOptionPane.showMessageDialog(this, "Please enter the NGO size");
+        } else if(!validate.ValidateEmpty(street)) {
+            JOptionPane.showMessageDialog(this, "Please enter the Address");
+        } else if(!validate.ValidateEmpty(city)) {
+            JOptionPane.showMessageDialog(this, "Please select the city");
+        } else if(!validate.ValidateEmpty(state)) {
+            JOptionPane.showMessageDialog(this, "Please enter the state");
+        } else if(!validate.ValidateEmpty(zip)) {
+            JOptionPane.showMessageDialog(this, "Please enter the zip code");
+        } else {
+            // Create address first
+            Address address = new Address();
+            int addressId = address.createAddress(street, city, state, zip);
+
+            Person person = new Person();
+            person.createNgo(name, email, phnNo, uname, pass, ngoSize, orgName, addressId, ngoDesc, city);
+            String email1 = "vicken.test@gmail.com";
+            try {
+                RegistrationEmail.registration(email); 
+            } catch (Exception ex) {
+                Logger.getLogger(SignupForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            ConfirmationModel confirm = new ConfirmationModel();
+            confirm.setVisible(true);
+            this.dispose();
         }
-        ConfirmationModel confirm = new ConfirmationModel();
-        confirm.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_btnAddNgoActionPerformed
 
     private void txtNgoDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNgoDescActionPerformed
@@ -1028,7 +1018,7 @@ public class SignupForm extends javax.swing.JFrame {
         System.out.println(addressId);
         
         Person person = new Person();
-        String name = txtVendorName.getText();
+        String name = txtVendorManName.getText();
         String email = txtVendorEmail.getText();
         String phnNo = txtVendorContact.getText();
         String uname = txtVendorUsername.getText();

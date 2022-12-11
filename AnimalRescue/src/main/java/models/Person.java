@@ -159,6 +159,26 @@ public class Person {
         this.personID = personID;
     }
     
+    public boolean checkIfUsernameExists(String uname) {
+        boolean res = database.checkIfUsernameExists(uname);
+        return res;
+    }
+    
+    public boolean checkIfEmailExists(String email) {
+        boolean res = database.checkIfEmailExists(email);
+        return res;
+    }
+    
+    public boolean checkIfPhoneNoExists(String phnNo) {
+        boolean res = database.checkIfPhoneNoExists(phnNo);
+        return res;
+    }
+    
+    public boolean checkIfSSNExists(String ssn) {
+        boolean res = database.checkIfSSNExists(ssn);
+        return res;
+    }
+    
     public Person checkPersonCreds(String userType, String username, String password) {
         Person person = new Person();
         ResultSet rs = database.getPersonDetails(userType, username, password);
