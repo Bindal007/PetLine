@@ -997,15 +997,14 @@ public class SignupForm extends javax.swing.JFrame {
         String ngoDesc = txtNgoDesc.getText();
         int ngoSize = Integer.parseInt(txtNgoSize.getText());
         person.createNgo(name, email, phnNo, uname, pass, ngoSize, orgName, addressId, ngoDesc, city);
-        JOptionPane.showMessageDialog(this, "Successfully Signed up!");
         String email1 = "vicken.test@gmail.com";
         try {
             RegistrationEmail.registration(email); 
         } catch (Exception ex) {
             Logger.getLogger(SignupForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-        LoginForm login = new LoginForm();
-        login.setVisible(true);
+        ConfirmationModel confirm = new ConfirmationModel();
+        confirm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAddNgoActionPerformed
 
@@ -1040,15 +1039,14 @@ public class SignupForm extends javax.swing.JFrame {
         } else {
             person.createDelivery(name, email, phnNo, uname, pass, orgName, addressId, city);
         }
-        JOptionPane.showMessageDialog(this, "Successfully Signed up!");
         String email1 = "vicken.test@gmail.com";
         try {
             RegistrationEmail.registration(email); 
         } catch (Exception ex) {
             Logger.getLogger(SignupForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-        LoginForm login = new LoginForm();
-        login.setVisible(true);
+        ConfirmationModel confirm = new ConfirmationModel();
+        confirm.setVisible(true);
         this.dispose();
         
     }//GEN-LAST:event_btnAdd10ActionPerformed
@@ -1096,15 +1094,14 @@ public class SignupForm extends javax.swing.JFrame {
         int age = Integer.parseInt(txtUserAge.getText());
         String ssn = txtUserSSN.getText();
         person.createPerson(name, email, phnNo, uname, pass, age, ssn, addressId);
-        JOptionPane.showMessageDialog(this, "Successfully Signed up!");
         String email1 = "vicken.test@gmail.com";
         try {
             RegistrationEmail.registration(email); 
         } catch (Exception ex) {
             Logger.getLogger(SignupForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-        LoginForm login = new LoginForm();
-        login.setVisible(true);
+        ConfirmationModel confirm = new ConfirmationModel();
+        confirm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAddMouseClicked
 

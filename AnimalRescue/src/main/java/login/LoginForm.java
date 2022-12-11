@@ -6,8 +6,14 @@ package login;
 
 import javax.swing.JOptionPane;
 import database.Db;
+import delivery.DeliveryPartner;
+import delivery.DeliveryPerson;
+import hospitalAdmin.HospitalAdminLandingPage;
 import models.Person;
+import ngo.NGOLandingPage;
 import systemadmin.SysAdminHome;
+import user_ui.UserLandingPage;
+import vendor.VendorLandingPage;
 
 /**
  *
@@ -302,32 +308,32 @@ public class LoginForm extends javax.swing.JFrame {
                     this.dispose();
                 }
                 if(userType.equals("Vendor")) {
-                    SysAdminHome adminPage = new SysAdminHome();
-                    adminPage.setVisible(true);
+                    VendorLandingPage vendorPage = new VendorLandingPage();
+                    vendorPage.setVisible(true);
                 }
                 if(userType.equals("NGO")) {
-                    SysAdminHome adminPage = new SysAdminHome();
-                    adminPage.setVisible(true);
+                    NGOLandingPage ngoPage = new NGOLandingPage();
+                    ngoPage.setVisible(true);
                 }
                 if(userType.equals("Delivery Partner")) {
-                    SysAdminHome adminPage = new SysAdminHome();
-                    adminPage.setVisible(true);
+                    DeliveryPartner deliveryPartnerPage = new DeliveryPartner();
+                    deliveryPartnerPage.setVisible(true);
                 }
                 if(userType.equals("Driver")) {
-                    SysAdminHome adminPage = new SysAdminHome();
-                    adminPage.setVisible(true);
+                    DeliveryPerson deliveryPersonPage = new DeliveryPerson();
+                    deliveryPersonPage.setVisible(true);
                 }
                 if(userType.equals("Hospital Manager")) {
-                    SysAdminHome adminPage = new SysAdminHome();
-                    adminPage.setVisible(true);
+                    HospitalAdminLandingPage hospitalAdminPage = new HospitalAdminLandingPage();
+                    hospitalAdminPage.setVisible(true);
                 }
                 if(userType.equals("Vet")) {
                     SysAdminHome adminPage = new SysAdminHome();
                     adminPage.setVisible(true);
                 }
                 if(userType.equals("User")) {
-                    SysAdminHome adminPage = new SysAdminHome();
-                    adminPage.setVisible(true);
+                    UserLandingPage userPage = new UserLandingPage();
+                    userPage.setVisible(true);
                 }
                 
             }

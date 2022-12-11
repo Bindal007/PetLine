@@ -145,6 +145,8 @@ public class ConfirmationModel extends javax.swing.JFrame {
     private void LogInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
+        LoginForm login = new LoginForm();
+        login.setVisible(true);
     }//GEN-LAST:event_LogInButtonActionPerformed
 
     /**
