@@ -301,6 +301,7 @@ public class LoginForm extends javax.swing.JFrame {
             String password = String.valueOf(txtPassword.getPassword());
             
             Person p = person.checkPersonCreds(userType, username, password);
+            System.out.println("value of p is:  " + p);
             if(p != null) {
                 if(userType.equals("System Administrator")) {
                     SysAdminHome adminPage = new SysAdminHome();
@@ -336,6 +337,8 @@ public class LoginForm extends javax.swing.JFrame {
                     userPage.setVisible(true);
                 }
                 
+            } else {
+                JOptionPane.showMessageDialog(this, "Invalid Credentials!");
             }
         }
     }//GEN-LAST:event_btnLoginActionPerformed

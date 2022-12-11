@@ -101,45 +101,15 @@ public class Db {
             st.setString(1, username);
             st.setString(2, password);
             st.setString(3, userType);
-            int row = st.executeUpdate();
-            conn.close();
-            return rs;
+            rs = st.executeQuery();
+            if(rs.next()) {
+                return rs;
+            }            
         } catch (Exception e) {
             e.printStackTrace();
         }
         return rs;
          
-    }
-    
-    public int createHospital(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId,String city) {
-        try {
-            Connection conn = getConnect();
-            PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
-            st.setString(1, name);
-            st.setString(2, "Vendor");
-            st.setString(3, uname);
-            st.setString(4, pass);
-            st.setInt(5, addressId);
-            st.setString(6, email);
-            st.setString(7, phnNo);
-            int row = st.executeUpdate();
-            ResultSet genKey = st.getGeneratedKeys();
-            if(genKey.next()) {
-                int key = genKey.getInt(1);
-                
-                st = (PreparedStatement) conn.prepareStatement("insert into hospitals (hospitalName, addressId, personId, city) values(?,?,?,?)");
-                st.setString(1, orgName);
-                st.setInt(2, addressId);
-                st.setInt(3, key);
-                st.setString(4, city);
-                row = st.executeUpdate();
-                return row;
-            }
-            return 0;
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-        return 0;
     }
     
     public ResultSet getAllCities() {
@@ -353,6 +323,37 @@ public class Db {
         return 0;
     }
 
+//    ------------------------------------ Hospital Admin and Vets CRUD ------------------------------
+    public int createHospital(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId,String city) {
+        try {
+            Connection conn = getConnect();
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+            st.setString(1, name);
+            st.setString(2, "Vendor");
+            st.setString(3, uname);
+            st.setString(4, pass);
+            st.setInt(5, addressId);
+            st.setString(6, email);
+            st.setString(7, phnNo);
+            int row = st.executeUpdate();
+            ResultSet genKey = st.getGeneratedKeys();
+            if(genKey.next()) {
+                int key = genKey.getInt(1);
+                
+                st = (PreparedStatement) conn.prepareStatement("insert into hospitals (hospitalName, addressId, personId, city) values(?,?,?,?)");
+                st.setString(1, orgName);
+                st.setInt(2, addressId);
+                st.setInt(3, key);
+                st.setString(4, city);
+                row = st.executeUpdate();
+                return row;
+            }
+            return 0;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 
 
 //    ------------------------------------------ Posts CRUD ------------------------------------------

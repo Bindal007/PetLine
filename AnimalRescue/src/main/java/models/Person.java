@@ -162,18 +162,22 @@ public class Person {
     public Person checkPersonCreds(String userType, String username, String password) {
         Person person = new Person();
         ResultSet rs = database.getPersonDetails(userType, username, password);
-        System.out.println(rs);
         try {
-            person.personID = rs.getInt("personId");
-            person.personType = rs.getString("personType");
-            person.name = rs.getString("name");
-            person.age = rs.getInt("age");
-            person.ssn = rs.getString("ssn");
-            person.username = rs.getString("username");
-            person.password = rs.getString("password");
-            person.profilePic = rs.getBlob("profilePic");
-            person.email = rs.getString("email");
-            person.phoneNumber = rs.getString("phoneNo");
+            if(rs.next()) {
+                person.personID = rs.getInt("personId");
+                person.personType = rs.getString("personType");
+                person.name = rs.getString("name");
+                person.age = rs.getInt("age");
+                person.ssn = rs.getString("ssn");
+                person.username = rs.getString("username");
+                person.password = rs.getString("password");
+                person.profilePic = rs.getBlob("profilePic");
+                person.email = rs.getString("email");
+                person.phoneNumber = rs.getString("phoneNo");
+            } else {
+                return null;
+            }
+            
         } catch(Exception e) {
             e.printStackTrace();
         }
