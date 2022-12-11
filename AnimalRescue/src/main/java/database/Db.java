@@ -67,6 +67,27 @@ public class Db {
         return 0;
     }
     
+    public ResultSet getUserAddress(int userId) {
+        ResultSet rs = null;
+        try {
+            Connection conn = getConnect();
+            PreparedStatement userDetails = (PreparedStatement) conn.prepareStatement("select addressId from person where personId=?");
+            userDetails.setInt(1, userId);
+            rs = userDetails.executeQuery();
+            if(rs.next()) {
+                int addressId = rs.getInt("addressId");
+                if(addressId > 0) {
+                    PreparedStatement st = (PreparedStatement) conn.prepareStatement("select * from address where addressId=?");
+                    st.setInt(1, addressId);
+                    rs = st.executeQuery();
+                }
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+    
     public int createPerson(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId) {
         try {
             Connection conn = getConnect();
@@ -88,10 +109,10 @@ public class Db {
         return 0;
     }
     
-    public int createNgo(String name, String email, String phnNo, String uname, String pass, int ngoSize, String ngoName, int addressId, String nogDesc) {
+    public int createNgo(String name, String email, String phnNo, String uname, String pass, int ngoSize, String ngoName, int addressId, String ngoDesc) {
         try {
             Connection conn = getConnect();
-            PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?)");
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
             st.setString(1, name);
             st.setString(2, "NGO");
             st.setString(3, uname);
@@ -100,6 +121,19 @@ public class Db {
             st.setString(6, email);
             st.setString(7, phnNo);
             int row = st.executeUpdate();
+            ResultSet genKey = st.getGeneratedKeys();
+            if(genKey.next()) {
+                int key = genKey.getInt(1);
+                
+                st = (PreparedStatement) conn.prepareStatement("insert into ngo (ngoName, addressId, personId, ngoDesc, ngoSize) values(?,?,?,?,?)");
+                st.setString(1, ngoName);
+                st.setInt(2, addressId);
+                st.setInt(3, key);
+                st.setString(4, ngoDesc);
+                st.setInt(5, ngoSize);
+                row = st.executeUpdate();
+                
+            }
             return row;
         } catch(Exception e) {
             e.printStackTrace();
@@ -233,7 +267,6 @@ public class Db {
             Connection conn = getConnect();
             PreparedStatement st = (PreparedStatement) conn.prepareStatement("select * from product");
             rs = st.executeQuery();
-            conn.close();
             return rs;
         } catch(Exception e) {
             e.printStackTrace();
@@ -248,7 +281,6 @@ public class Db {
             PreparedStatement st = (PreparedStatement) conn.prepareStatement("select * from product where vendorId = ?");
             st.setInt(1, vendorId);
             rs = st.executeQuery();
-            conn.close();
             return rs;
         } catch(Exception e) {
             e.printStackTrace();

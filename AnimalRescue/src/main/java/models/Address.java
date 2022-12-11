@@ -115,4 +115,10 @@ public class Address {
         int res = db.createAddress(street, city, state, zip);
         return res;
     }
+    
+    public ResultSet getUserAddress(int userId) {
+        ResultSet rs = db.getUserAddress(userId);
+        
+        return rs;
+    }
 }

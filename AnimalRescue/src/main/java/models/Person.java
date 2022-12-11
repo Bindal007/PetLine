@@ -190,23 +190,27 @@ public class Person {
         return res;
     }
     
-    public int createVendor(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId) {
-        int res = database.createPerson(name, email, phnNo, uname, pass, age, ssn, addressId);
+    public int createVendor(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId) {
+        
+        int res = database.createVendor(name, email, phnNo, uname, pass, orgName, addressId);
         return res;
     }
     
     public int createNgo(String name, String email, String phnNo, String uname, String pass, int ngoSize, String orgName, int addressId, String ngoDesc) {
+        
         int res = database.createNgo(name, email, phnNo, uname, pass, ngoSize, orgName, addressId, ngoDesc);
         return res;
     }
     
-    public int createHospital(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId) {
-        int res = database.createPerson(name, email, phnNo, uname, pass, age, ssn, addressId);
+    public int createDelivery(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId) {
+        
+        int res = database.createDelivery(name, email, phnNo, uname, pass, orgName, addressId);
         return res;
     }
     
-    public int createDelivery(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId) {
-        int res = database.createPerson(name, email, phnNo, uname, pass, age, ssn, addressId);
+    public int createHospital(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId) {
+        
+        int res = database.createHospital(name, email, phnNo, uname, pass, orgName, addressId);
         return res;
     }
     
