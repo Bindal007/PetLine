@@ -11,4 +11,32 @@
         <maven.compiler.target>19</maven.compiler.target>
         <exec.mainClass>edu.neu.animalrescue.AnimalRescue</exec.mainClass>
     </properties>
+    <description>This program will send emails using Java Mail API</description>
+    <dependencies>
+      <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jxmapviewer</groupId>
+            <artifactId>jxmapviewer2</artifactId>
+            <version>2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>com.toedter</groupId>
+            <artifactId>jcalendar</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.swinglabs.swingx</groupId>
+            <artifactId>swingx-autocomplete</artifactId>
+            <version>1.6.5-1</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.0.31</version>
+        </dependency>
+    </dependencies>
 </project>
