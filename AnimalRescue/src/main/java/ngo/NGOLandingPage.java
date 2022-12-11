@@ -204,17 +204,7 @@ public class NGOLandingPage extends javax.swing.JFrame {
 
         feedPanel.setBackground(new java.awt.Color(218, 228, 230));
         feedPanel.setAutoscrolls(true);
-
-        javax.swing.GroupLayout feedPanelLayout = new javax.swing.GroupLayout(feedPanel);
-        feedPanel.setLayout(feedPanelLayout);
-        feedPanelLayout.setHorizontalGroup(
-            feedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        feedPanelLayout.setVerticalGroup(
-            feedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 557, Short.MAX_VALUE)
-        );
+        feedPanel.setLayout(new java.awt.GridLayout());
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -412,6 +402,8 @@ public class NGOLandingPage extends javax.swing.JFrame {
 
     private void btnDashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDashboardMouseClicked
         // TODO add your handling code here:
+        postPanel.setVisible(true);
+        appointmentPanel.setVisible(false);
     }//GEN-LAST:event_btnDashboardMouseClicked
 
     private void btnEmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmployeeMouseClicked
@@ -427,6 +419,8 @@ public class NGOLandingPage extends javax.swing.JFrame {
         //        reportEmployeePane.setVisible(false);
         //
         //        populateEmployeesDataToTable(null);
+        postPanel.setVisible(false);
+        appointmentPanel.setVisible(true);
     }//GEN-LAST:event_btnEmployeeMouseClicked
 
     private void btnViewLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewLogoutMouseClicked
@@ -442,15 +436,17 @@ public class NGOLandingPage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        addPostDialog pos= new addPostDialog(this, true);
+        pos.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void bookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookBtnActionPerformed
         var valid = true;
 
-//        if (cityCombo.getSelectedItem() == null || cityCombo.getSelectedItem().toString().isEmpty()) {
-//            cityLbl.setText("Please Select City");
-//            valid = false;
-//        }
+        //        if (cityCombo.getSelectedItem() == null || cityCombo.getSelectedItem().toString().isEmpty()) {
+            //            cityLbl.setText("Please Select City");
+            //            valid = false;
+            //        }
 
         if (hospitalCombo.getSelectedItem() == null || hospitalCombo.getSelectedItem().toString().isEmpty()) {
             hospitalLbl.setText("Please Select Hospital");
@@ -463,14 +459,14 @@ public class NGOLandingPage extends javax.swing.JFrame {
             //        }
 
         if (vetCombo.getSelectedItem() == null || vetCombo.getSelectedItem().toString().isEmpty()) {
-//            vetLbl.setText("Please Select doctor");
+            //            vetLbl.setText("Please Select doctor");
             valid = false;
         }
 
-//        if (userCombo.getSelectedItem() == null || userCombo.getSelectedItem().toString().isEmpty()) {
-//            userLbl.setText("Please Select patient");
-//            valid = false;
-//        }
+        //        if (userCombo.getSelectedItem() == null || userCombo.getSelectedItem().toString().isEmpty()) {
+            //            userLbl.setText("Please Select patient");
+            //            valid = false;
+            //        }
         if (valid) {
 
             Date date;
@@ -487,16 +483,16 @@ public class NGOLandingPage extends javax.swing.JFrame {
             //            MainJFrame.encounterDirectory.newEncounter(date, doctor, hospital, patient);
 
             JOptionPane.showMessageDialog(this, "encounter details Added");
-//            cityCombo.setSelectedItem("");
+            //            cityCombo.setSelectedItem("");
             hospitalCombo.setSelectedItem("");
             vetCombo.setSelectedItem("");
-//            userCombo.setSelectedItem("");
+            //            userCombo.setSelectedItem("");
             datePicker.setDate(null);
-//            cityLbl.setText(null);
-//            dateLbl.setText(null);
-//            vetLbl.setText(null);
+            //            cityLbl.setText(null);
+            //            dateLbl.setText(null);
+            //            vetLbl.setText(null);
             hospitalLbl.setText(null);
-//            userLbl.setText(null);
+            //            userLbl.setText(null);
 
         }
     }//GEN-LAST:event_bookBtnActionPerformed
@@ -505,9 +501,9 @@ public class NGOLandingPage extends javax.swing.JFrame {
         Object vetName = vetCombo.getSelectedItem();
 
         if (vetName == null || vetName.toString().equals("")) {
-//            vetLbl.setText("Please Select Doctor");
+            //            vetLbl.setText("Please Select Doctor");
         } else {
-//            vetLbl.setText(null);
+            //            vetLbl.setText(null);
             //            vet = hospital.getVetByName(vetName.toString());
 
         }
@@ -519,12 +515,12 @@ public class NGOLandingPage extends javax.swing.JFrame {
         if (hospitalName == null || hospitalName.toString().equals("")) {
             hospitalLbl.setText("Please Select Hospital");
             vetCombo.removeAllItems();
-//            userCombo.removeAllItems();
-//            vetLbl.setText(null);
-//            userLbl.setText(null);
+            //            userCombo.removeAllItems();
+            //            vetLbl.setText(null);
+            //            userLbl.setText(null);
         } else {
             vetCombo.removeAllItems();
-//            userCombo.removeAllItems();
+            //            userCombo.removeAllItems();
             hospitalLbl.setText(null);
 
             vetCombo.addItem("");
