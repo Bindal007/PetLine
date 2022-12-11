@@ -176,6 +176,7 @@ public class SysAdminHome extends javax.swing.JFrame {
         sidePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblUserImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUserImg.setIcon(new javax.swing.ImageIcon("C:\\Users\\Farheen Zubair\\Documents\\NetBeansProjects\\AED_Final_Project\\AnimalRescue\\src\\main\\java\\resources\\icons\\User_Icon.png")); // NOI18N
         sidePanel.add(lblUserImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 80));
 
         lblUsername.setBackground(new java.awt.Color(255, 255, 255));

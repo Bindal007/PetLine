@@ -195,8 +195,8 @@ public class Person {
         return res;
     }
     
-    public int createNgo(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId) {
-        int res = database.createPerson(name, email, phnNo, uname, pass, age, ssn, addressId);
+    public int createNgo(String name, String email, String phnNo, String uname, String pass, int ngoSize, String orgName, int addressId, String ngoDesc) {
+        int res = database.createNgo(name, email, phnNo, uname, pass, ngoSize, orgName, addressId, ngoDesc);
         return res;
     }
     

@@ -990,8 +990,9 @@ public class SignupForm extends javax.swing.JFrame {
         String uname = txtNgoUsername.getText();
         String pass = txtNgoPassword.getText();
         String orgName = txtNgoName.getText();
+        String ngoDesc = txtNgoDesc.getText();
         int ngoSize = Integer.parseInt(txtNgoSize.getText());
-        person.createNgo(name, email, phnNo, uname, pass, ngoSize, orgName, addressId);
+        person.createNgo(name, email, phnNo, uname, pass, ngoSize, orgName, addressId, ngoDesc);
 
     }//GEN-LAST:event_btnAddNgoActionPerformed
 
@@ -1005,6 +1006,28 @@ public class SignupForm extends javax.swing.JFrame {
 
     private void btnAdd10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd10ActionPerformed
         // TODO add your handling code here:
+        Address address = new Address();
+        String street = txtVendorAddress.getText();
+        String city = comboVendorCity.getSelectedItem().toString();
+        String state = txtVendorState.getText();
+        String zip = txtVendorZip.getText();
+        
+        int addressId = address.createAddress(street, city, state, zip);
+        System.out.println(addressId);
+        
+        Person person = new Person();
+        String name = txtVendorName.getText();
+        String email = txtVendorEmail.getText();
+        String phnNo = txtVendorContact.getText();
+        String uname = txtVendorUsername.getText();
+        String pass = txtVendorPassword.getText();
+        String orgName = txtVendorName.getText();
+        if(personType == "Vendor") {
+            person.createVendor(name, email, phnNo, uname, pass, orgName, addressId);
+        } else {
+            person.createDelivery(name, email, phnNo, uname, pass, orgName, addressId);
+        }
+        
     }//GEN-LAST:event_btnAdd10ActionPerformed
 
     private void btnBack5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBack5MouseClicked

@@ -70,6 +70,9 @@
             <Component class="javax.swing.JLabel" name="lblUserImg">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\Farheen Zubair\Documents\NetBeansProjects\AED_Final_Project\AnimalRescue\src\main\java\resources\icons\User_Icon.png"/>
+                </Property>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

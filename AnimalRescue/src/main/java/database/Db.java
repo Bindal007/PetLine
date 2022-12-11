@@ -81,6 +81,110 @@ public class Db {
             st.setString(8, email);
             st.setString(9, phnNo);
             int row = st.executeUpdate();
+            return row;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    
+    public int createNgo(String name, String email, String phnNo, String uname, String pass, int ngoSize, String ngoName, int addressId, String nogDesc) {
+        try {
+            Connection conn = getConnect();
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?)");
+            st.setString(1, name);
+            st.setString(2, "NGO");
+            st.setString(3, uname);
+            st.setString(4, pass);
+            st.setInt(5, addressId);
+            st.setString(6, email);
+            st.setString(7, phnNo);
+            int row = st.executeUpdate();
+            return row;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    
+    public int createVendor(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId) {
+        try {
+            Connection conn = getConnect();
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?)");
+            st.setString(1, name);
+            st.setString(2, "Vendor");
+            st.setString(3, uname);
+            st.setString(4, pass);
+            st.setInt(5, addressId);
+            st.setString(6, email);
+            st.setString(7, phnNo);
+            int row = st.executeUpdate();
+            conn.close();
+            return row;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    
+    public int createDelivery(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId) {
+        try {
+            Connection conn = getConnect();
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, age, SSN, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?,?,?)");
+            st.setString(1, name);
+            st.setString(2, "Delivery Partner");
+            st.setInt(3, age);
+            st.setString(4, ssn);
+            st.setString(5, uname);
+            st.setString(6, pass);
+            st.setInt(7, addressId);
+            st.setString(8, email);
+            st.setString(9, phnNo);
+            int row = st.executeUpdate();
+            conn.close();
+            return row;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    
+    public int createHospital(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId) {
+        try {
+            Connection conn = getConnect();
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, age, SSN, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?,?,?)");
+            st.setString(1, name);
+            st.setString(2, "Hospital Manager");
+            st.setInt(3, age);
+            st.setString(4, ssn);
+            st.setString(5, uname);
+            st.setString(6, pass);
+            st.setInt(7, addressId);
+            st.setString(8, email);
+            st.setString(9, phnNo);
+            int row = st.executeUpdate();
+            conn.close();
+            return row;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    
+    public int createDriver(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId) {
+        try {
+            Connection conn = getConnect();
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, age, SSN, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?,?,?)");
+            st.setString(1, name);
+            st.setString(2, "User");
+            st.setInt(3, age);
+            st.setString(4, ssn);
+            st.setString(5, uname);
+            st.setString(6, pass);
+            st.setInt(7, addressId);
+            st.setString(8, email);
+            st.setString(9, phnNo);
+            int row = st.executeUpdate();
             conn.close();
             return row;
         } catch(Exception e) {
