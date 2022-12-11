@@ -78,18 +78,7 @@ public class VetCreate extends javax.swing.JPanel {
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
-            }
-        });
-
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
-            }
-        });
-
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+           
             }
         });
 
@@ -121,14 +110,6 @@ public class VetCreate extends javax.swing.JPanel {
 
         nameLbl.setText("Name");
 
-        passwordLbl.setText("Password");
-
-        usernameLbl.setText("Username");
-
-        ageLbl.setText("Age");
-
-        ssnLbl.setText("SSN");
-
         cellLbl.setText("Cell Number");
 
         emailLbl.setText("Email");
@@ -151,13 +132,7 @@ public class VetCreate extends javax.swing.JPanel {
         createBtn.setText("Create");
         createBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createBtnActionPerformed(evt);
-            }
-        });
-
-        hospitalCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hospitalComboActionPerformed(evt);
+                cityComboActionPerformed(evt);
             }
         });
 
