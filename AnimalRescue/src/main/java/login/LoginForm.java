@@ -144,7 +144,7 @@ public class LoginForm extends javax.swing.JFrame {
 
         lblLoginAs1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblLoginAs1.setForeground(new java.awt.Color(153, 153, 153));
-        lblLoginAs1.setText("Login As:");
+        lblLoginAs1.setText("Signup As:");
 
         comboSignupAs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "User", "NGO", "Vendor", "Delivery Partner" }));
         comboSignupAs.addActionListener(new java.awt.event.ActionListener() {

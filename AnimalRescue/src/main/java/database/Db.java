@@ -132,19 +132,19 @@ public class Db {
                 st.setString(4, ngoDesc);
                 st.setInt(5, ngoSize);
                 row = st.executeUpdate();
-                
+                return row;
             }
-            return row;
+            return 0;
         } catch(Exception e) {
             e.printStackTrace();
         }
         return 0;
     }
     
-    public int createVendor(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId) {
+    public int createVendor(String name, String email, String phnNo, String uname, String pass, String orgName,int addressId) {
         try {
             Connection conn = getConnect();
-            PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?)");
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
             st.setString(1, name);
             st.setString(2, "Vendor");
             st.setString(3, uname);
@@ -153,52 +153,77 @@ public class Db {
             st.setString(6, email);
             st.setString(7, phnNo);
             int row = st.executeUpdate();
-            conn.close();
-            return row;
+            ResultSet genKey = st.getGeneratedKeys();
+            if(genKey.next()) {
+                int key = genKey.getInt(1);
+                
+                st = (PreparedStatement) conn.prepareStatement("insert into vendors (vendorName, addressId, personId) values(?,?,?)");
+                st.setString(1, orgName);
+                st.setInt(2, addressId);
+                st.setInt(3, key);
+                row = st.executeUpdate();
+                return row;
+            }
+            return 0;
         } catch(Exception e) {
             e.printStackTrace();
         }
         return 0;
     }
     
-    public int createDelivery(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId) {
+    public int createDelivery(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId) {
         try {
             Connection conn = getConnect();
-            PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, age, SSN, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?,?,?)");
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
             st.setString(1, name);
             st.setString(2, "Delivery Partner");
-            st.setInt(3, age);
-            st.setString(4, ssn);
-            st.setString(5, uname);
-            st.setString(6, pass);
-            st.setInt(7, addressId);
-            st.setString(8, email);
-            st.setString(9, phnNo);
+            st.setString(3, uname);
+            st.setString(4, pass);
+            st.setInt(5, addressId);
+            st.setString(6, email);
+            st.setString(7, phnNo);
             int row = st.executeUpdate();
-            conn.close();
-            return row;
+            ResultSet genKey = st.getGeneratedKeys();
+            if(genKey.next()) {
+                int key = genKey.getInt(1);
+                
+                st = (PreparedStatement) conn.prepareStatement("insert into deliveryPartner (vendorName, personId) values(?,?)");
+                st.setString(1, orgName);
+                st.setInt(2, key);
+                row = st.executeUpdate();
+                return row;
+            }
+            return 0;
         } catch(Exception e) {
             e.printStackTrace();
         }
         return 0;
     }
     
-    public int createHospital(String name, String email, String phnNo, String uname, String pass, int age, String ssn, int addressId) {
+    public int createHospital(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId) {
         try {
             Connection conn = getConnect();
-            PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, age, SSN, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?,?,?)");
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into person (name, personType, username, password, addressId, email, phoneNo) values(?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
             st.setString(1, name);
-            st.setString(2, "Hospital Manager");
-            st.setInt(3, age);
-            st.setString(4, ssn);
-            st.setString(5, uname);
-            st.setString(6, pass);
-            st.setInt(7, addressId);
-            st.setString(8, email);
-            st.setString(9, phnNo);
+            st.setString(2, "Vendor");
+            st.setString(3, uname);
+            st.setString(4, pass);
+            st.setInt(5, addressId);
+            st.setString(6, email);
+            st.setString(7, phnNo);
             int row = st.executeUpdate();
-            conn.close();
-            return row;
+            ResultSet genKey = st.getGeneratedKeys();
+            if(genKey.next()) {
+                int key = genKey.getInt(1);
+                
+                st = (PreparedStatement) conn.prepareStatement("insert into hospitals (hospitalName, addressId, personId) values(?,?,?)");
+                st.setString(1, orgName);
+                st.setInt(2, addressId);
+                st.setInt(3, key);
+                row = st.executeUpdate();
+                return row;
+            }
+            return 0;
         } catch(Exception e) {
             e.printStackTrace();
         }

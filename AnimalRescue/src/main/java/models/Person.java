@@ -208,10 +208,10 @@ public class Person {
         return res;
     }
     
-    public int createHospital(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId) {
-        
-        int res = database.createHospital(name, email, phnNo, uname, pass, orgName, addressId);
-        return res;
-    }
+//    public int createHospital(String name, String email, String phnNo, String uname, String pass, String orgName, int addressId) {
+//        
+//        int res = database.createHospital(name, email, phnNo, uname, pass, orgName, addressId);
+//        return res;
+//    }
     
 }

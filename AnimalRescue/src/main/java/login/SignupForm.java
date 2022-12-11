@@ -5,6 +5,7 @@
 package login;
 
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import models.Address;
 import models.Person;
 
@@ -74,7 +75,7 @@ public class SignupForm extends javax.swing.JFrame {
                 userSignupForm.setVisible(false);
                 try {
                     while(rs.next()) {
-                        comboUserCity.addItem(rs.getString("cityName"));
+                        comboVendorCity.addItem(rs.getString("cityName"));
                     }
                 } catch(Exception e) {
                     e.printStackTrace();
@@ -993,7 +994,10 @@ public class SignupForm extends javax.swing.JFrame {
         String ngoDesc = txtNgoDesc.getText();
         int ngoSize = Integer.parseInt(txtNgoSize.getText());
         person.createNgo(name, email, phnNo, uname, pass, ngoSize, orgName, addressId, ngoDesc);
-
+        JOptionPane.showMessageDialog(this, "Successfully Signed up!");
+        LoginForm login = new LoginForm();
+        login.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnAddNgoActionPerformed
 
     private void txtNgoDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNgoDescActionPerformed
@@ -1027,6 +1031,10 @@ public class SignupForm extends javax.swing.JFrame {
         } else {
             person.createDelivery(name, email, phnNo, uname, pass, orgName, addressId);
         }
+        JOptionPane.showMessageDialog(this, "Successfully Signed up!");
+        LoginForm login = new LoginForm();
+        login.setVisible(true);
+        this.dispose();
         
     }//GEN-LAST:event_btnAdd10ActionPerformed
 
@@ -1073,14 +1081,10 @@ public class SignupForm extends javax.swing.JFrame {
         int age = Integer.parseInt(txtUserAge.getText());
         String ssn = txtUserSSN.getText();
         person.createPerson(name, email, phnNo, uname, pass, age, ssn, addressId);
-
-        if(personType.equals("Vendor")) {
-            person.createVendor(name, email, phnNo, uname, pass, age, ssn, addressId);
-        }
-        if(personType.equals("Delivery Partner")) {
-            person.createDelivery(name, email, phnNo, uname, pass, age, ssn, addressId);
-        }
-        
+        JOptionPane.showMessageDialog(this, "Successfully Signed up!");
+        LoginForm login = new LoginForm();
+        login.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnAddMouseClicked
 
     /**
