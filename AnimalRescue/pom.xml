@@ -38,5 +38,10 @@
             <artifactId>mysql-connector-j</artifactId>
             <version>8.0.31</version>
         </dependency>
+        <dependency>
+            <groupId>AbsoluteLayout</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE160</version>
+        </dependency>
     </dependencies>
 </project>

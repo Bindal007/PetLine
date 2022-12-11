@@ -4,6 +4,8 @@
  */
 package vendor;
 
+import login.LoginForm;
+
 /**
  *
  * @author Farheen Zubair
@@ -15,8 +17,59 @@ public class VendorLandingPage extends javax.swing.JFrame {
      */
     public VendorLandingPage() {
         initComponents();
+//        DisplayProducts();
+//        getCategories();
     }
-
+//    Connection con = null;
+//    PreparedStatement pst = null;
+//    ResultSet rs = null;
+//    Statement st = null;
+//    
+//    
+//    private void DisplayProducts() {
+//        try {
+//            con = (Connection) DriverManager.getConnection();
+//            Statement st = (Statement) Con.createStatement();
+//            rs = st.executeQuery("Select * from products");
+//            ProductsTable.setModel(DbUtils.resultSetToTableModel(rs));
+//        }
+//    }
+//    
+//    private void getCategories(){
+//        try {
+//            con = (Connection) DriverManager.getConnection();
+//            Statement st = (Statement) Con.createStatement();
+//            rs = st.executeQuery("Select * from categories");
+//            while(rs.next()) {
+//                int catName = rs.getString("catName");
+//                catCombo.addItem(catName);
+//            }
+//        } catch(Exception e) {
+//            
+//        }
+//    }
+//    int itemId = null;
+//    Statement st1 = null;
+//    ResultSet rs1 = null;
+//    private void countIt() {
+//        try {
+//           st1 = (Statement) con.createStatement();
+//           rs1 = st1.executeQuery("select Max(custId) from customer");
+//           Rs1.next();
+//           itemId = rs1.getInt(1) + 1;
+//        }
+//    }
+//    
+//    private void saveProduct() {
+//        PreparedStatement Save = (PreparedStatement) con.prepareStatement("insert into");
+//        Save.setInt(1, itemId);
+//        Save.setString(2, custName.getText());
+//        
+//        int row = Save.executeUpdate();
+//        Con.close();
+//        DisplayProducts();
+//    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,13 +103,13 @@ public class VendorLandingPage extends javax.swing.JFrame {
         lblWelcome = new javax.swing.JLabel();
         sepWelcome = new javax.swing.JSeparator();
         lblEmpSec = new javax.swing.JLabel();
-        addEmployeePanel = new javax.swing.JPanel();
+        productsPanel = new javax.swing.JPanel();
         lblIconAddEmployee = new javax.swing.JLabel();
         lblAddEmployee = new javax.swing.JLabel();
-        updateEmployeePanel = new javax.swing.JPanel();
+        billingPanel = new javax.swing.JPanel();
         lblIconUpdateEmployee = new javax.swing.JLabel();
         lblUpdateEmployee = new javax.swing.JLabel();
-        reportEmployeePanel = new javax.swing.JPanel();
+        ordersPanel = new javax.swing.JPanel();
         lblIconEmployeeReport = new javax.swing.JLabel();
         lblDeleteEmployee1 = new javax.swing.JLabel();
         panelProducts = new javax.swing.JPanel();
@@ -121,7 +174,6 @@ public class VendorLandingPage extends javax.swing.JFrame {
         sidePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblUserImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblUserImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/User_Icon.png"))); // NOI18N
         sidePanel.add(lblUserImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 80));
 
         lblUsername.setBackground(new java.awt.Color(255, 255, 255));
@@ -170,7 +222,6 @@ public class VendorLandingPage extends javax.swing.JFrame {
         btnDashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblDashIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDashIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Laptop_Icon.png"))); // NOI18N
         btnDashboard.add(lblDashIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 130, 30));
 
         lblDashboard.setBackground(new java.awt.Color(240, 240, 240));
@@ -192,7 +243,6 @@ public class VendorLandingPage extends javax.swing.JFrame {
         btnEmployee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblEmpIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblEmpIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Leave_Icon.png"))); // NOI18N
         btnEmployee.add(lblEmpIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 130, 30));
 
         lblEmployee.setBackground(new java.awt.Color(240, 240, 240));
@@ -286,62 +336,63 @@ public class VendorLandingPage extends javax.swing.JFrame {
         lblEmpSec.setForeground(new java.awt.Color(51, 51, 51));
         lblEmpSec.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        addEmployeePanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
-        addEmployeePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        addEmployeePanel.addMouseListener(new java.awt.event.MouseAdapter() {
+        productsPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
+        productsPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        productsPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addEmployeePanelMouseClicked(evt);
+                productsPanelMouseClicked(evt);
             }
         });
-        addEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        productsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconAddEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconAddEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Add_Icon.png"))); // NOI18N
-        addEmployeePanel.add(lblIconAddEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
+        lblIconAddEmployee.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblIconAddEmployeeMouseClicked(evt);
+            }
+        });
+        productsPanel.add(lblIconAddEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
 
         lblAddEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblAddEmployee.setForeground(new java.awt.Color(51, 204, 0));
         lblAddEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAddEmployee.setText("Products");
-        addEmployeePanel.add(lblAddEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
+        productsPanel.add(lblAddEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
 
-        updateEmployeePanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
-        updateEmployeePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        updateEmployeePanel.addMouseListener(new java.awt.event.MouseAdapter() {
+        billingPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
+        billingPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        billingPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                updateEmployeePanelMouseClicked(evt);
+                billingPanelMouseClicked(evt);
             }
         });
-        updateEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        billingPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconUpdateEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconUpdateEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Update_Icon.png"))); // NOI18N
-        updateEmployeePanel.add(lblIconUpdateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
+        billingPanel.add(lblIconUpdateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
 
         lblUpdateEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblUpdateEmployee.setForeground(new java.awt.Color(0, 102, 204));
         lblUpdateEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUpdateEmployee.setText("Billings");
-        updateEmployeePanel.add(lblUpdateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
+        billingPanel.add(lblUpdateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
 
-        reportEmployeePanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
-        reportEmployeePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        reportEmployeePanel.setPreferredSize(new java.awt.Dimension(170, 120));
-        reportEmployeePanel.addMouseListener(new java.awt.event.MouseAdapter() {
+        ordersPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
+        ordersPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ordersPanel.setPreferredSize(new java.awt.Dimension(170, 120));
+        ordersPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                reportEmployeePanelMouseClicked(evt);
+                ordersPanelMouseClicked(evt);
             }
         });
-        reportEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblIconEmployeeReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Report_Icon.png"))); // NOI18N
-        reportEmployeePanel.add(lblIconEmployeeReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
+        ordersPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        ordersPanel.add(lblIconEmployeeReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
         lblDeleteEmployee1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblDeleteEmployee1.setForeground(new java.awt.Color(0, 102, 153));
         lblDeleteEmployee1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDeleteEmployee1.setText("Orders");
-        reportEmployeePanel.add(lblDeleteEmployee1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
+        ordersPanel.add(lblDeleteEmployee1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
 
         javax.swing.GroupLayout panelDashboardLayout = new javax.swing.GroupLayout(panelDashboard);
         panelDashboard.setLayout(panelDashboardLayout);
@@ -355,11 +406,11 @@ public class VendorLandingPage extends javax.swing.JFrame {
                     .addGroup(panelDashboardLayout.createSequentialGroup()
                         .addComponent(lblEmpSec)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(addEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(productsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(updateEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(billingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(reportEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(ordersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(198, Short.MAX_VALUE))
         );
         panelDashboardLayout.setVerticalGroup(
@@ -371,9 +422,9 @@ public class VendorLandingPage extends javax.swing.JFrame {
                 .addComponent(sepWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(addEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updateEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(reportEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(productsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(billingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ordersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblEmpSec)
                 .addContainerGap(295, Short.MAX_VALUE))
@@ -528,7 +579,7 @@ public class VendorLandingPage extends javax.swing.JFrame {
                         .addGroup(panelProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelProductsLayout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 50, Short.MAX_VALUE))
+                                .addGap(0, 79, Short.MAX_VALUE))
                             .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
                         .addGroup(panelProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1000,27 +1051,25 @@ public class VendorLandingPage extends javax.swing.JFrame {
 
     private void btnDashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDashboardMouseClicked
         // TODO add your handling code here:
-        addEmployeePane.setVisible(false);
-        panelDashboard.setVisible(true);
         panelProducts.setVisible(false);
-        updateEmployeePane.setVisible(false);
-        deleteEmployeePane.setVisible(false);
-        reportEmployeePane.setVisible(false);
+        panelBillings.setVisible(false);
+        panelOrders.setVisible(false);
+        panelDashboard.setVisible(true);
     }//GEN-LAST:event_btnDashboardMouseClicked
 
     private void btnEmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmployeeMouseClicked
         // TODO add your handling code here:
-        txtTotalEmp.setText(String.valueOf(this.employees.getTotalEmployeesCount()));
-        txtActiveEmp.setText(String.valueOf(this.employees.getActiveEmployeesCount()));
-        txtInactiveEmp.setText(String.valueOf(this.employees.getInActiveEmployeesCount()));
-        addEmployeePane.setVisible(false);
-        panelDashboard.setVisible(false);
-        panelProducts.setVisible(true);
-        updateEmployeePane.setVisible(false);
-        deleteEmployeePane.setVisible(false);
-        reportEmployeePane.setVisible(false);
-
-        populateEmployeesDataToTable(null);
+//        txtTotalEmp.setText(String.valueOf(this.employees.getTotalEmployeesCount()));
+//        txtActiveEmp.setText(String.valueOf(this.employees.getActiveEmployeesCount()));
+//        txtInactiveEmp.setText(String.valueOf(this.employees.getInActiveEmployeesCount()));
+//        addEmployeePane.setVisible(false);
+//        panelDashboard.setVisible(false);
+//        panelProducts.setVisible(true);
+//        updateEmployeePane.setVisible(false);
+//        deleteEmployeePane.setVisible(false);
+//        reportEmployeePane.setVisible(false);
+//
+//        populateEmployeesDataToTable(null);
     }//GEN-LAST:event_btnEmployeeMouseClicked
 
     private void btnViewLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewLogoutMouseClicked
@@ -1043,35 +1092,29 @@ public class VendorLandingPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lblContactMouseClicked
 
-    private void addEmployeePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addEmployeePanelMouseClicked
+    private void productsPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_productsPanelMouseClicked
         // TODO add your handling code here:
-        addEmployeePane.setVisible(true);
+        panelProducts.setVisible(true);
+        panelBillings.setVisible(false);
+        panelOrders.setVisible(false);
         panelDashboard.setVisible(false);
-        panelProducts.setVisible(false);
-        updateEmployeePane.setVisible(false);
-        deleteEmployeePane.setVisible(false);
-        reportEmployeePane.setVisible(false);
-    }//GEN-LAST:event_addEmployeePanelMouseClicked
+    }//GEN-LAST:event_productsPanelMouseClicked
 
-    private void updateEmployeePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateEmployeePanelMouseClicked
+    private void billingPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_billingPanelMouseClicked
         // TODO add your handling code here:
-        addEmployeePane.setVisible(false);
-        panelDashboard.setVisible(false);
         panelProducts.setVisible(false);
-        updateEmployeePane.setVisible(true);
-        deleteEmployeePane.setVisible(false);
-        reportEmployeePane.setVisible(false);
-    }//GEN-LAST:event_updateEmployeePanelMouseClicked
+        panelBillings.setVisible(true);
+        panelOrders.setVisible(false);
+        panelDashboard.setVisible(false);
+    }//GEN-LAST:event_billingPanelMouseClicked
 
-    private void reportEmployeePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportEmployeePanelMouseClicked
+    private void ordersPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ordersPanelMouseClicked
         // TODO add your handling code here:
-        addEmployeePane.setVisible(false);
-        panelDashboard.setVisible(false);
         panelProducts.setVisible(false);
-        updateEmployeePane.setVisible(false);
-        deleteEmployeePane.setVisible(false);
-        reportEmployeePane.setVisible(true);
-    }//GEN-LAST:event_reportEmployeePanelMouseClicked
+        panelBillings.setVisible(false);
+        panelOrders.setVisible(true);
+        panelDashboard.setVisible(false);
+    }//GEN-LAST:event_ordersPanelMouseClicked
 
     private void txtSearch1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearch1FocusGained
         // TODO add your handling code here:
@@ -1092,7 +1135,7 @@ public class VendorLandingPage extends javax.swing.JFrame {
         if(txtSearch1.getText().isEmpty()) {
             txtSearch1.setText("                                                           Enter Employee Id, First Name or Email to Search");
         } else {
-            populateEmployeesDataToTable(searchTxt);
+//            populateEmployeesDataToTable(searchTxt);
         }
     }//GEN-LAST:event_txtSearch1ActionPerformed
 
@@ -1134,6 +1177,8 @@ public class VendorLandingPage extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        AddProducts addProducts = new AddProducts(this, true);
+        addProducts.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
@@ -1151,6 +1196,10 @@ public class VendorLandingPage extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void lblIconAddEmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconAddEmployeeMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblIconAddEmployeeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1190,7 +1239,7 @@ public class VendorLandingPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel TotalEmpPane1;
     private javax.swing.JPanel activeEmpPane1;
-    private javax.swing.JPanel addEmployeePanel;
+    private javax.swing.JPanel billingPanel;
     private javax.swing.JPanel btnDashboard;
     private javax.swing.JPanel btnEmployee;
     private javax.swing.JPanel btnViewLoggedInUserProfile;
@@ -1252,6 +1301,7 @@ public class VendorLandingPage extends javax.swing.JFrame {
     private javax.swing.JLabel lblUsername;
     private javax.swing.JLabel lblViewUserProfile;
     private javax.swing.JLabel lblWelcome;
+    private javax.swing.JPanel ordersPanel;
     private javax.swing.JPanel panelBillings;
     private javax.swing.JPanel panelDashboard;
     private javax.swing.JPanel panelEmployeeHeader;
@@ -1259,7 +1309,7 @@ public class VendorLandingPage extends javax.swing.JFrame {
     private javax.swing.JPanel panelEmployeeHeader2;
     private javax.swing.JPanel panelOrders;
     private javax.swing.JPanel panelProducts;
-    private javax.swing.JPanel reportEmployeePanel;
+    private javax.swing.JPanel productsPanel;
     private javax.swing.JSeparator sepWelcome;
     private javax.swing.JPanel sidePanel;
     private javax.swing.JTable tblEmployeesData;
@@ -1271,6 +1321,5 @@ public class VendorLandingPage extends javax.swing.JFrame {
     private javax.swing.JTextField txtSearch1;
     private javax.swing.JTextField txtSearch2;
     private javax.swing.JLabel txtTotalEmp1;
-    private javax.swing.JPanel updateEmployeePanel;
     // End of variables declaration//GEN-END:variables
 }
