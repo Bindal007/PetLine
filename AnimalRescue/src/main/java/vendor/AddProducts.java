@@ -63,6 +63,8 @@ public class AddProducts extends javax.swing.JDialog {
             }
         });
 
+        prodCat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pet Food", "Medicine", "Pet Accessories" }));
+
         jLabel6.setText("Name");
 
         jLabel15.setText("Price");
@@ -156,7 +158,7 @@ public class AddProducts extends javax.swing.JDialog {
         // TODO add your handling code here:
         Product prod = new Product();
         String name = prodName.getText();
-        int cat = prodCat.getSelectedItem().toString().equals("Food") ? 1 : 2;
+        String cat = prodCat.getSelectedItem().toString();
         int qty;
         qty = Integer.parseInt(prodQty.getText());
         double price = Double.parseDouble(prodPrice.getText());

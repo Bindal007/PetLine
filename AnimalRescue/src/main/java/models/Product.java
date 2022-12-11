@@ -4,6 +4,10 @@
  */
 package models;
 
+import database.Db;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Farheen Zubair
@@ -14,6 +18,7 @@ public class Product {
     private int category;
     private int quantity;
     private double productPrice;
+    private Db db = new Db();
 
     public int getProductId() {
         return productId;
@@ -55,6 +60,21 @@ public class Product {
         this.productPrice = productPrice;
     }
     
+    public void createProduct(String name, String cat, int qty, double price) {
+        int res = db.createProduct(name, cat, qty, price);
+        if(res != 0) {
+            JOptionPane.showMessageDialog(null, "Product is created!");
+        }
+    }
     
+    public ResultSet getProducts() {
+        ResultSet rs = db.getProducts();
+        return rs;
+    }
+    
+    public ResultSet getVendorProducts(int vendorId) {
+        ResultSet rs = db.getVendorProducts(vendorId);
+        return rs;
+    }
     
 }
