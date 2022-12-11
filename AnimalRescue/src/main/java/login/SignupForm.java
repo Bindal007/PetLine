@@ -16,6 +16,34 @@ public class SignupForm extends javax.swing.JFrame {
     public SignupForm() {
         initComponents();
     }
+    
+    public SignupForm(String usertype) {
+        initComponents();
+        switch (usertype) {
+            case "User":
+                ngoSignupForm.setVisible(false);
+                vendorSignupForm.setVisible(false);
+                userSignupForm.setVisible(true);
+                break;
+            case "NGO":
+                ngoSignupForm.setVisible(true);
+                vendorSignupForm.setVisible(false);
+                userSignupForm.setVisible(false);
+                break;
+            case "Delivery Partner":
+                ngoSignupForm.setVisible(false);
+                vendorSignupForm.setVisible(true);
+                userSignupForm.setVisible(false);
+                break;
+            case "Vendor":
+                ngoSignupForm.setVisible(false);
+                vendorSignupForm.setVisible(true);
+                userSignupForm.setVisible(false);
+                break;
+            default:
+                break;
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -774,7 +802,7 @@ public class SignupForm extends javax.swing.JFrame {
         vendorSignupForm.setLayout(vendorSignupFormLayout);
         vendorSignupFormLayout.setHorizontalGroup(
             vendorSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(addEmpPaneHeader5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(addEmpPaneHeader5, javax.swing.GroupLayout.DEFAULT_SIZE, 783, Short.MAX_VALUE)
             .addGroup(vendorSignupFormLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(vendorSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -878,7 +906,7 @@ public class SignupForm extends javax.swing.JFrame {
                                 .addComponent(lblAddress16)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtVendorZip, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(156, Short.MAX_VALUE))
+                        .addContainerGap(153, Short.MAX_VALUE))
                     .addGroup(vendorSignupFormLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(lblEmployeePic5, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)

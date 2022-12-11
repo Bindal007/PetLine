@@ -5,7 +5,9 @@
 package login;
 
 import javax.swing.JOptionPane;
-import database.Database;
+import database.Db;
+import models.Person;
+import systemadmin.SysAdminHome;
 
 /**
  *
@@ -16,8 +18,10 @@ public class LoginForm extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    Person person = new Person();
+    Db database = new Db();
     public LoginForm() {
-        Database.getConnect();
+        database.getConnect();
         initComponents();
     }
 
@@ -45,8 +49,8 @@ public class LoginForm extends javax.swing.JFrame {
         comboLoginAs = new javax.swing.JComboBox<>();
         lblNewUser = new javax.swing.JLabel();
         lblLoginAs1 = new javax.swing.JLabel();
-        comboLoginAs1 = new javax.swing.JComboBox<>();
-        btnLogin1 = new javax.swing.JButton();
+        comboSignupAs = new javax.swing.JComboBox<>();
+        btnSignup = new javax.swing.JButton();
         btnLogin2 = new javax.swing.JButton();
         valCreds = new javax.swing.JLabel();
 
@@ -79,18 +83,20 @@ public class LoginForm extends javax.swing.JFrame {
         headerPanelLayout.setHorizontalGroup(
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerPanelLayout.createSequentialGroup()
-                .addGap(570, 570, 570)
+                .addGap(105, 105, 105)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(79, 79, 79)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(headerPanelLayout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         headerPanelLayout.setVerticalGroup(
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerPanelLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jLabel2))
+                .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(headerPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2)))
+                .addGap(36, 36, 36))
         );
 
         lblUsername.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -140,15 +146,20 @@ public class LoginForm extends javax.swing.JFrame {
         lblLoginAs1.setForeground(new java.awt.Color(153, 153, 153));
         lblLoginAs1.setText("Login As:");
 
-        comboLoginAs1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "User", "NGO", "Vendor", "Delivery Partner" }));
-
-        btnLogin1.setBackground(new java.awt.Color(51, 0, 204));
-        btnLogin1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        btnLogin1.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogin1.setText("Sign Up");
-        btnLogin1.addActionListener(new java.awt.event.ActionListener() {
+        comboSignupAs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "User", "NGO", "Vendor", "Delivery Partner" }));
+        comboSignupAs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogin1ActionPerformed(evt);
+                comboSignupAsActionPerformed(evt);
+            }
+        });
+
+        btnSignup.setBackground(new java.awt.Color(51, 0, 204));
+        btnSignup.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnSignup.setForeground(new java.awt.Color(255, 255, 255));
+        btnSignup.setText("Sign Up");
+        btnSignup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignupActionPerformed(evt);
             }
         });
 
@@ -193,19 +204,19 @@ public class LoginForm extends javax.swing.JFrame {
                                 .addComponent(lblNewUser)
                                 .addGap(18, 18, 18)
                                 .addComponent(lblLoginAs1))
-                            .addComponent(comboLoginAs1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboSignupAs, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(loginPanelLayout.createSequentialGroup()
                                 .addGap(14, 14, 14)
                                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(btnLogin2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(btnSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(69, 69, 69))))
         );
         loginPanelLayout.setVerticalGroup(
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginPanelLayout.createSequentialGroup()
                 .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginPanelLayout.createSequentialGroup()
                         .addComponent(lblRole)
@@ -229,9 +240,9 @@ public class LoginForm extends javax.swing.JFrame {
                             .addComponent(lblLoginAs1)
                             .addComponent(lblNewUser))
                         .addGap(14, 14, 14)
-                        .addComponent(comboLoginAs1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboSignupAs, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(valCreds, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -276,13 +287,26 @@ public class LoginForm extends javax.swing.JFrame {
             String username = txtUsername.getText();
             String password = String.valueOf(txtPassword.getPassword());
             
-            
+            Person p = person.checkPersonCreds(userType, username, password);
+            if(p != null) {
+                if(userType.equals("System Administrator")) {
+                    SysAdminHome adminPage = new SysAdminHome();
+                    adminPage.setVisible(true);
+                }
+            }
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
-    private void btnLogin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin1ActionPerformed
+    private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLogin1ActionPerformed
+        String usertype = comboSignupAs.getSelectedItem().toString();
+        if(usertype.equals("")) {
+            JOptionPane.showMessageDialog(this, "Please select the user type!");
+        } else {
+            SignupForm signup = new SignupForm(usertype);
+            signup.setVisible(true);
+        }
+    }//GEN-LAST:event_btnSignupActionPerformed
 
     private void btnLogin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogin2ActionPerformed
         // TODO add your handling code here:
@@ -305,6 +329,11 @@ public class LoginForm extends javax.swing.JFrame {
             comboLoginAs.addItem("NGO");
         }
     }//GEN-LAST:event_comboRoleActionPerformed
+
+    private void comboSignupAsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSignupAsActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_comboSignupAsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -344,11 +373,11 @@ public class LoginForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
-    private javax.swing.JButton btnLogin1;
     private javax.swing.JButton btnLogin2;
+    private javax.swing.JButton btnSignup;
     private javax.swing.JComboBox<String> comboLoginAs;
-    private javax.swing.JComboBox<String> comboLoginAs1;
     private javax.swing.JComboBox<String> comboRole;
+    private javax.swing.JComboBox<String> comboSignupAs;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

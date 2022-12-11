@@ -1,6 +1,8 @@
 
 package models;
-import database.Database;
+import database.Db;
+import java.sql.ResultSet;
+import java.sql.Blob;
 /**
  *
  * @author nikhilbindal
@@ -8,32 +10,38 @@ import database.Database;
 public class Person {
     
     private int personID;
+    private String personType;
     private String name;
     private int age;
     private String phoneNumber;
     private String email;
-    private int ssn;
+    private String ssn;
     private String username;
     private String password;
     private int addressID;
     private int postID;
+    private Blob profilePic;
+    private Db database = new Db();
+//    private 
     // private Post post;
     
-    public Person(int personID, String name, int age, String phoneNumber, String email, int ssn, String username, 
-            String password, int addressID, int postID /*Post post*/){
-        this.personID = personID;
-        this.name = name;
-        this.age = age;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.ssn = ssn;
-        this.username = username;
-        this.password = password;
-        this.addressID = addressID;
-        this.postID = postID;
-        //this.post = post;
+//    public Person(int personID, String name, int age, String phoneNumber, String email, String ssn, String username, 
+//            String password, int addressID, int postID /*Post post*/){
+//        this.personID = personID;
+//        this.name = name;
+//        this.age = age;
+//        this.phoneNumber = phoneNumber;
+//        this.email = email;
+//        this.ssn = ssn;
+//        this.username = username;
+//        this.password = password;
+//        this.addressID = addressID;
+//        this.postID = postID;
+//        //this.post = post;
+//
+//    }
 
-    }
+    public Person() {}
     
     public boolean isMatch(String name){
         if(getName().equals(name)) return true;
@@ -72,11 +80,11 @@ public class Person {
         this.email = email;
     }
     
-    public int getSSN(){
+    public String getSSN(){
         return ssn;
     }
     
-    public void setSSN(int ssn){
+    public void setSSN(String ssn){
         this.ssn = ssn;
     }
     
@@ -120,12 +128,28 @@ public class Person {
         this.personID = personID;
     }
     
-    public boolean checkPersonCreds(String userType, String username, String password) {
-        Person person = Database.getPersonDetails(userType, username, password);
-        if (person) {
-            return true;
+    public Person checkPersonCreds(String userType, String username, String password) {
+        Person person = new Person();
+        ResultSet rs = database.getPersonDetails(userType, username, password);
+        System.out.println(rs);
+        try {
+            person.personID = rs.getInt("personId");
+            person.personType = rs.getString("personType");
+            person.name = rs.getString("name");
+            person.age = rs.getInt("age");
+            person.ssn = rs.getString("ssn");
+            person.username = rs.getString("username");
+            person.password = rs.getString("password");
+            person.profilePic = rs.getBlob("profilePic");
+            person.email = rs.getString("email");
+            person.phoneNumber = rs.getString("phoneNo");
+        } catch(Exception e) {
+            e.printStackTrace();
         }
-        return false;
+        if (rs == null) {
+            return null;
+        }
+        return person;
     }
     
 }

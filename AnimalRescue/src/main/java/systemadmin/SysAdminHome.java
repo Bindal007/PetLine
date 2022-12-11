@@ -4,6 +4,9 @@
  */
 package systemadmin;
 
+import login.LoginForm;
+import models.Person;
+
 /**
  *
  * @author nikhilbindal
@@ -13,8 +16,14 @@ public class SysAdminHome extends javax.swing.JFrame {
     /**
      * Creates new form SysAdminHome
      */
+    Person person;
     public SysAdminHome() {
         initComponents();
+    }
+    
+    public SysAdminHome(Person person) {
+        initComponents();
+        this.person = person;
     }
 
     /**
@@ -1335,27 +1344,12 @@ public class SysAdminHome extends javax.swing.JFrame {
 
     private void btnDashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDashboardMouseClicked
         // TODO add your handling code here:
-        addEmployeePane.setVisible(false);
-        panelDashboard.setVisible(true);
-        panelEmployees.setVisible(false);
-        updateEmployeePane.setVisible(false);
-        deleteEmployeePane.setVisible(false);
-        reportEmployeePane.setVisible(false);
+//        panelDashboard.setVisible(true);
     }//GEN-LAST:event_btnDashboardMouseClicked
 
     private void btnEmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmployeeMouseClicked
         // TODO add your handling code here:
-        txtTotalEmp.setText(String.valueOf(this.employees.getTotalEmployeesCount()));
-        txtActiveEmp.setText(String.valueOf(this.employees.getActiveEmployeesCount()));
-        txtInactiveEmp.setText(String.valueOf(this.employees.getInActiveEmployeesCount()));
-        addEmployeePane.setVisible(false);
-        panelDashboard.setVisible(false);
-        panelEmployees.setVisible(true);
-        updateEmployeePane.setVisible(false);
-        deleteEmployeePane.setVisible(false);
-        reportEmployeePane.setVisible(false);
-
-        populateEmployeesDataToTable(null);
+//        txtTotalEmp.setText(String.valueOf(this.employees.getTotalEmployeesCount()));
     }//GEN-LAST:event_btnEmployeeMouseClicked
 
     private void btnViewLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewLogoutMouseClicked
@@ -1380,32 +1374,14 @@ public class SysAdminHome extends javax.swing.JFrame {
 
     private void addEmployeePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addEmployeePanelMouseClicked
         // TODO add your handling code here:
-        addEmployeePane.setVisible(true);
-        panelDashboard.setVisible(false);
-        panelEmployees.setVisible(false);
-        updateEmployeePane.setVisible(false);
-        deleteEmployeePane.setVisible(false);
-        reportEmployeePane.setVisible(false);
     }//GEN-LAST:event_addEmployeePanelMouseClicked
 
     private void updateEmployeePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateEmployeePanelMouseClicked
         // TODO add your handling code here:
-        addEmployeePane.setVisible(false);
-        panelDashboard.setVisible(false);
-        panelEmployees.setVisible(false);
-        updateEmployeePane.setVisible(true);
-        deleteEmployeePane.setVisible(false);
-        reportEmployeePane.setVisible(false);
     }//GEN-LAST:event_updateEmployeePanelMouseClicked
 
     private void deleteEmployeePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteEmployeePanelMouseClicked
         // TODO add your handling code here:
-        addEmployeePane.setVisible(false);
-        panelDashboard.setVisible(false);
-        panelEmployees.setVisible(false);
-        updateEmployeePane.setVisible(false);
-        deleteEmployeePane.setVisible(true);
-        reportEmployeePane.setVisible(false);
     }//GEN-LAST:event_deleteEmployeePanelMouseClicked
 
     private void txtSearch1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearch1FocusGained
@@ -1427,7 +1403,7 @@ public class SysAdminHome extends javax.swing.JFrame {
         if(txtSearch1.getText().isEmpty()) {
             txtSearch1.setText("                                                           Enter Employee Id, First Name or Email to Search");
         } else {
-            populateEmployeesDataToTable(searchTxt);
+//            populateEmployeesDataToTable(searchTxt);
         }
     }//GEN-LAST:event_txtSearch1ActionPerformed
 
@@ -1461,12 +1437,6 @@ public class SysAdminHome extends javax.swing.JFrame {
 
     private void reportEmployeePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportEmployeePanelMouseClicked
         // TODO add your handling code here:
-        addEmployeePane.setVisible(false);
-        panelDashboard.setVisible(false);
-        panelEmployees.setVisible(false);
-        updateEmployeePane.setVisible(false);
-        deleteEmployeePane.setVisible(false);
-        reportEmployeePane.setVisible(true);
     }//GEN-LAST:event_reportEmployeePanelMouseClicked
 
     private void reportEmployeePanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportEmployeePanel1MouseClicked
