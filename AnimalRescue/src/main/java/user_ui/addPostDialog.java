@@ -5,6 +5,8 @@
 package user_ui;
 
 import database.Db;
+import java.sql.ResultSet;
+import models.Address;
 
 /**
  *
@@ -18,7 +20,17 @@ public class addPostDialog extends javax.swing.JDialog {
     public addPostDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-    }
+        Address address = new Address();
+        ResultSet rs = address.getCityList();
+        try {
+            while(rs.next()) {
+                comboSosCity.addItem(rs.getString("cityName"));
+            }
+        } catch(Exception e) 
+        {
+            e.printStackTrace();
+        }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -151,6 +163,7 @@ public class addPostDialog extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpActionPerformed

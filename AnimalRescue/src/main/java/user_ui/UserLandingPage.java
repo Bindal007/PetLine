@@ -29,6 +29,7 @@ public class UserLandingPage extends javax.swing.JFrame {
     public UserLandingPage() {
         initComponents();
         ResultSet rs = db.getAllPosts();
+        System.out.println(rs);
         try {
             while(rs.next()) {
                 int postId = rs.getInt("postId");
@@ -47,16 +48,9 @@ public class UserLandingPage extends javax.swing.JFrame {
     
     public void renderItemsInFeed() {
         for(Posts p : posts) {
-            feedPanel.add(addPanel(p.getCity(), p.getDescription(), p.getPostTag()));
+            PostPanel pane = new PostPanel();
+            feedPanel.add(pane.addPanel(p.getCity(), p.getDescription(), p.getPostTag()));
         }
-    }
-    
-    public static JPanel addPanel(String city, String description, String tag){
-        JPanel panel = new JPanel();
-        panel.add(new JLabel(tag));
-        panel.add(new JLabel(city));
-        panel.add(new JLabel(description));
-        return panel;
     }
  
     /**
@@ -220,17 +214,7 @@ public class UserLandingPage extends javax.swing.JFrame {
 
         feedPanel.setBackground(new java.awt.Color(218, 228, 230));
         feedPanel.setAutoscrolls(true);
-
-        javax.swing.GroupLayout feedPanelLayout = new javax.swing.GroupLayout(feedPanel);
-        feedPanel.setLayout(feedPanelLayout);
-        feedPanelLayout.setHorizontalGroup(
-            feedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        feedPanelLayout.setVerticalGroup(
-            feedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 557, Short.MAX_VALUE)
-        );
+        feedPanel.setLayout(new java.awt.GridLayout());
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -424,14 +408,13 @@ public class UserLandingPage extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDashboardMouseClicked
         // TODO add your handling code here:
-//        panelProducts.setVisible(false);
-//        panelBillings.setVisible(false);
-//        panelOrders.setVisible(false);
-//        panelDashboard.setVisible(true);
+        postPanel.setVisible(true);
+        appointmentPanel.setVisible(false);
     }//GEN-LAST:event_btnDashboardMouseClicked
 
     private void btnEmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmployeeMouseClicked
@@ -447,6 +430,8 @@ public class UserLandingPage extends javax.swing.JFrame {
         //        reportEmployeePane.setVisible(false);
         //
         //        populateEmployeesDataToTable(null);
+        postPanel.setVisible(false);
+        appointmentPanel.setVisible(true);
     }//GEN-LAST:event_btnEmployeeMouseClicked
 
     private void btnViewLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewLogoutMouseClicked
@@ -458,6 +443,8 @@ public class UserLandingPage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        addPostDialog pos= new addPostDialog(this, true);
+        pos.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void bookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookBtnActionPerformed

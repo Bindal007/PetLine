@@ -18,7 +18,7 @@ public class Db {
     public Connection getConnect() {
         Connection conn = null;
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/petline?user=root&password=root");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/petline?user=root&password=nikhil007");
             System.out.println("Connection established!");
         }
         catch (Exception e) {
