@@ -13,15 +13,29 @@ public class Posts {
     private String dateTime;
     private String postTag;
     private String photos;
+    private String city;
     
-    public Posts(int postID, int addressID, String description, String dateTime, String postTag, String photos) {
+    public Posts(int postID, int addressID, String description, String dateTime, String postTag, String photos, String city) {
         this.postID = postID;
         this.addressID = addressID;
         this.description = description;
         this.dateTime = dateTime;
         this.postTag = postTag;
         this.photos = photos;
+        this.city = city;
     }
+
+    public Posts() {}
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+    
+    
     
     public int getPostID() {
         return postID;

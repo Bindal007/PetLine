@@ -426,5 +426,31 @@ public class Db {
 
 //    ------------------------------------------ Posts CRUD ------------------------------------------
     
+    public int addPost(String city, String type, String desc) {
+        int row = 0;
+        try {
+            Connection conn = getConnect();
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("insert into posts (city, postTag, description) values (?,?,?)");
+            st.setString(1, city);
+            st.setString(2, type);
+            st.setString(3, desc);
+            row = st.executeUpdate();
+        } catch(Exception e) {
+            System.out.println("Post created!");
+        }
+        return row;
+    }
     
+    public ResultSet getAllPosts() {
+        ResultSet rs = null;
+        try {
+            Connection conn = getConnect();
+            PreparedStatement st = (PreparedStatement) conn.prepareStatement("select * from posts order by postId desc");
+            rs = st.executeQuery();
+            return rs;
+        } catch(Exception e) {
+            System.out.println("Post fetched!");
+        }
+        return rs;
+    }
 }

@@ -4,10 +4,14 @@
  */
 package user_ui;
 
+import database.Db;
+import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import login.LoginForm;
+import models.Posts;
 
 /**
  *
@@ -18,8 +22,23 @@ public class UserLandingPage extends javax.swing.JFrame {
     /**
      * Creates new form UserLandingPage
      */
+    Db db = new Db();
+    ArrayList<Posts> posts = new ArrayList();
     public UserLandingPage() {
         initComponents();
+        ResultSet rs = db.getAllPosts();
+        try {
+            while(rs.next()) {
+                int postId = rs.getInt("postId");
+                String desc = rs.getString("description");
+                String city = rs.getString("city");
+                String postTag = rs.getString("postTag");
+                Posts post = new Posts(postId, null, desc, null, postTag, null, city);
+                posts.add(post);
+            } 
+        } catch(Exception e) {
+            System.out.println("No posts");
+        }
     }
 
     /**
