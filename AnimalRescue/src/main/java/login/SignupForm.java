@@ -954,65 +954,59 @@ public class SignupForm extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userSignupForm.setVisible(false);
-        panelDashboard.setVisible(true);
-        panelEmployees.setVisible(false);
-        updateEmployeePane.setVisible(false);
-        deleteEmployeePane.setVisible(false);
-        reportEmployeePane.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        if(!ValidationForCreateEmployee()) {
-            return;
-        }
-        String fname = txtUserAge.getText();
-        String lname = txtUserSSN.getText();
-        int age =  txtAge.getText().isEmpty() ? null : Integer.parseInt(txtAge.getText());
-        boolean status = this.empStatus;
-        String gender = this.empGender;
-        JDateChooser startDate = txtUserDOB;
-        String dept = txtUsername.getText();
-        String designation = txtPassword.getText();
-        int empID =  txtUserName.getText().isEmpty() ? null : Integer.parseInt(txtUserName.getText());
-        String profilePic = "";
-        String email = txtEmail.getText();
-        String phnNo = txtNumber.getText();
-        String address = txtAddress.getText();
-        ContactDetails contactDetail = new ContactDetails(phnNo, email, address);
-
-        Employee employee = employees.addNewEmployees();
-        employee.setAge(age);
-        employee.setContactDetails(contactDetail);
-        employee.setDept(dept);
-        employee.setDesignation(designation);
-        employee.setEmpID(empID);
-        employee.setStatus(status);
-        employee.setStartDate(startDate);
-        employee.setProfilePic(profilePic);
-        employee.setFname(fname);
-        employee.setLname(lname);
-        employee.setGender(gender);
-        employee.setProfilePic(this.imagePath);
-
-        JOptionPane.showMessageDialog(this, "Employee Details Added!");
-
-        txtUserName.setText("");
-        txtUserAge.setText("");
-        txtUserSSN.setText("");
-        txtAge.setText("");
-        txtNumber.setText("");
-        txtEmail.setText("");
-        txtAddress.setText("");
-        r_Active.setSelected(false);
-        r_InActive.setSelected(false);
-        r_male.setSelected(false);
-        r_female.setSelected(false);
-        r_otherGender.setSelected(false);
-        txtUsername.setText("");
-        txtPassword.setText("");
-        txtUserDOB.setDate(new Date());
+//        if(!ValidationForCreateEmployee()) {
+//            return;
+//        }
+//        String fname = txtUserAge.getText();
+//        String lname = txtUserSSN.getText();
+//        int age =  txtAge.getText().isEmpty() ? null : Integer.parseInt(txtAge.getText());
+//        boolean status = this.empStatus;
+//        String gender = this.empGender;
+//        JDateChooser startDate = txtUserDOB;
+//        String dept = txtUsername.getText();
+//        String designation = txtPassword.getText();
+//        int empID =  txtUserName.getText().isEmpty() ? null : Integer.parseInt(txtUserName.getText());
+//        String profilePic = "";
+//        String email = txtEmail.getText();
+//        String phnNo = txtNumber.getText();
+//        String address = txtAddress.getText();
+//        ContactDetails contactDetail = new ContactDetails(phnNo, email, address);
+//
+//        Employee employee = employees.addNewEmployees();
+//        employee.setAge(age);
+//        employee.setContactDetails(contactDetail);
+//        employee.setDept(dept);
+//        employee.setDesignation(designation);
+//        employee.setEmpID(empID);
+//        employee.setStatus(status);
+//        employee.setStartDate(startDate);
+//        employee.setProfilePic(profilePic);
+//        employee.setFname(fname);
+//        employee.setLname(lname);
+//        employee.setGender(gender);
+//        employee.setProfilePic(this.imagePath);
+//
+//        JOptionPane.showMessageDialog(this, "Employee Details Added!");
+//
+//        txtUserName.setText("");
+//        txtUserAge.setText("");
+//        txtUserSSN.setText("");
+//        txtAge.setText("");
+//        txtNumber.setText("");
+//        txtEmail.setText("");
+//        txtAddress.setText("");
+//        r_Active.setSelected(false);
+//        r_InActive.setSelected(false);
+//        r_male.setSelected(false);
+//        r_female.setSelected(false);
+//        r_otherGender.setSelected(false);
+//        txtUsername.setText("");
+//        txtPassword.setText("");
+//        txtUserDOB.setDate(new Date());
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
@@ -1021,19 +1015,19 @@ public class SignupForm extends javax.swing.JFrame {
 
     private void btnAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd2ActionPerformed
         // TODO add your handling code here:
-        JFileChooser browseImageFile = new JFileChooser();
-        FileNameExtensionFilter fnef = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg", "gif");
-        browseImageFile.addChoosableFileFilter(fnef);
-        int showOpenDialogue = browseImageFile.showOpenDialog(null);
-        if(showOpenDialogue == JFileChooser.APPROVE_OPTION) {
-            File selectedImageFile = browseImageFile.getSelectedFile();
-            String selectedImagePath = selectedImageFile.getAbsolutePath();
-            JOptionPane.showMessageDialog(null, selectedImagePath);
-            this.imagePath = selectedImagePath;
-            // display image on label
-            ImageIcon ii = new ImageIcon(selectedImagePath);
-            lblEmployeePic.setIcon(ii);
-        }
+//        JFileChooser browseImageFile = new JFileChooser();
+//        FileNameExtensionFilter fnef = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg", "gif");
+//        browseImageFile.addChoosableFileFilter(fnef);
+//        int showOpenDialogue = browseImageFile.showOpenDialog(null);
+//        if(showOpenDialogue == JFileChooser.APPROVE_OPTION) {
+//            File selectedImageFile = browseImageFile.getSelectedFile();
+//            String selectedImagePath = selectedImageFile.getAbsolutePath();
+//            JOptionPane.showMessageDialog(null, selectedImagePath);
+//            this.imagePath = selectedImagePath;
+//            // display image on label
+//            ImageIcon ii = new ImageIcon(selectedImagePath);
+//            lblEmployeePic.setIcon(ii);
+//        }
     }//GEN-LAST:event_btnAdd2ActionPerformed
 
     private void btnBack3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack3ActionPerformed

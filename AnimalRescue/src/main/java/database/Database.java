@@ -13,7 +13,7 @@ public class Database {
     public static Connection getConnect() {
         Connection conn = null;
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/petline?user=root&password=root");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/petline?user=root&password=nikhil007");
             System.out.println("Connection established!");
         }
         catch (Exception e) {
@@ -22,7 +22,9 @@ public class Database {
         return conn;
     }
     
-    public static void main(String args[]) {
-        getConnect();
-    }
+//    public 
+//    
+//    public static void main(String args[]) {
+//        getConnect();
+//    }
 }
