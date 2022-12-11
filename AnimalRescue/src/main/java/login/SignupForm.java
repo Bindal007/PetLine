@@ -4,6 +4,8 @@
  */
 package login;
 
+import models.Person;
+
 /**
  *
  * @author nikhilbindal
@@ -13,8 +15,41 @@ public class SignupForm extends javax.swing.JFrame {
     /**
      * Creates new form SignupForm
      */
+    private String personType;
     public SignupForm() {
         initComponents();
+        ngoSignupForm.setVisible(false);
+        vendorSignupForm.setVisible(false);
+        userSignupForm.setVisible(true);
+    }
+    
+    public SignupForm(String usertype) {
+        this.personType = usertype;
+        initComponents();
+        switch (usertype) {
+            case "User":
+                ngoSignupForm.setVisible(false);
+                vendorSignupForm.setVisible(false);
+                userSignupForm.setVisible(true);
+                break;
+            case "NGO":
+                ngoSignupForm.setVisible(true);
+                vendorSignupForm.setVisible(false);
+                userSignupForm.setVisible(false);
+                break;
+            case "Delivery Partner":
+                ngoSignupForm.setVisible(false);
+                vendorSignupForm.setVisible(true);
+                userSignupForm.setVisible(false);
+                break;
+            case "Vendor":
+                ngoSignupForm.setVisible(false);
+                vendorSignupForm.setVisible(true);
+                userSignupForm.setVisible(false);
+                break;
+            default:
+                break;
+        }
     }
 
     /**
@@ -42,15 +77,10 @@ public class SignupForm extends javax.swing.JFrame {
         txtNumber = new javax.swing.JTextField();
         lblAddress = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
-        lblEmpId = new javax.swing.JLabel();
         txtUserName = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
-        lblStartDate = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        lblEmployeePic = new javax.swing.JLabel();
-        txtUserDOB = new com.toedter.calendar.JDateChooser();
-        btnAdd2 = new javax.swing.JButton();
         lblAddress3 = new javax.swing.JLabel();
         txtAddress3 = new javax.swing.JTextField();
         lblEmpId3 = new javax.swing.JLabel();
@@ -79,9 +109,7 @@ public class SignupForm extends javax.swing.JFrame {
         btnAdd6 = new javax.swing.JButton();
         lblEmail3 = new javax.swing.JLabel();
         txtNgoDesc = new javax.swing.JTextField();
-        lblEmployeePic3 = new javax.swing.JLabel();
         txtNgoStartDate = new com.toedter.calendar.JDateChooser();
-        btnAdd7 = new javax.swing.JButton();
         lblAddress7 = new javax.swing.JLabel();
         txtNgoCity = new javax.swing.JTextField();
         lblEmpId5 = new javax.swing.JLabel();
@@ -106,9 +134,7 @@ public class SignupForm extends javax.swing.JFrame {
         lblEmpId8 = new javax.swing.JLabel();
         txtVendorName = new javax.swing.JTextField();
         btnAdd10 = new javax.swing.JButton();
-        lblEmployeePic5 = new javax.swing.JLabel();
         txtVendorStartDate = new com.toedter.calendar.JDateChooser();
-        btnAdd11 = new javax.swing.JButton();
         lblAddress15 = new javax.swing.JLabel();
         txtVendorCity = new javax.swing.JTextField();
         lblEmpId9 = new javax.swing.JLabel();
@@ -137,6 +163,11 @@ public class SignupForm extends javax.swing.JFrame {
         btnBack.setText("Go Back");
         btnBack.setBorderPainted(false);
         btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBackMouseClicked(evt);
+            }
+        });
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -186,10 +217,6 @@ public class SignupForm extends javax.swing.JFrame {
         txtAddress.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         txtAddress.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(153, 153, 153)));
 
-        lblEmpId.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        lblEmpId.setForeground(new java.awt.Color(153, 153, 153));
-        lblEmpId.setText("Date of Birth:");
-
         txtUserName.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         txtUserName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(153, 153, 153)));
 
@@ -199,15 +226,16 @@ public class SignupForm extends javax.swing.JFrame {
         btnAdd.setText("Sign Up!");
         btnAdd.setBorderPainted(false);
         btnAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddMouseClicked(evt);
+            }
+        });
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
-
-        lblStartDate.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        lblStartDate.setForeground(new java.awt.Color(153, 153, 153));
-        lblStartDate.setText("Date of Birth:");
 
         lblEmail.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         lblEmail.setForeground(new java.awt.Color(153, 153, 153));
@@ -218,20 +246,6 @@ public class SignupForm extends javax.swing.JFrame {
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
-            }
-        });
-
-        lblEmployeePic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-
-        btnAdd2.setBackground(new java.awt.Color(0, 0, 102));
-        btnAdd2.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        btnAdd2.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdd2.setText("Upload Photo");
-        btnAdd2.setBorderPainted(false);
-        btnAdd2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAdd2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdd2ActionPerformed(evt);
             }
         });
 
@@ -278,100 +292,74 @@ public class SignupForm extends javax.swing.JFrame {
                             .addComponent(txtAddress4, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userSignupFormLayout.createSequentialGroup()
-                        .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(userSignupFormLayout.createSequentialGroup()
                                 .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userSignupFormLayout.createSequentialGroup()
-                                        .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(txtUserName, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblFName, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtUserAge, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblDepartment, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblContactNo, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtNumber, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(lblEmpId3))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(lblEmpId)
-                                            .addComponent(lblDesg)
-                                            .addComponent(lblLName)
-                                            .addComponent(txtPassword)
-                                            .addComponent(txtUserSSN)
-                                            .addComponent(txtUserDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblStartDate)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(userSignupFormLayout.createSequentialGroup()
-                                        .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblEmail)
-                                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(userSignupFormLayout.createSequentialGroup()
-                                                .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(lblAddress)
-                                                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(lblAddress3)
-                                                    .addComponent(txtAddress3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGap(54, 54, 54)
+                                    .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txtUserName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                                        .addComponent(lblFName, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtUserAge, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblDepartment, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(lblEmpId3))
+                                .addGap(18, 18, 18)
+                                .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblDesg)
+                                    .addComponent(lblLName)
+                                    .addComponent(txtPassword)
+                                    .addComponent(txtUserSSN)
+                                    .addComponent(lblContactNo)
+                                    .addComponent(txtNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblEmail)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(userSignupFormLayout.createSequentialGroup()
                                 .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblEmployeePic, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userSignupFormLayout.createSequentialGroup()
-                                        .addComponent(btnAdd2)
-                                        .addGap(21, 21, 21))))
-                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22))))
+                                    .addComponent(lblAddress)
+                                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblAddress3)
+                                    .addComponent(txtAddress3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userSignupFormLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
         userSignupFormLayout.setVerticalGroup(
             userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userSignupFormLayout.createSequentialGroup()
-                .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addEmpPaneHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addEmpPaneHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(userSignupFormLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(lblStartDate)))
-                .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(userSignupFormLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(lblEmployeePic, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAdd2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(userSignupFormLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEmpId3)
-                            .addComponent(lblEmpId))
-                        .addGap(13, 13, 13)
-                        .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtUserName)
-                            .addComponent(txtUserDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(userSignupFormLayout.createSequentialGroup()
-                                .addComponent(lblFName)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtUserAge, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(userSignupFormLayout.createSequentialGroup()
-                                .addComponent(lblLName)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtUserSSN, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(2, 2, 2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblDepartment)
-                            .addComponent(lblDesg))
+                        .addComponent(lblEmpId3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(userSignupFormLayout.createSequentialGroup()
                         .addComponent(lblContactNo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(17, 17, 17)
+                .addGap(18, 18, 18)
+                .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(userSignupFormLayout.createSequentialGroup()
+                        .addComponent(lblFName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtUserAge, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(userSignupFormLayout.createSequentialGroup()
+                        .addComponent(lblLName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtUserSSN, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDepartment)
+                    .addComponent(lblDesg))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(lblEmail)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(userSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -397,7 +385,7 @@ public class SignupForm extends javax.swing.JFrame {
                         .addComponent(txtAddress4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addGap(34, 34, 34))
         );
 
         ngoSignupForm.setBackground(new java.awt.Color(218, 228, 230));
@@ -418,12 +406,17 @@ public class SignupForm extends javax.swing.JFrame {
         btnBack3.setText("Go Back");
         btnBack3.setBorderPainted(false);
         btnBack3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBack3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBack3MouseClicked(evt);
+            }
+        });
         btnBack3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBack3ActionPerformed(evt);
             }
         });
-        addEmpPaneHeader3.add(btnBack3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 4, 110, 30));
+        addEmpPaneHeader3.add(btnBack3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 100, 20));
 
         lblFName3.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         lblFName3.setForeground(new java.awt.Color(153, 153, 153));
@@ -498,20 +491,6 @@ public class SignupForm extends javax.swing.JFrame {
             }
         });
 
-        lblEmployeePic3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-
-        btnAdd7.setBackground(new java.awt.Color(0, 0, 102));
-        btnAdd7.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        btnAdd7.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdd7.setText("Upload Photo");
-        btnAdd7.setBorderPainted(false);
-        btnAdd7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAdd7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdd7ActionPerformed(evt);
-            }
-        });
-
         lblAddress7.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         lblAddress7.setForeground(new java.awt.Color(153, 153, 153));
         lblAddress7.setText("City:");
@@ -543,105 +522,86 @@ public class SignupForm extends javax.swing.JFrame {
             ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(addEmpPaneHeader3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(ngoSignupFormLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(ngoSignupFormLayout.createSequentialGroup()
                         .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAddress9)
-                            .addComponent(txtNgoState, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAddress8)
-                            .addComponent(txtNgoZip, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ngoSignupFormLayout.createSequentialGroup()
-                        .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ngoSignupFormLayout.createSequentialGroup()
+                                .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txtNgoName, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblFName3, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtNgoSize, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblDepartment3, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblContactNo3, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtNgoUsername, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtNgoPhone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblEmpId5))
+                                .addGap(18, 18, 18)
+                                .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblEmpId4)
+                                    .addComponent(lblDesg3)
+                                    .addComponent(lblLName3)
+                                    .addComponent(txtNgoPassword)
+                                    .addComponent(txtNgoEmail)
+                                    .addComponent(txtNgoStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblEmail3)
+                            .addComponent(txtNgoDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(ngoSignupFormLayout.createSequentialGroup()
                                 .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ngoSignupFormLayout.createSequentialGroup()
-                                        .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(txtNgoName, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblFName3, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtNgoSize, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblDepartment3, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lblContactNo3, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtNgoUsername, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtNgoPhone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(lblEmpId5))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(lblEmpId4)
-                                            .addComponent(lblDesg3)
-                                            .addComponent(lblLName3)
-                                            .addComponent(txtNgoPassword)
-                                            .addComponent(txtNgoEmail)
-                                            .addComponent(txtNgoStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(ngoSignupFormLayout.createSequentialGroup()
-                                        .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblEmail3)
-                                            .addComponent(txtNgoDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(ngoSignupFormLayout.createSequentialGroup()
-                                                .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(lblAddress6)
-                                                    .addComponent(txtNgoAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(lblAddress7)
-                                                    .addComponent(txtNgoCity, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGap(161, 161, 161)
+                                    .addComponent(lblAddress6)
+                                    .addComponent(txtNgoAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
                                 .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblEmployeePic3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ngoSignupFormLayout.createSequentialGroup()
-                                        .addComponent(btnAdd7)
-                                        .addGap(21, 21, 21))))
-                            .addComponent(btnAdd6, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22))))
+                                    .addComponent(lblAddress7)
+                                    .addComponent(txtNgoCity, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(ngoSignupFormLayout.createSequentialGroup()
+                                .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblAddress9)
+                                    .addComponent(txtNgoState, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblAddress8)
+                                    .addComponent(txtNgoZip, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(333, 333, 333))
+                    .addComponent(btnAdd6, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
         );
         ngoSignupFormLayout.setVerticalGroup(
             ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ngoSignupFormLayout.createSequentialGroup()
                 .addComponent(addEmpPaneHeader3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(12, 12, 12)
+                .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEmpId5)
+                    .addComponent(lblEmpId4))
+                .addGap(13, 13, 13)
+                .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtNgoName)
+                    .addComponent(txtNgoStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(ngoSignupFormLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(lblEmployeePic3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAdd7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblFName3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNgoSize, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ngoSignupFormLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEmpId5)
-                            .addComponent(lblEmpId4))
-                        .addGap(13, 13, 13)
-                        .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNgoName)
-                            .addComponent(txtNgoStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(ngoSignupFormLayout.createSequentialGroup()
-                                .addComponent(lblFName3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNgoSize, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(ngoSignupFormLayout.createSequentialGroup()
-                                .addComponent(lblLName3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNgoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(2, 2, 2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblDepartment3)
-                            .addComponent(lblDesg3))
+                        .addComponent(lblLName3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNgoUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNgoPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblContactNo3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNgoPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtNgoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDepartment3)
+                    .addComponent(lblDesg3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ngoSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNgoUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNgoPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblContactNo3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNgoPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17)
                 .addComponent(lblEmail3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -689,12 +649,17 @@ public class SignupForm extends javax.swing.JFrame {
         btnBack5.setText("Go Back");
         btnBack5.setBorderPainted(false);
         btnBack5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBack5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBack5MouseClicked(evt);
+            }
+        });
         btnBack5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBack5ActionPerformed(evt);
             }
         });
-        addEmpPaneHeader5.add(btnBack5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, 90, 20));
+        addEmpPaneHeader5.add(btnBack5, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 90, 20));
 
         lblFName5.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         lblFName5.setForeground(new java.awt.Color(153, 153, 153));
@@ -750,20 +715,6 @@ public class SignupForm extends javax.swing.JFrame {
             }
         });
 
-        lblEmployeePic5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-
-        btnAdd11.setBackground(new java.awt.Color(0, 0, 102));
-        btnAdd11.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        btnAdd11.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdd11.setText("Upload Photo");
-        btnAdd11.setBorderPainted(false);
-        btnAdd11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAdd11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdd11ActionPerformed(evt);
-            }
-        });
-
         lblAddress15.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         lblAddress15.setForeground(new java.awt.Color(153, 153, 153));
         lblAddress15.setText("City:");
@@ -793,7 +744,7 @@ public class SignupForm extends javax.swing.JFrame {
         vendorSignupForm.setLayout(vendorSignupFormLayout);
         vendorSignupFormLayout.setHorizontalGroup(
             vendorSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(addEmpPaneHeader5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(addEmpPaneHeader5, javax.swing.GroupLayout.DEFAULT_SIZE, 769, Short.MAX_VALUE)
             .addGroup(vendorSignupFormLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(vendorSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -836,12 +787,7 @@ public class SignupForm extends javax.swing.JFrame {
                                     .addComponent(lblAddress15)
                                     .addComponent(txtVendorCity, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(vendorSignupFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblEmployeePic5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, vendorSignupFormLayout.createSequentialGroup()
-                        .addComponent(btnAdd11)
-                        .addGap(21, 21, 21))
-                    .addComponent(btnAdd10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnAdd10, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
         vendorSignupFormLayout.setVerticalGroup(
@@ -897,12 +843,8 @@ public class SignupForm extends javax.swing.JFrame {
                                 .addComponent(lblAddress16)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtVendorZip, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(57, Short.MAX_VALUE))
+                        .addContainerGap(156, Short.MAX_VALUE))
                     .addGroup(vendorSignupFormLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(lblEmployeePic5, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAdd11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAdd10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(17, 17, 17))))
@@ -912,41 +854,19 @@ public class SignupForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
+            .addComponent(ngoSignupForm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 808, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(userSignupForm, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(userSignupForm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 808, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(ngoSignupForm, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(124, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(16, 16, 16)
-                    .addComponent(vendorSignupForm, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(114, Short.MAX_VALUE)))
+                .addComponent(vendorSignupForm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 808, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addComponent(ngoSignupForm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(userSignupForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(userSignupForm, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ngoSignupForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(24, Short.MAX_VALUE)
-                    .addComponent(vendorSignupForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(16, 16, 16)))
+                .addComponent(vendorSignupForm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE))
         );
 
         pack();
@@ -1013,23 +933,6 @@ public class SignupForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
 
-    private void btnAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd2ActionPerformed
-        // TODO add your handling code here:
-//        JFileChooser browseImageFile = new JFileChooser();
-//        FileNameExtensionFilter fnef = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg", "gif");
-//        browseImageFile.addChoosableFileFilter(fnef);
-//        int showOpenDialogue = browseImageFile.showOpenDialog(null);
-//        if(showOpenDialogue == JFileChooser.APPROVE_OPTION) {
-//            File selectedImageFile = browseImageFile.getSelectedFile();
-//            String selectedImagePath = selectedImageFile.getAbsolutePath();
-//            JOptionPane.showMessageDialog(null, selectedImagePath);
-//            this.imagePath = selectedImagePath;
-//            // display image on label
-//            ImageIcon ii = new ImageIcon(selectedImagePath);
-//            lblEmployeePic.setIcon(ii);
-//        }
-    }//GEN-LAST:event_btnAdd2ActionPerformed
-
     private void btnBack3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBack3ActionPerformed
@@ -1042,10 +945,6 @@ public class SignupForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNgoDescActionPerformed
 
-    private void btnAdd7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAdd7ActionPerformed
-
     private void btnBack5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBack5ActionPerformed
@@ -1054,9 +953,39 @@ public class SignupForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAdd10ActionPerformed
 
-    private void btnAdd11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd11ActionPerformed
+    private void btnBack5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBack5MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAdd11ActionPerformed
+        LoginForm login = new LoginForm();
+        login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnBack5MouseClicked
+
+    private void btnBack3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBack3MouseClicked
+        // TODO add your handling code here:
+        LoginForm login = new LoginForm();
+        login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnBack3MouseClicked
+
+    private void btnBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseClicked
+        // TODO add your handling code here:
+        LoginForm login = new LoginForm();
+        login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnBackMouseClicked
+
+    private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
+        // TODO add your handling code here:
+        Person person = new Person();
+        person.setName(txtUserName.getText());
+        person.setPersonType(personType);
+        person.setEmail(txtEmail.getText());
+        person.setPhoneNumber(txtNumber.getText());
+        person.setUsername(txtUsername.getText());
+        person.setPassword(txtPassword.getText());
+        person.setAge(Integer.parseInt(txtUserAge.getText()));
+        person.
+    }//GEN-LAST:event_btnAddMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1099,10 +1028,7 @@ public class SignupForm extends javax.swing.JFrame {
     private javax.swing.JPanel addEmpPaneHeader5;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAdd10;
-    private javax.swing.JButton btnAdd11;
-    private javax.swing.JButton btnAdd2;
     private javax.swing.JButton btnAdd6;
-    private javax.swing.JButton btnAdd7;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBack3;
     private javax.swing.JButton btnBack5;
@@ -1131,22 +1057,17 @@ public class SignupForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblDesg5;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblEmail3;
-    private javax.swing.JLabel lblEmpId;
     private javax.swing.JLabel lblEmpId3;
     private javax.swing.JLabel lblEmpId4;
     private javax.swing.JLabel lblEmpId5;
     private javax.swing.JLabel lblEmpId8;
     private javax.swing.JLabel lblEmpId9;
-    private javax.swing.JLabel lblEmployeePic;
-    private javax.swing.JLabel lblEmployeePic3;
-    private javax.swing.JLabel lblEmployeePic5;
     private javax.swing.JLabel lblFName;
     private javax.swing.JLabel lblFName3;
     private javax.swing.JLabel lblFName5;
     private javax.swing.JLabel lblLName;
     private javax.swing.JLabel lblLName3;
     private javax.swing.JLabel lblLName5;
-    private javax.swing.JLabel lblStartDate;
     private javax.swing.JPanel ngoSignupForm;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtAddress3;
@@ -1168,7 +1089,6 @@ public class SignupForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtNumber;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUserAge;
-    private com.toedter.calendar.JDateChooser txtUserDOB;
     private javax.swing.JTextField txtUserName;
     private javax.swing.JTextField txtUserSSN;
     private javax.swing.JTextField txtUsername;

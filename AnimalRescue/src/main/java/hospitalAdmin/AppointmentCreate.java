@@ -8,11 +8,10 @@ import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import models.City;
-import models.Community;
 import models.Hospital;
 import models.Vet;
 import models.Person;
-import models.Appointment;
+import models.Appointments;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import resources.Validations;
@@ -24,7 +23,6 @@ import resources.Validations;
 public class AppointmentCreate extends javax.swing.JFrame {
 
     City city;
-    Community community;
     Hospital hospital;
     Vet vet;
     Person person;
@@ -65,8 +63,6 @@ public class AppointmentCreate extends javax.swing.JFrame {
         hospitalCombo = new javax.swing.JComboBox<>();
         cityCombo = new javax.swing.JComboBox<>();
         cityLbl = new javax.swing.JLabel();
-        communityCombo = new javax.swing.JComboBox<>();
-        communityLbl = new javax.swing.JLabel();
         userLbl = new javax.swing.JLabel();
         userCombo = new javax.swing.JComboBox<>();
         closeBtn = new javax.swing.JButton();
@@ -91,7 +87,7 @@ public class AppointmentCreate extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton3)
-                .addGap(60, 60, 60))
+                .addGap(24, 24, 24))
         );
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -140,15 +136,6 @@ public class AppointmentCreate extends javax.swing.JFrame {
         cityLbl.setForeground(new java.awt.Color(0, 0, 102));
         cityLbl.setText("City");
 
-        communityCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                communityComboActionPerformed(evt);
-            }
-        });
-
-        communityLbl.setForeground(new java.awt.Color(0, 0, 102));
-        communityLbl.setText("Community");
-
         userLbl.setForeground(new java.awt.Color(0, 0, 102));
         userLbl.setText("User");
 
@@ -176,90 +163,83 @@ public class AppointmentCreate extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
+                        .addGap(147, 147, 147)
+                        .addComponent(jLabel1)
+                        .addGap(276, 276, 276)
+                        .addComponent(closeBtn))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(vetLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                .addComponent(dateLbl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(datePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(communityLbl)
-                                .addGap(14, 14, 14))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(userLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(userCombo, 0, 152, Short.MAX_VALUE)
-                            .addComponent(vetCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(communityCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(84, 84, 84)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(hospitalLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cityLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(dateLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(cityCombo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(hospitalCombo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(datePicker, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
-                        .addContainerGap(101, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(vetLbl)
+                                .addGap(18, 18, 18)
+                                .addComponent(vetCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(userLbl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(userCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(99, 99, 99)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(closeBtn))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(bookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(288, 288, 288))))))
+                            .addComponent(hospitalLbl, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cityLbl))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cityCombo, 0, 100, Short.MAX_VALUE)
+                            .addComponent(hospitalCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(221, 221, 221)
+                        .addComponent(bookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(closeBtn)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(userLbl)
-                        .addComponent(userCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(hospitalLbl)
-                        .addComponent(hospitalCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(closeBtn))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel1)
+                        .addGap(28, 28, 28)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cityLbl)
-                            .addComponent(cityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(vetCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(vetLbl))
-                        .addGap(39, 39, 39)
+                            .addComponent(userLbl)
+                            .addComponent(userCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(hospitalLbl)
+                            .addComponent(hospitalCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dateLbl)))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(communityLbl)
-                        .addComponent(communityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(67, 67, 67)
-                .addComponent(bookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 75, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(vetCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(vetLbl))
+                            .addComponent(cityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cityLbl))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(dateLbl)
+                            .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(68, 68, 68)
+                .addComponent(bookBtn)
+                .addContainerGap(81, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 838, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
         );
 
         pack();
@@ -270,70 +250,25 @@ public class AppointmentCreate extends javax.swing.JFrame {
 
         if (city_name == null || city_name.toString().equals("")) {
             cityLbl.setText("Please Select City");
-            communityCombo.removeAllItems();
             hospitalCombo.removeAllItems();
             vetCombo.removeAllItems();
             userCombo.removeAllItems();
             hospitalLbl.setText(null);
-            communityLbl.setText(null);
             userLbl.setText(null);
             vetLbl.setText(null);
             
             } else {
             cityCombo.removeAllItems();
-            communityCombo.removeAllItems();
             hospitalCombo.removeAllItems();
             vetCombo.removeAllItems();
             userCombo.removeAllItems();
             hospitalLbl.setText(null);
             cityLbl.setText(null);
-            communityLbl.setText(null);
             userLbl.setText(null);
             vetLbl.setText(null);
             city = MainJFrame.cityDirectory.findCity(city_name.toString());
-            // ArrayList<Community> communityList = MainJFrame.communityDirectory.searchCommunitiesByCityObject(city);
-
-            communityCombo.addItem("");
-            for (Community c: communityList) {
-                communityCombo.addItem(c.getName());
-            }
-            communityCombo.setSelectedItem("");
         }
     }//GEN-LAST:event_cityComboActionPerformed
-
-    private void communityComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_communityComboActionPerformed
-        Object communityName = communityCombo.getSelectedItem();
-        Object cityName = cityCombo.getSelectedItem();
-
-        if (communityName == null || communityName.toString().equals("")) {
-            communityLbl.setText("Please Select Community");
-            cityCombo.removeAllItems();
-            hospitalCombo.removeAllItems();
-            vetCombo.removeAllItems();
-            userCombo.removeAllItems();
-            hospitalLbl.setText(null);
-            cityLbl.setText(null);
-            userLbl.setText(null);
-            vetLbl.setText(null);
-        } else {
-            communityCombo.removeAllItems();
-            hospitalCombo.removeAllItems();
-            vetCombo.removeAllItems();
-            userCombo.removeAllItems();
-            hospitalLbl.setText(null);
-            communityLbl.setText(null);
-            userLbl.setText(null);
-            vetLbl.setText(null);
-            community = MainJFrame.communityDirectory.getCommunity(cityName.toString(),communityName.toString());
-            ArrayList<Hospital> hospitalList = MainJFrame.hospitalDirectory.searchHospitalByCommunity(community);
-
-            hospitalCombo.addItem("");
-            for (Hospital c: hospitalList) {
-                hospitalCombo.addItem(c.getName());
-            }
-            hospitalCombo.setSelectedItem("");
-        }
-    }//GEN-LAST:event_communityComboActionPerformed
 
     private void hospitalComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospitalComboActionPerformed
         Object hospitalName = hospitalCombo.getSelectedItem();
@@ -397,11 +332,6 @@ public class AppointmentCreate extends javax.swing.JFrame {
             valid = false;
         }
 
-        if (communityCombo.getSelectedItem() == null || communityCombo.getSelectedItem().toString().isEmpty()) {
-            communityLbl.setText("Please Select Community");
-            valid = false;
-        }
-
         if (hospitalCombo.getSelectedItem() == null || hospitalCombo.getSelectedItem().toString().isEmpty()) {
             hospitalLbl.setText("Please Select Hospital");
             valid = false;
@@ -438,13 +368,11 @@ public class AppointmentCreate extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(this, "encounter details Added");
             cityCombo.setSelectedItem("");
-            communityCombo.setSelectedItem("");
             hospitalCombo.setSelectedItem("");
             vetCombo.setSelectedItem("");
             userCombo.setSelectedItem("");
             datePicker.setDate(null);
             cityLbl.setText(null);
-            communityLbl.setText(null);
             dateLbl.setText(null);
             vetLbl.setText(null);
             hospitalLbl.setText(null);
@@ -499,8 +427,6 @@ public class AppointmentCreate extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cityCombo;
     private javax.swing.JLabel cityLbl;
     private javax.swing.JButton closeBtn;
-    private javax.swing.JComboBox<String> communityCombo;
-    private javax.swing.JLabel communityLbl;
     private javax.swing.JLabel dateLbl;
     private com.toedter.calendar.JDateChooser datePicker;
     private javax.swing.JComboBox<String> hospitalCombo;
