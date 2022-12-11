@@ -14,6 +14,7 @@ public class Person {
     private String name;
     private int age;
     private String phoneNumber;
+    private String dob;
     private String email;
     private String ssn;
     private String username;
@@ -46,6 +47,38 @@ public class Person {
     public boolean isMatch(String name){
         if(getName().equals(name)) return true;
         return false;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+    
+    public String getPersonType() {
+        return personType;
+    }
+
+    public void setPersonType(String personType) {
+        this.personType = personType;
+    }
+
+    public String getSsn() {
+        return ssn;
+    }
+
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
+    }
+
+    public Blob getProfilePic() {
+        return profilePic;
+    }
+
+    public void setProfilePic(Blob profilePic) {
+        this.profilePic = profilePic;
     }
     
     public String getName(){
