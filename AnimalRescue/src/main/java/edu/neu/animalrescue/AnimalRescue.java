@@ -4,7 +4,7 @@
  */
 
 package edu.neu.animalrescue;
-
+import login.Splash;
 /**
  *
  * @author nikhilbindal
@@ -12,6 +12,8 @@ package edu.neu.animalrescue;
 public class AnimalRescue {
 
     public static void main(String[] args) {
+        Splash splash = new Splash();
+        splash.setVisible(true);
         System.out.println("Hello World!");
     }
 }

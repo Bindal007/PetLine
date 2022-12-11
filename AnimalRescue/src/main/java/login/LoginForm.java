@@ -299,6 +299,35 @@ public class LoginForm extends javax.swing.JFrame {
                     SysAdminHome adminPage = new SysAdminHome();
                     adminPage.setVisible(true);
                 }
+                if(userType.equals("Vendor")) {
+                    SysAdminHome adminPage = new SysAdminHome();
+                    adminPage.setVisible(true);
+                }
+                if(userType.equals("NGO")) {
+                    SysAdminHome adminPage = new SysAdminHome();
+                    adminPage.setVisible(true);
+                }
+                if(userType.equals("Delivery Partner")) {
+                    SysAdminHome adminPage = new SysAdminHome();
+                    adminPage.setVisible(true);
+                }
+                if(userType.equals("Driver")) {
+                    SysAdminHome adminPage = new SysAdminHome();
+                    adminPage.setVisible(true);
+                }
+                if(userType.equals("Hospital Manager")) {
+                    SysAdminHome adminPage = new SysAdminHome();
+                    adminPage.setVisible(true);
+                }
+                if(userType.equals("Vet")) {
+                    SysAdminHome adminPage = new SysAdminHome();
+                    adminPage.setVisible(true);
+                }
+                if(userType.equals("User")) {
+                    SysAdminHome adminPage = new SysAdminHome();
+                    adminPage.setVisible(true);
+                }
+                
             }
         }
     }//GEN-LAST:event_btnLoginActionPerformed
