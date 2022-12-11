@@ -35,6 +35,8 @@ public class DeliveryPartner extends javax.swing.JFrame {
         allDeliveriesBtn = new javax.swing.JButton();
         reportsBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         closeBtn = new javax.swing.JButton();
         searchTxt = new javax.swing.JTextField();
@@ -51,32 +53,52 @@ public class DeliveryPartner extends javax.swing.JFrame {
         allDeliveriesBtn.setText("All Deliveries");
 
         reportsBtn.setText("Reports");
+        reportsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportsBtnActionPerformed(evt);
+            }
+        });
 
         logoutBtn.setText("Logout");
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Farheen Zubair\\Desktop\\AED logos\\delivery edit.png")); // NOI18N
+        jLabel3.setText("jLabel3");
+
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Farheen Zubair\\Desktop\\AED logos\\reports edit.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(allDeliveriesBtn)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(logoutBtn)
-                            .addComponent(reportsBtn))
-                        .addGap(16, 16, 16)))
-                .addContainerGap(8, Short.MAX_VALUE))
+                        .addGap(0, 24, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(reportsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(allDeliveriesBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(logoutBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(105, 105, 105)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addGap(98, 98, 98)
                 .addComponent(allDeliveriesBtn)
-                .addGap(130, 130, 130)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addGap(4, 4, 4)
                 .addComponent(reportsBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                 .addComponent(logoutBtn)
                 .addGap(84, 84, 84))
         );
@@ -169,7 +191,7 @@ public class DeliveryPartner extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(combo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(assignBtn))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -178,7 +200,7 @@ public class DeliveryPartner extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,6 +224,10 @@ public class DeliveryPartner extends javax.swing.JFrame {
         
         tableRow.setRowFilter(RowFilter.regexFilter(searchKey));
     }//GEN-LAST:event_searchTxtKeyReleased
+
+    private void reportsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportsBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reportsBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,6 +272,8 @@ public class DeliveryPartner extends javax.swing.JFrame {
     private javax.swing.JTable deliveryTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

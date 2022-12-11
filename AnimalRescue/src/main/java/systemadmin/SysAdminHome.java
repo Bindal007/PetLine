@@ -86,8 +86,8 @@ public class SysAdminHome extends javax.swing.JFrame {
         lblEmpSec = new javax.swing.JLabel();
         lblEmpInfoIcon = new javax.swing.JLabel();
         addEmployeePanel = new javax.swing.JPanel();
-        lblIconAddHospital = new javax.swing.JLabel();
         lblAddEmployee = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         lblEmpSec1 = new javax.swing.JLabel();
         addEmployeePanel1 = new javax.swing.JPanel();
         lblIconAddVendor = new javax.swing.JLabel();
@@ -99,12 +99,15 @@ public class SysAdminHome extends javax.swing.JFrame {
         reportHospitalPanel = new javax.swing.JPanel();
         lblDeleteEmployee1 = new javax.swing.JLabel();
         lblIconEmployeeReport = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         reportVendorsPanel = new javax.swing.JPanel();
         lblDeleteEmployee4 = new javax.swing.JLabel();
         lblIconEmployeeReport1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         reportNgosPanel = new javax.swing.JPanel();
         lblDeleteEmployee5 = new javax.swing.JLabel();
         lblIconEmployeeReport2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         panelHospitals = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblHospitalData = new javax.swing.JTable();
@@ -298,18 +301,19 @@ public class SysAdminHome extends javax.swing.JFrame {
         sidePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblUserImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUserImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/User_Icon.png"))); // NOI18N
         sidePanel.add(lblUserImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 80));
 
         lblUsername.setBackground(new java.awt.Color(255, 255, 255));
-        lblUsername.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        lblUsername.setForeground(new java.awt.Color(0, 204, 0));
+        lblUsername.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
         lblUsername.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUsername.setText("Admin");
         sidePanel.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 130, 15));
 
         lblDesignation.setBackground(new java.awt.Color(255, 255, 255));
-        lblDesignation.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
-        lblDesignation.setForeground(new java.awt.Color(102, 204, 255));
+        lblDesignation.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblDesignation.setForeground(new java.awt.Color(255, 255, 255));
         lblDesignation.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDesignation.setText("System Admin");
         sidePanel.add(lblDesignation, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 130, -1));
@@ -324,21 +328,22 @@ public class SysAdminHome extends javax.swing.JFrame {
         btnDashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblDashIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDashIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Farheen Zubair\\Desktop\\AED logos\\dashboard edit.png")); // NOI18N
         lblDashIcon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblDashIconMouseClicked(evt);
             }
         });
-        btnDashboard.add(lblDashIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 130, 30));
+        btnDashboard.add(lblDashIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 130, 70));
 
         lblDashboard.setBackground(new java.awt.Color(240, 240, 240));
         lblDashboard.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         lblDashboard.setForeground(new java.awt.Color(255, 255, 255));
         lblDashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDashboard.setText("Dashboard");
-        btnDashboard.add(lblDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 130, 10));
+        btnDashboard.add(lblDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 130, -1));
 
-        sidePanel.add(btnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 160, 124, 60));
+        sidePanel.add(btnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 120, 124, 100));
 
         btnReportsPanel.setBackground(new java.awt.Color(0, 0, 51));
         btnReportsPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -350,16 +355,17 @@ public class SysAdminHome extends javax.swing.JFrame {
         btnReportsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblEmpIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnReportsPanel.add(lblEmpIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 130, 30));
+        lblEmpIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Farheen Zubair\\Desktop\\AED logos\\reports edit.png")); // NOI18N
+        btnReportsPanel.add(lblEmpIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 90));
 
         lblEmployee.setBackground(new java.awt.Color(240, 240, 240));
         lblEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         lblEmployee.setForeground(new java.awt.Color(255, 255, 255));
         lblEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEmployee.setText("Reports");
-        btnReportsPanel.add(lblEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 130, 20));
+        btnReportsPanel.add(lblEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 130, 20));
 
-        sidePanel.add(btnReportsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 220, 124, 60));
+        sidePanel.add(btnReportsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 130, 110));
 
         btnViewLogout.setBackground(new java.awt.Color(0, 0, 51));
         btnViewLogout.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -446,19 +452,14 @@ public class SysAdminHome extends javax.swing.JFrame {
         });
         addEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblIconAddHospital.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconAddHospital.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblIconAddHospitalMouseClicked(evt);
-            }
-        });
-        addEmployeePanel.add(lblIconAddHospital, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
-
         lblAddEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblAddEmployee.setForeground(new java.awt.Color(51, 204, 0));
         lblAddEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAddEmployee.setText("Create Hospital");
         addEmployeePanel.add(lblAddEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Farheen Zubair\\Desktop\\AED logos\\create hospital edit.png")); // NOI18N
+        addEmployeePanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 110, 100));
 
         lblEmpSec1.setBackground(new java.awt.Color(240, 240, 240));
         lblEmpSec1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -476,6 +477,7 @@ public class SysAdminHome extends javax.swing.JFrame {
         addEmployeePanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconAddVendor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconAddVendor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Add_Icon.png"))); // NOI18N
         addEmployeePanel1.add(lblIconAddVendor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
 
         lblAddEmployee1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -494,6 +496,7 @@ public class SysAdminHome extends javax.swing.JFrame {
         addNgoPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconAddEmployee2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconAddEmployee2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Farheen Zubair\\Desktop\\AED logos\\create ngo edit.png")); // NOI18N
         addNgoPanel.add(lblIconAddEmployee2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
 
         lblAddEmployee2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -525,6 +528,9 @@ public class SysAdminHome extends javax.swing.JFrame {
         reportHospitalPanel.add(lblDeleteEmployee1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
         reportHospitalPanel.add(lblIconEmployeeReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Farheen Zubair\\Desktop\\AED logos\\list icon edit.png")); // NOI18N
+        reportHospitalPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 90));
+
         reportVendorsPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
         reportVendorsPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         reportVendorsPanel.setPreferredSize(new java.awt.Dimension(170, 120));
@@ -542,6 +548,9 @@ public class SysAdminHome extends javax.swing.JFrame {
         reportVendorsPanel.add(lblDeleteEmployee4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
         reportVendorsPanel.add(lblIconEmployeeReport1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Farheen Zubair\\Desktop\\AED logos\\list icon edit.png")); // NOI18N
+        reportVendorsPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 140, 90));
+
         reportNgosPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
         reportNgosPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         reportNgosPanel.setPreferredSize(new java.awt.Dimension(170, 120));
@@ -558,6 +567,9 @@ public class SysAdminHome extends javax.swing.JFrame {
         lblDeleteEmployee5.setText("NGOs List");
         reportNgosPanel.add(lblDeleteEmployee5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
         reportNgosPanel.add(lblIconEmployeeReport2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Farheen Zubair\\Desktop\\AED logos\\list icon edit.png")); // NOI18N
+        reportNgosPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 140, 90));
 
         javax.swing.GroupLayout panelDashboardLayout = new javax.swing.GroupLayout(panelDashboard);
         panelDashboard.setLayout(panelDashboardLayout);
@@ -2617,11 +2629,6 @@ public class SysAdminHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNgoDesc6ActionPerformed
 
-    private void lblIconAddHospitalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIconAddHospitalMouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_lblIconAddHospitalMouseClicked
-
     private void lblDashIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDashIconMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_lblDashIconMouseClicked
@@ -2696,6 +2703,10 @@ public class SysAdminHome extends javax.swing.JFrame {
     private javax.swing.JPanel headerPanel;
     private javax.swing.JPanel hospitalSignupForm;
     private javax.swing.JPanel hospitalUpdateForm;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -2780,7 +2791,6 @@ public class SysAdminHome extends javax.swing.JFrame {
     private javax.swing.JLabel lblFName6;
     private javax.swing.JLabel lblFName9;
     private javax.swing.JLabel lblIconAddEmployee2;
-    private javax.swing.JLabel lblIconAddHospital;
     private javax.swing.JLabel lblIconAddVendor;
     private javax.swing.JLabel lblIconEmployeeReport;
     private javax.swing.JLabel lblIconEmployeeReport1;

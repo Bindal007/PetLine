@@ -81,9 +81,6 @@ public class UserLandingPage extends javax.swing.JFrame {
         lblEmployee = new javax.swing.JLabel();
         btnViewLogout = new javax.swing.JPanel();
         lblLogoutBtn = new javax.swing.JLabel();
-        btnEmployee1 = new javax.swing.JPanel();
-        lblEmpIcon1 = new javax.swing.JLabel();
-        lblEmployee1 = new javax.swing.JLabel();
         userPanel = new javax.swing.JPanel();
         postPanel = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -114,18 +111,19 @@ public class UserLandingPage extends javax.swing.JFrame {
         sidePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblUserImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUserImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/User_Icon.png"))); // NOI18N
         sidePanel.add(lblUserImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 80));
 
         lblUsername.setBackground(new java.awt.Color(255, 255, 255));
-        lblUsername.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        lblUsername.setForeground(new java.awt.Color(0, 204, 0));
+        lblUsername.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
         lblUsername.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUsername.setText("Admin");
         sidePanel.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 130, 15));
 
         lblDesignation.setBackground(new java.awt.Color(255, 255, 255));
-        lblDesignation.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
-        lblDesignation.setForeground(new java.awt.Color(102, 204, 255));
+        lblDesignation.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblDesignation.setForeground(new java.awt.Color(255, 255, 255));
         lblDesignation.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDesignation.setText("System Admin");
         sidePanel.add(lblDesignation, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 130, -1));
@@ -140,16 +138,17 @@ public class UserLandingPage extends javax.swing.JFrame {
         btnDashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblDashIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnDashboard.add(lblDashIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 130, 30));
+        lblDashIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Farheen Zubair\\Desktop\\AED logos\\posts edit.png")); // NOI18N
+        btnDashboard.add(lblDashIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 130, 80));
 
         lblDashboard.setBackground(new java.awt.Color(240, 240, 240));
         lblDashboard.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         lblDashboard.setForeground(new java.awt.Color(255, 255, 255));
         lblDashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDashboard.setText("Posts");
-        btnDashboard.add(lblDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 130, 10));
+        btnDashboard.add(lblDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 130, 10));
 
-        sidePanel.add(btnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 160, 124, 60));
+        sidePanel.add(btnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 130, 124, 110));
 
         btnEmployee.setBackground(new java.awt.Color(0, 0, 51));
         btnEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -161,16 +160,17 @@ public class UserLandingPage extends javax.swing.JFrame {
         btnEmployee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblEmpIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnEmployee.add(lblEmpIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 130, 30));
+        lblEmpIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Farheen Zubair\\Desktop\\AED logos\\book appointment edit.png")); // NOI18N
+        btnEmployee.add(lblEmpIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 130, 90));
 
         lblEmployee.setBackground(new java.awt.Color(240, 240, 240));
         lblEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         lblEmployee.setForeground(new java.awt.Color(255, 255, 255));
         lblEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEmployee.setText("Book Appointment");
-        btnEmployee.add(lblEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 130, 20));
+        btnEmployee.add(lblEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 130, 20));
 
-        sidePanel.add(btnEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 220, 124, 60));
+        sidePanel.add(btnEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 250, 124, 120));
 
         btnViewLogout.setBackground(new java.awt.Color(0, 0, 51));
         btnViewLogout.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -198,27 +198,6 @@ public class UserLandingPage extends javax.swing.JFrame {
         );
 
         sidePanel.add(btnViewLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 500, 124, 30));
-
-        btnEmployee1.setBackground(new java.awt.Color(0, 0, 51));
-        btnEmployee1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnEmployee1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnEmployee1MouseClicked(evt);
-            }
-        });
-        btnEmployee1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblEmpIcon1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnEmployee1.add(lblEmpIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 130, 30));
-
-        lblEmployee1.setBackground(new java.awt.Color(240, 240, 240));
-        lblEmployee1.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        lblEmployee1.setForeground(new java.awt.Color(255, 255, 255));
-        lblEmployee1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblEmployee1.setText("Market Place");
-        btnEmployee1.add(lblEmployee1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 130, 20));
-
-        sidePanel.add(btnEmployee1, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 280, 124, 60));
 
         jPanel1.add(sidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 600));
 
@@ -477,10 +456,6 @@ public class UserLandingPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnViewLogoutMouseClicked
 
-    private void btnEmployee1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmployee1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEmployee1MouseClicked
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -625,7 +600,6 @@ public class UserLandingPage extends javax.swing.JFrame {
     private javax.swing.JPanel bookingPanel;
     private javax.swing.JPanel btnDashboard;
     private javax.swing.JPanel btnEmployee;
-    private javax.swing.JPanel btnEmployee1;
     private javax.swing.JPanel btnViewLogout;
     private com.toedter.calendar.JDateChooser datePicker;
     private javax.swing.JPanel feedPanel;
@@ -646,9 +620,7 @@ public class UserLandingPage extends javax.swing.JFrame {
     private javax.swing.JLabel lblDashboard;
     private javax.swing.JLabel lblDesignation;
     private javax.swing.JLabel lblEmpIcon;
-    private javax.swing.JLabel lblEmpIcon1;
     private javax.swing.JLabel lblEmployee;
-    private javax.swing.JLabel lblEmployee1;
     private javax.swing.JLabel lblLogoutBtn;
     private javax.swing.JLabel lblUserImg;
     private javax.swing.JLabel lblUsername;

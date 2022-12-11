@@ -61,10 +61,10 @@
                                           </Group>
                                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jTextField5" pref="172" max="32767" attributes="0"/>
+                                              <Component id="jTextField5" pref="145" max="32767" attributes="0"/>
                                               <Component id="jTextField4" max="32767" attributes="0"/>
-                                              <Component id="jLabel4" alignment="1" pref="172" max="32767" attributes="0"/>
-                                              <Component id="jLabel3" alignment="1" pref="172" max="32767" attributes="0"/>
+                                              <Component id="jLabel4" alignment="1" pref="145" max="32767" attributes="0"/>
+                                              <Component id="jLabel3" alignment="1" pref="145" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -112,7 +112,7 @@
                   <Component id="searchTxt" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="183" max="-2" attributes="0"/>
-                  <EmptySpace pref="20" max="32767" attributes="0"/>
+                  <EmptySpace pref="63" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -164,14 +164,19 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Component id="logoutBtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="29" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel8" min="-2" pref="115" max="-2" attributes="0"/>
+                          <Component id="logoutBtn" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="13" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="logoutBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
@@ -189,6 +194,14 @@
                   <Color blue="66" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Logout"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel8">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\Users\Farheen Zubair\Desktop\AED logos\delivery edit.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="jLabel8"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -280,7 +293,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Component id="comboMapType" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="261" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

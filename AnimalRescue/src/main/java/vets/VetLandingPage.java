@@ -110,6 +110,7 @@ public class VetLandingPage extends javax.swing.JFrame {
         ordersPanel = new javax.swing.JPanel();
         lblIconEmployeeReport = new javax.swing.JLabel();
         lblDeleteEmployee1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         panelProducts = new javax.swing.JPanel();
         panelEmployeeHeader = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -172,18 +173,19 @@ public class VetLandingPage extends javax.swing.JFrame {
         sidePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblUserImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUserImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/User_Icon.png"))); // NOI18N
         sidePanel.add(lblUserImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 80));
 
         lblUsername.setBackground(new java.awt.Color(255, 255, 255));
-        lblUsername.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        lblUsername.setForeground(new java.awt.Color(0, 204, 0));
+        lblUsername.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblUsername.setForeground(new java.awt.Color(255, 255, 255));
         lblUsername.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUsername.setText("Admin");
         sidePanel.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 130, 15));
 
         lblDesignation.setBackground(new java.awt.Color(255, 255, 255));
-        lblDesignation.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
-        lblDesignation.setForeground(new java.awt.Color(102, 204, 255));
+        lblDesignation.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblDesignation.setForeground(new java.awt.Color(255, 255, 255));
         lblDesignation.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDesignation.setText("System Admin");
         sidePanel.add(lblDesignation, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 130, -1));
@@ -198,16 +200,17 @@ public class VetLandingPage extends javax.swing.JFrame {
         btnDashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblDashIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnDashboard.add(lblDashIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 130, 30));
+        lblDashIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Farheen Zubair\\Desktop\\AED logos\\dashboard edit.png")); // NOI18N
+        btnDashboard.add(lblDashIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 130, 70));
 
         lblDashboard.setBackground(new java.awt.Color(240, 240, 240));
         lblDashboard.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         lblDashboard.setForeground(new java.awt.Color(255, 255, 255));
         lblDashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDashboard.setText("Dashboard");
-        btnDashboard.add(lblDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 130, 10));
+        btnDashboard.add(lblDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 130, -1));
 
-        sidePanel.add(btnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 160, 124, 60));
+        sidePanel.add(btnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 160, 124, 100));
 
         btnEmployee.setBackground(new java.awt.Color(0, 0, 51));
         btnEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -219,16 +222,17 @@ public class VetLandingPage extends javax.swing.JFrame {
         btnEmployee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblEmpIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnEmployee.add(lblEmpIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 130, 30));
+        lblEmpIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Farheen Zubair\\Desktop\\AED logos\\reports edit.png")); // NOI18N
+        btnEmployee.add(lblEmpIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -5, 130, 80));
 
         lblEmployee.setBackground(new java.awt.Color(240, 240, 240));
         lblEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
         lblEmployee.setForeground(new java.awt.Color(255, 255, 255));
         lblEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEmployee.setText("Reports");
-        btnEmployee.add(lblEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 130, 20));
+        btnEmployee.add(lblEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 130, 20));
 
-        sidePanel.add(btnEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 220, 124, 60));
+        sidePanel.add(btnEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 270, 124, -1));
 
         btnViewLogout.setBackground(new java.awt.Color(0, 0, 51));
         btnViewLogout.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -322,12 +326,13 @@ public class VetLandingPage extends javax.swing.JFrame {
         productsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconAddEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconAddEmployee.setIcon(new javax.swing.ImageIcon("C:\\Users\\Farheen Zubair\\Desktop\\AED logos\\products edit.png")); // NOI18N
         lblIconAddEmployee.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblIconAddEmployeeMouseClicked(evt);
             }
         });
-        productsPanel.add(lblIconAddEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
+        productsPanel.add(lblIconAddEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 90));
 
         lblAddEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblAddEmployee.setForeground(new java.awt.Color(51, 204, 0));
@@ -345,7 +350,8 @@ public class VetLandingPage extends javax.swing.JFrame {
         billingPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblIconUpdateEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        billingPanel.add(lblIconUpdateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
+        lblIconUpdateEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Salary_Receipt_Icon.png"))); // NOI18N
+        billingPanel.add(lblIconUpdateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 130, 100));
 
         lblUpdateEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblUpdateEmployee.setForeground(new java.awt.Color(0, 102, 204));
@@ -369,6 +375,9 @@ public class VetLandingPage extends javax.swing.JFrame {
         lblDeleteEmployee1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDeleteEmployee1.setText("Orders");
         ordersPanel.add(lblDeleteEmployee1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Farheen Zubair\\Desktop\\AED logos\\orders edit.png")); // NOI18N
+        ordersPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 120, 100));
 
         javax.swing.GroupLayout panelDashboardLayout = new javax.swing.GroupLayout(panelDashboard);
         panelDashboard.setLayout(panelDashboardLayout);
@@ -1242,6 +1251,7 @@ public class VetLandingPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
