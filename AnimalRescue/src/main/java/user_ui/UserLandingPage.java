@@ -9,7 +9,9 @@ import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import login.LoginForm;
 import models.Posts;
 
@@ -33,14 +35,30 @@ public class UserLandingPage extends javax.swing.JFrame {
                 String desc = rs.getString("description");
                 String city = rs.getString("city");
                 String postTag = rs.getString("postTag");
-                Posts post = new Posts(postId, null, desc, null, postTag, null, city);
+                Posts post = new Posts(postId, 1, desc, null, postTag, null, city);
                 posts.add(post);
             } 
         } catch(Exception e) {
             System.out.println("No posts");
         }
+        
+        renderItemsInFeed();
     }
-
+    
+    public void renderItemsInFeed() {
+        for(Posts p : posts) {
+            feedPanel.add(addPanel(p.getCity(), p.getDescription(), p.getPostTag()));
+        }
+    }
+    
+    public static JPanel addPanel(String city, String description, String tag){
+        JPanel panel = new JPanel();
+        panel.add(new JLabel(tag));
+        panel.add(new JLabel(city));
+        panel.add(new JLabel(description));
+        return panel;
+    }
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
