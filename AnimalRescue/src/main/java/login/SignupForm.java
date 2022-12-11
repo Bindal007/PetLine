@@ -1008,36 +1008,63 @@ public class SignupForm extends javax.swing.JFrame {
 
     private void btnAdd10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd10ActionPerformed
         // TODO add your handling code here:
-        Address address = new Address();
         String street = txtVendorAddress.getText();
         String city = comboVendorCity.getSelectedItem().toString();
         String state = txtVendorState.getText();
         String zip = txtVendorZip.getText();
         
-        int addressId = address.createAddress(street, city, state, zip);
-        System.out.println(addressId);
-        
-        Person person = new Person();
         String name = txtVendorManName.getText();
         String email = txtVendorEmail.getText();
         String phnNo = txtVendorContact.getText();
         String uname = txtVendorUsername.getText();
         String pass = txtVendorPassword.getText();
         String orgName = txtVendorName.getText();
-        if(personType == "Vendor") {
-            person.createVendor(name, email, phnNo, uname, pass, orgName, addressId, city);
+        if(!validate.ValidateEmpty(name)) {
+            JOptionPane.showMessageDialog(this, "Please enter the Manager's name");
+        } else if(!validate.ValidateEmail(email)) {
+            JOptionPane.showMessageDialog(this, "Please enter the valid email");
+        } else if(person.checkIfEmailExists(email)) {
+            JOptionPane.showMessageDialog(this, "Email already exists");
+        } else if(!validate.ValidatePhoneNumber(phnNo)) {
+            JOptionPane.showMessageDialog(this, "Please enter the valid phone number");
+        } else if(person.checkIfPhoneNoExists(phnNo)) {
+            JOptionPane.showMessageDialog(this, "Phone number already exists");
+        } else if(!validate.ValidateUsername(uname)) {
+            JOptionPane.showMessageDialog(this, "Please enter the valid username");
+        } else if(person.checkIfUsernameExists(uname)) {
+            JOptionPane.showMessageDialog(this, "Username already exists");
+        } else if(!validate.ValidatePassword(pass)) {
+            JOptionPane.showMessageDialog(this, "Please enter the valid password between 5-12 characters");
+        } else if(!validate.ValidateEmpty(orgName)) {
+            JOptionPane.showMessageDialog(this, "Please enter the organisation name");
+        } else if(!validate.ValidateEmpty(street)) {
+            JOptionPane.showMessageDialog(this, "Please enter the Address");
+        } else if(!validate.ValidateEmpty(city)) {
+            JOptionPane.showMessageDialog(this, "Please select the city");
+        } else if(!validate.ValidateEmpty(state)) {
+            JOptionPane.showMessageDialog(this, "Please enter the state");
+        } else if(!validate.ValidateEmpty(zip)) {
+            JOptionPane.showMessageDialog(this, "Please enter the zip code");
         } else {
-            person.createDelivery(name, email, phnNo, uname, pass, orgName, addressId, city);
+            Address address = new Address();
+            int addressId = address.createAddress(street, city, state, zip);
+            Person person = new Person();
+            
+            if(personType == "Vendor") {
+                person.createVendor(name, email, phnNo, uname, pass, orgName, addressId, city);
+            } else {
+                person.createDelivery(name, email, phnNo, uname, pass, orgName, addressId, city);
+            }
+            String email1 = "vicken.test@gmail.com";
+            try {
+                RegistrationEmail.registration(email); 
+            } catch (Exception ex) {
+                Logger.getLogger(SignupForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            ConfirmationModel confirm = new ConfirmationModel();
+            confirm.setVisible(true);
+            this.dispose();
         }
-        String email1 = "vicken.test@gmail.com";
-        try {
-            RegistrationEmail.registration(email); 
-        } catch (Exception ex) {
-            Logger.getLogger(SignupForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        ConfirmationModel confirm = new ConfirmationModel();
-        confirm.setVisible(true);
-        this.dispose();
         
     }//GEN-LAST:event_btnAdd10ActionPerformed
 
@@ -1072,9 +1099,6 @@ public class SignupForm extends javax.swing.JFrame {
         String state = txtUserState.getText();
         String zip = txtUserZip.getText();
         
-        int addressId = address.createAddress(street, city, state, zip);
-        System.out.println(addressId);
-        
         Person person = new Person();
         String name = txtUserName.getText();
         String email = txtEmail.getText();
@@ -1083,16 +1107,48 @@ public class SignupForm extends javax.swing.JFrame {
         String pass = txtPassword.getText();
         int age = Integer.parseInt(txtUserAge.getText());
         String ssn = txtUserSSN.getText();
-        person.createPerson(name, email, phnNo, uname, pass, age, ssn, addressId);
-        String email1 = "vicken.test@gmail.com";
-        try {
-            RegistrationEmail.registration(email); 
-        } catch (Exception ex) {
-            Logger.getLogger(SignupForm.class.getName()).log(Level.SEVERE, null, ex);
+        
+        if(!validate.ValidateEmpty(name)) {
+            JOptionPane.showMessageDialog(this, "Please enter the Manager's name");
+        } else if(!validate.ValidateEmail(email)) {
+            JOptionPane.showMessageDialog(this, "Please enter the valid email");
+        } else if(person.checkIfEmailExists(email)) {
+            JOptionPane.showMessageDialog(this, "Email already exists");
+        } else if(!validate.ValidatePhoneNumber(phnNo)) {
+            JOptionPane.showMessageDialog(this, "Please enter the valid phone number");
+        } else if(person.checkIfPhoneNoExists(phnNo)) {
+            JOptionPane.showMessageDialog(this, "Phone number already exists");
+        } else if(!validate.ValidateUsername(uname)) {
+            JOptionPane.showMessageDialog(this, "Please enter the valid username");
+        } else if(person.checkIfUsernameExists(uname)) {
+            JOptionPane.showMessageDialog(this, "Username already exists");
+        } else if(!validate.ValidatePassword(pass)) {
+            JOptionPane.showMessageDialog(this, "Please enter the valid password between 5-12 characters");
+        } else if(!validate.ValidateSSN(ssn)) {
+            JOptionPane.showMessageDialog(this, "Please enter the valid SSN");
+        } else if(person.checkIfSSNExists(ssn)) {
+            JOptionPane.showMessageDialog(this, "SSN already exists");
+        } else if(!validate.ValidateEmpty(street)) {
+            JOptionPane.showMessageDialog(this, "Please enter the Address");
+        } else if(!validate.ValidateEmpty(city)) {
+            JOptionPane.showMessageDialog(this, "Please select the city");
+        } else if(!validate.ValidateEmpty(state)) {
+            JOptionPane.showMessageDialog(this, "Please enter the state");
+        } else if(!validate.ValidateEmpty(zip)) {
+            JOptionPane.showMessageDialog(this, "Please enter the zip code");
+        } else {
+            int addressId = address.createAddress(street, city, state, zip);
+            person.createPerson(name, email, phnNo, uname, pass, age, ssn, addressId);
+            String email1 = "vicken.test@gmail.com";
+            try {
+                RegistrationEmail.registration(email); 
+            } catch (Exception ex) {
+                Logger.getLogger(SignupForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            ConfirmationModel confirm = new ConfirmationModel();
+            confirm.setVisible(true);
+            this.dispose();
         }
-        ConfirmationModel confirm = new ConfirmationModel();
-        confirm.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_btnAddMouseClicked
 
     /**
