@@ -33,7 +33,7 @@ All these participants are brought together under one digital ecosystem with rol
 
 ## Class Diagrams!
 
-![A) Data Flow Diagram](https://user-images.githubusercontent.com/114628304/207540775-a2247dce-7c35-4aa7-9b7b-65a06036aea4.png)
+![A) Data Flow Diagram (1)](https://user-images.githubusercontent.com/114628304/207543399-96670207-446f-46dc-be82-018b005fd33c.png)
 
 
 ![B) Sequence diagram](https://user-images.githubusercontent.com/114628304/207540680-f2a7575d-ed4a-4286-9e9b-84d5a0ab2fae.png)
